@@ -6,16 +6,17 @@ class EmojiContainer extends Component {
      constructor(props) {
           super(props)
 
+          this.BASE_URL = "https://emoji-api.com/emojis?"
+          this.ACCESS_KEY = "access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321"
+
           this.state = {
                emojis: []
           }
      }
-     
-     static ALL_EMOJIS_ENDPOINT = `https://emoji-api.com/emojis?access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321`
 
      componentDidMount() {
           // THIS INITIAL FETCH IS TO GET ALL EMOJIS 
-          fetch(EmojiContainer.ALL_EMOJIS_ENDPOINT)
+          fetch(this.BASE_URL + this.ACCESS_KEY)
                .then(res => res.json())
                .then(emojiData => {
                     this.setState({
@@ -24,9 +25,9 @@ class EmojiContainer extends Component {
                })
      }
 
-     handleEmojiSearch = query => {
+     handleEmojiSearch = (query) => {
           // THIS FETCH WILL ONLY RETRIEVE THE EMOJIS BASED ON A QUERY 
-          fetch(`https://emoji-api.com/emojis?search=${query}&access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321`)
+          fetch(this.BASE_URL + `search=${query}&` + this.ACCESS_KEY)
                .then(res => res.json())
                .then(searchedData => {
                     this.setState({
