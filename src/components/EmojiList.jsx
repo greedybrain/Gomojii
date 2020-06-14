@@ -9,7 +9,7 @@ const EmojiList = ({ emojis }) => {
                          return <li key={index}>{emoji.character}</li>
                     })
                : //otherwise
-                    <li>No related emojis found</li>
+                    <li class="not-found-msg">No related emojis found</li>
 
      return ( 
           <ul>

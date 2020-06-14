@@ -7,6 +7,9 @@ const Header = () => {
                <div className="logo">
                     <Logo />
                </div>
+               <div className="nav-items">
+                    NavItems
+               </div>
           </header>
      );
 }
