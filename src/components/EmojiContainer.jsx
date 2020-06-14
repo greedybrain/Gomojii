@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EmojiSearchForm from './EmojiSearchForm';
 
 class EmojiContainer extends Component {
      constructor(props) {
@@ -22,10 +23,15 @@ class EmojiContainer extends Component {
                })
      }
 
+     handleEmojiSearch = query => {
+          fetch(`https://emoji-api.com/emojis?search=${query}&access_key=${EmojiContainer.ACCESS_KEY}`)
+               .then(res => res.json())
+     }
+
      render() {
           return (
                <div>
-                    EmojiContainer
+                    <EmojiSearchForm handleEmojiSearch={this.handleEmojiSearch} />
                </div>
           );
      }
