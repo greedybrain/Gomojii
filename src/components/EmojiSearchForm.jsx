@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 
 const EmojiSearchForm = ({ handleEmojiSearch }) => {
-
+     // Using 'useState' hook to mimic a classes state like behavior 
+     // I create my state var, then my setMethod that will be updating it
      const [query, setQuery] = useState('')
 
      const handleOnChange = event => {
@@ -12,7 +13,6 @@ const EmojiSearchForm = ({ handleEmojiSearch }) => {
           event.preventDefault()
           
           handleEmojiSearch(query)
-          
           setQuery('')
 
           event.target.reset()
