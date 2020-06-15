@@ -20,8 +20,10 @@ const EmojiSearchForm = ({ handleEmojiSearch }) => {
 
      return (
           <form onSubmit={handleOnSubmit}>
-               <input onChange={handleOnChange} type="search" />
-               <button type="submit">Search</button>
+               <div className="search-cont">
+                    <input onChange={handleOnChange} type="search" placeholder="Describe emoji in a few words" />
+                    <button type="submit">🔍</button>
+               </div>
           </form>
      );
 }
