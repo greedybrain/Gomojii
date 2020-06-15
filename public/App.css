@@ -1,3 +1,5 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Montserrat:wght@300&family=Mouse+Memoirs&family=Space+Mono&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -15,10 +17,166 @@ img {
   display: block;
 }
 
-body div.wrapper {
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-image: url("https://image.freepik.com/free-vector/mixed-emoji-set_53876-89770.jpg");
+  background-position: center;
+  background-repeat: repeat;
+}
+
+body div.App {
+  display: -ms-grid;
+  display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+body div.App div.wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  border: 1px solid red;
+  height: 90vh;
+  border-radius: 50px;
+  background-color: #fff;
+  width: 800px;
+  -webkit-box-shadow: 0px 0px 65px 19px #b3b3b3;
+  box-shadow: 0px 0px 65px 19px #b3b3b3;
+}
+
+body div.App div.wrapper div.sidebar-nav {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 25%;
+  background-color: #8b018b;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 30px 0;
+  -webkit-box-shadow: 3px 0px 8px 1px #d4d4d4;
+  box-shadow: 3px 0px 8px 1px #d4d4d4;
+}
+
+body div.App div.wrapper div.sidebar-nav h1.logo {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 3rem;
+}
+
+body div.App div.wrapper div.sidebar-nav ul {
+  padding: 0 30px;
+}
+
+body div.App div.wrapper div.sidebar-nav ul li {
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: .8rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 10px 0 10px 10px;
+  text-align: left;
+  border-radius: 20px;
+}
+
+body div.App div.wrapper div.sidebar-nav ul li:hover {
+  background-color: #720172;
+  -webkit-transition: background-color .5s linear;
+  transition: background-color .5s linear;
+}
+
+body div.App div.wrapper div.form-and-list-cont {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-y: scroll;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px;
+  margin-top: 15px;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont {
+  height: 40px;
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 50px;
+  -webkit-box-shadow: 0px 0px 9px 1px #ededed;
+  box-shadow: 0px 0px 9px 1px #ededed;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont:focus {
+  outline-color: red;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont input {
+  display: block;
+  height: 100%;
+  width: 85%;
+  border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  outline: none;
+  padding-left: 20px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont input::-webkit-input-placeholder {
+  color: #b4b4b4;
+  letter-spacing: 1px;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont button {
+  display: block;
+  height: 100%;
+  width: 15%;
+  background-color: #fff;
+  border: none;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  outline: none;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👌🏽</text></svg>") 16 0, auto;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 15px;
+  padding: 20px;
+  height: 490px;
+  overflow-y: scroll;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li {
+  font-size: 2rem;
+  padding: 10px;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0, auto;
 }
 /*# sourceMappingURL=App.css.map */
