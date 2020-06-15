@@ -1,21 +1,18 @@
 import React from 'react';
 import Logo from '../components/Logo';
 
-const SidebarNav = ({ emojis, handleCategoryClick }) => {
+const SidebarNav = ({ emojisCategories, handleCategoryClick }) => {
      // Inside of the sidenav we will have links/buttons displaying the names of each category/group
 
-     // 1- Create onclick event for each link.
-     // 2- Depending on the category that was clicked we will show all emojis relating to that category by changing the emojis array state in the EmojiContainer component
-
-     const renderSubCategories = emojis.map((emoji, index) => {
-          return <li onClick={handleCategoryClick} className="category" key={index}>{emoji.group}</li>
+     const renderCategoriesList = emojisCategories.map((cat, index) => {
+          const slugCaps = cat.slug.slice(0,1).toUpperCase() + cat.slug.slice(1)
+          return <li onClick={handleCategoryClick} key={index}>{slugCaps}</li>
      })
-
      return ( 
           <>   
                <Logo />
                <ul>
-                    { renderSubCategories }
+                    { renderCategoriesList }
                </ul>
           </>
      );
