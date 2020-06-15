@@ -6,7 +6,7 @@ const EmojiList = ({ emojis }) => {
           emojis ? // then ...
                emojis
                     .map((emoji, index) => {
-                         return <li key={index}>{emoji.character}</li>
+                         return <li key={index} title={emoji.unicodeName}>{emoji.character}</li>
                     })
                : //otherwise
                     <li class="not-found-msg">No related emojis found</li>

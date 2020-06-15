@@ -11,17 +11,35 @@ class EmojiContainer extends Component {
           this.ACCESS_KEY = "access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321"
 
           this.state = {
-               emojis: []
+               emojis: [],
+               emojisCategories: [],
+               filtered: []
           }
      }
 
      componentDidMount() {
+          this.handleGetEmojis()
+          this.handleGetCategories()
+     }
+
+     handleGetEmojis = () => {
           // THIS INITIAL FETCH IS TO GET ALL EMOJIS 
           fetch(this.BASE_URL + this.ACCESS_KEY)
                .then(res => res.json())
                .then(emojiData => {
                     this.setState({
                          emojis: emojiData
+                    })
+               })
+     }
+
+     handleGetCategories = () => {
+          // https://emoji-api.com/categories?access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321
+          fetch("https://emoji-api.com/categories?" + this.ACCESS_KEY)
+               .then(res => res.json())
+               .then(emojiCategoryData => {
+                    this.setState({
+                         emojisCategories: emojiCategoryData
                     })
                })
      }
@@ -39,18 +57,17 @@ class EmojiContainer extends Component {
      }
 
      handleCategoryClick = event => {
-          const currentCategories = this.state.emojis.filter(emoji => emoji.group === event.target.textContent)
-          this.setState({
-               emojis: currentCategories
-          })
+          const { emojis } = this.state
+          let filteredEmojis = [...emojis.filter(emoji => emoji.group === event.target.textContent)]
+          this.setState({ filtered: filteredEmojis })
      }
 
      render() {
-          const {emojis} = this.state
+          const {emojis, emojisCategories, filtered} = this.state
           return (
                <div className="wrapper">
                     <div className="sidebar-nav">
-                         <SidebarNav handleCategoryClick={this.handleCategoryClick} emojis={emojis} />
+                         <SidebarNav handleCategoryClick={this.handleCategoryClick} emojisCategories={emojisCategories} filtered={filtered} />
                     </div>
                     <div className="form-and-list-cont">
                          <div className="form">
