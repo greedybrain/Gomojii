@@ -1,11 +1,11 @@
 import React from 'react';
 import EmojiContainer from './containers/EmojiContainer';
-import Header from './containers/Header';
+import SidebarNav from './containers/SidebarNav'
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      <SidebarNav />
       <EmojiContainer />
     </div>
   );
