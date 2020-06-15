@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import EmojiSearchForm from '../components/EmojiSearchForm';
 import EmojiList from '../components/EmojiList';
-import CategorySidebar from './CategorySidebar';
 
 class EmojiContainer extends Component {
      constructor(props) {
@@ -43,13 +42,8 @@ class EmojiContainer extends Component {
           return (
                <div className="container">
                     <EmojiSearchForm handleEmojiSearch={this.handleEmojiSearch} />
-                    <div className="emoji-cont">
-                         <div className="cat-sidebar">
-                              <CategorySidebar />
-                         </div>
-                         <div className="emoji-list">
-                              <EmojiList emojis={emojis} />
-                         </div>
+                    <div className="emoji-list">
+                         <EmojiList emojis={emojis} />
                     </div>
                </div>
           );
