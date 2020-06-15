@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import EmojiSearchForm from '../components/EmojiSearchForm';
 import EmojiList from '../components/EmojiList';
+import SidebarNav from './SidebarNav';
 
 class EmojiContainer extends Component {
      constructor(props) {
@@ -37,13 +38,27 @@ class EmojiContainer extends Component {
                })
      }
 
+     handleCategoryClick = event => {
+          const currentCategories = this.state.emojis.filter(emoji => emoji.group === event.target.textContent)
+          this.setState({
+               emojis: currentCategories
+          })
+     }
+
      render() {
           const {emojis} = this.state
           return (
-               <div className="container">
-                    <EmojiSearchForm handleEmojiSearch={this.handleEmojiSearch} />
-                    <div className="emoji-list">
-                         <EmojiList emojis={emojis} />
+               <div className="wrapper">
+                    <div className="sidebar-nav">
+                         <SidebarNav handleCategoryClick={this.handleCategoryClick} emojis={emojis} />
+                    </div>
+                    <div className="form-and-list-cont">
+                         <div className="form">
+                              <EmojiSearchForm handleEmojiSearch={this.handleEmojiSearch} />
+                         </div>
+                         <div className="emoji-list">
+                              <EmojiList emojis={emojis} />
+                         </div>
                     </div>
                </div>
           );
