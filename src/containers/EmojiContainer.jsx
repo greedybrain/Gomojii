@@ -13,7 +13,8 @@ class EmojiContainer extends Component {
           this.state = {
                emojis: [],
                emojisCategories: [],
-               filtered: []
+               emojisFiltered: [],
+               emojiSearchResults: []
           }
      }
 
@@ -38,8 +39,9 @@ class EmojiContainer extends Component {
           fetch("https://emoji-api.com/categories?" + this.ACCESS_KEY)
                .then(res => res.json())
                .then(emojiCategoryData => {
+                    const categories = emojiCategoryData.filter(category => category.slug !== "component")
                     this.setState({
-                         emojisCategories: emojiCategoryData
+                         emojisCategories: categories
                     })
                })
      }
@@ -50,31 +52,50 @@ class EmojiContainer extends Component {
                .then(res => res.json())
                .then(searchedData => {
                     this.setState({
-                         // THIS OVERWRITES THIS COMPONENTS EMOJIS ARRAY STATE
-                         emojis: searchedData
-                    })
+                      // THIS OVERWRITES THIS COMPONENTS EMOJIS ARRAY STATE
+                         emojiSearchResults: searchedData,
+                         emojisFiltered: []
+                    });
                })
+     }
+
+     handleAllEmojiClick = event => {
+          const { emojis } = this.state
+          if (event.target.textContent === "All Emojis") {
+               this.setState({
+                    emojisFiltered: emojis
+               });
+          }
      }
 
      handleCategoryClick = event => {
           const { emojis } = this.state
-          let filteredEmojis = [...emojis.filter(emoji => emoji.group === event.target.textContent)]
-          this.setState({ filtered: filteredEmojis })
+          this.setState({
+               emojisFiltered: [...emojis.filter(emoji => emoji.group === event.target.dataset.name)],
+               emojiSearchResults: []
+          })
      }
 
      render() {
-          const {emojis, emojisCategories, filtered} = this.state
+          let { emojis, emojisCategories, emojisFiltered, emojiSearchResults } = this.state
           return (
-               <div className="wrapper">
+               <div className = "wrapper animate__animated animate__bounceInDown">
                     <div className="sidebar-nav">
-                         <SidebarNav handleCategoryClick={this.handleCategoryClick} emojisCategories={emojisCategories} filtered={filtered} />
+                         <SidebarNav
+                              handleAllEmojiClick={this.handleAllEmojiClick}
+                              handleCategoryClick={this.handleCategoryClick}
+                              emojisCategories={emojisCategories} />
                     </div>
                     <div className="form-and-list-cont">
                          <div className="form">
-                              <EmojiSearchForm handleEmojiSearch={this.handleEmojiSearch} />
+                              <EmojiSearchForm
+                                   handleEmojiSearch={this.handleEmojiSearch} />
                          </div>
                          <div className="emoji-list">
-                              <EmojiList emojis={emojis} />
+                              <EmojiList
+                                   emojis={emojis}
+                                   emojisFiltered={emojisFiltered}
+                                   emojiSearchResults={emojiSearchResults} />
                          </div>
                     </div>
                </div>

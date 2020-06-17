@@ -1,18 +1,53 @@
 import React from 'react';
 import Logo from '../components/Logo';
 
-const SidebarNav = ({ emojisCategories, handleCategoryClick }) => {
+const SidebarNav = ({ emojisCategories, handleCategoryClick, handleAllEmojiClick }) => {
      // Inside of the sidenav we will have links/buttons displaying the names of each category/group
-
+     const refEmojis = ["😃", "👩🏼‍🤝‍👨🏽", "🐶", "🍟", "🏔️", "🎳", "⌚", "♿", "🏁"];
+     const customSlugs = ['Smileys', 'People & Body', 'Animal & Nature', 'Food & Drink', 'Travel', 'Activities', 'Items', 'Symbols', 'Flags']
      const renderCategoriesList = emojisCategories.map((cat, index) => {
-          const slugCaps = cat.slug.slice(0,1).toUpperCase() + cat.slug.slice(1)
-          return <li onClick={handleCategoryClick} key={index}>{slugCaps}</li>
+          return (
+               <li
+                    onClick={handleCategoryClick}
+                    key={index}
+                    data-name={cat.slug}
+               >
+                    <div
+                         className="acc-emoji"
+                         data-name={cat.slug}
+                    >
+                         {refEmojis[index]}
+                    </div>
+                    <div
+                         className="category"
+                         data-name={cat.slug}
+                    >
+                         {customSlugs[index]}
+                    </div>
+               </li>
+          )
      })
      return ( 
           <>   
                <Logo />
                <ul>
-                    { renderCategoriesList }
+                    <li
+                         onClick={handleAllEmojiClick}
+                         data-name="all-emojis"
+                    >
+                         <div
+                              className="acc-emoji"
+                              data-name="all-emojis">
+                              <span role="img" aria-label="present emoji">💁🏽</span>
+                         </div>
+                         <div
+                              className="category"
+                              data-name="all-emojis"
+                         >
+                              All Emojis
+                         </div>
+                    </li>
+                    {renderCategoriesList}
                </ul>
           </>
      );
