@@ -21,8 +21,8 @@ const EmojiSearchForm = ({ handleEmojiSearch }) => {
      return (
           <form onSubmit={handleOnSubmit}>
                <div className="search-cont">
-                    <input onChange={handleOnChange} type="search" placeholder="Describe emoji in a few words" />
-                    <button type="submit">🔍</button>
+                    <input onChange={handleOnChange} type="search" placeholder="✍  Describe emoji in a few words" />
+                    <button type="submit"><span role="img" aria-label="magnifying glass emoji">🔍</span></button>
                </div>
           </form>
      );
