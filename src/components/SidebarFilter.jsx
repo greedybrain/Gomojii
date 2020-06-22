@@ -1,7 +1,7 @@
 import React from 'react';
-import Logo from '../components/Logo';
+import Logo from './Logo';
 
-const SidebarNav = ({ emojisCategories, handleCategoryClick, handleAllEmojiClick }) => {
+const SidebarFilter = ({ emojisCategories, handleCategoryClick, handleAllEmojiClick }) => {
      // Inside of the sidenav we will have links/buttons displaying the names of each category/group
      const refEmojis = ["😃", "👩🏼‍🤝‍👨🏽", "🐶", "🍟", "🏔️", "🎳", "⌚", "♿", "🏁"];
      const customSlugs = ['Smileys', 'People & Body', 'Animal & Nature', 'Food & Drink', 'Travel', 'Activities', 'Items', 'Symbols', 'Flags']
@@ -53,4 +53,4 @@ const SidebarNav = ({ emojisCategories, handleCategoryClick, handleAllEmojiClick
      );
 }
 
-export default SidebarNav;
+export default SidebarFilter;

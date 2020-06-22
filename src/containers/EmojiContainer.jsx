@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import EmojiSearchForm from '../components/EmojiSearchForm';
 import EmojiList from '../components/EmojiList';
-import SidebarNav from './SidebarNav';
+import SidebarFilter from '../components/SidebarFilter';
 
 class EmojiContainer extends Component {
      constructor(props) {
@@ -13,7 +13,7 @@ class EmojiContainer extends Component {
           this.state = {
                emojis: [],
                emojisCategories: [],
-               emojisFiltered: [],
+               emojisFilteredState: [],
                emojiSearchResults: []
           }
      }
@@ -47,23 +47,19 @@ class EmojiContainer extends Component {
      }
 
      handleEmojiSearch = (query) => {
-          // THIS FETCH WILL ONLY RETRIEVE THE EMOJIS BASED ON A QUERY 
-          fetch(this.BASE_URL + `search=${query}&` + this.ACCESS_KEY)
-               .then(res => res.json())
-               .then(searchedData => {
-                    this.setState({
-                      // THIS OVERWRITES THIS COMPONENTS EMOJIS ARRAY STATE
-                         emojiSearchResults: searchedData,
-                         emojisFiltered: []
-                    });
-               })
+          const { emojis } = this.state
+          const searchResults = emojis.filter(emoji => emoji.character.includes(query) || emoji.unicodeName.includes(query))
+          this.setState({
+               emojiSearchResults: searchResults,
+               emojisFilteredState: []
+          });
      }
 
      handleAllEmojiClick = event => {
           const { emojis } = this.state
           if (event.target.textContent === "All Emojis") {
                this.setState({
-                    emojisFiltered: emojis
+                    emojisFilteredState: emojis
                });
           }
      }
@@ -71,17 +67,17 @@ class EmojiContainer extends Component {
      handleCategoryClick = event => {
           const { emojis } = this.state
           this.setState({
-               emojisFiltered: [...emojis.filter(emoji => emoji.group === event.target.dataset.name)],
+               emojisFilteredState: [...emojis.filter(emoji => emoji.group === event.target.dataset.name)],
                emojiSearchResults: []
           })
      }
 
      render() {
-          let { emojis, emojisCategories, emojisFiltered, emojiSearchResults } = this.state
+          let { emojis, emojisCategories, emojisFilteredState, emojiSearchResults } = this.state
           return (
                <div className = "wrapper animate__animated animate__bounceInDown">
                     <div className="sidebar-nav">
-                         <SidebarNav
+                         <SidebarFilter
                               handleAllEmojiClick={this.handleAllEmojiClick}
                               handleCategoryClick={this.handleCategoryClick}
                               emojisCategories={emojisCategories} />
@@ -94,7 +90,7 @@ class EmojiContainer extends Component {
                          <div className="emoji-list">
                               <EmojiList
                                    emojis={emojis}
-                                   emojisFiltered={emojisFiltered}
+                                   emojisFilteredState={emojisFilteredState}
                                    emojiSearchResults={emojiSearchResults} />
                          </div>
                     </div>

@@ -7,12 +7,12 @@ const EmojiSearchForm = ({ handleEmojiSearch }) => {
 
      const handleOnChange = event => {
           setQuery(event.target.value)
+          handleEmojiSearch(query)
      }
 
      const handleOnSubmit = event => {
           event.preventDefault()
-          
-          handleEmojiSearch(query)
+     
           setQuery('')
 
           event.target.reset()
