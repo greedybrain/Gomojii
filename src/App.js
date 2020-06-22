@@ -1,5 +1,5 @@
 import React from 'react';
-import EmojiContainer from './containers/EmojiContainer';
+import EmojiContainer from './emojiSearch/containers/EmojiContainer';
 
 function App() {
   return (
