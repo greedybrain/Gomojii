@@ -24,7 +24,8 @@ const SidebarFilter = () => {
 
      //todo: this handles the rendering of a particular set of emojis when a category is clicked
      const handleCategoryClick = event => {
-          dispatch(filterEmojis(event.target.dataset.name, emojis))
+          const category = event.target.dataset.name
+          dispatch(filterEmojis(category, emojis))
      }
      
      //todo: this creates LI tags of all categories in the sidebar filter and attaches the necessary event listeners to each one.
