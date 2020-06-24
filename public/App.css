@@ -45,6 +45,7 @@ body div.App div.wrapper {
   border-radius: 50px;
   background-color: #fff;
   width: 90%;
+  max-width: 1100px;
   margin: 0 auto;
   -webkit-box-shadow: 0px 0px 65px 19px #b3b3b3;
   box-shadow: 0px 0px 65px 19px #b3b3b3;
