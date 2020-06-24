@@ -1,10 +1,20 @@
 import React from 'react';
-import Logo from './Logo';
+import { useSelector, useDispatch } from 'react-redux'
+import Logo from '../../static/components/Logo';
+import { filterEmojis } from '../../store/emojiSearch';
 
-const SidebarFilter = ({ emojisCategories, handleCategoryClick, handleAllEmojiClick }) => {
-     // Inside of the sidenav we will have links/buttons displaying the names of each category/group
+const SidebarFilter = ({ handleCategoryClick, handleAllEmojiClick }) => {
+     const emojis = useSelector(state => state.emojis)
+     const dispatch = useDispatch()
+     const emojisCategories = useSelector(state => state.emojisCategories)
+
      const refEmojis = ["😃", "👩🏼‍🤝‍👨🏽", "🐶", "🍟", "🏔️", "🎳", "⌚", "♿", "🏁"];
      const customSlugs = ['Smileys', 'People & Body', 'Animal & Nature', 'Food & Drink', 'Travel', 'Activities', 'Items', 'Symbols', 'Flags']
+
+     handleCategoryClick = event => {
+          dispatch(filterEmojis(event.target.dataset.name, emojis))
+     }
+     
      const renderCategoriesList = emojisCategories.map((cat, index) => {
           return (
                <li
