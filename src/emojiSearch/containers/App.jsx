@@ -24,12 +24,10 @@ class App extends Component {
 }
 
 //todo: mapping my dispatch to props 
-const mapDispatchToProps = dispatch => {
-  return {
+const mapDispatchToProps = dispatch => ({
     loadEmojis: () => dispatch(loadEmojis()),
     loadCategories: () => dispatch(loadCategories())
-  }
-}
+})
 
 //todo: using connect() allows me to 'connect' a component to the store
 export default connect(null, mapDispatchToProps)(App);
