@@ -1,18 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import EmojiSearchForm from '../components/EmojiSearchForm';
 import EmojiList from '../components/EmojiList';
 import SidebarFilter from '../components/SidebarFilter';
 
 const EmojiContainer = () => {
 
-     // handleAllEmojiClick = event => {
-     //      const { emojis } = this.state
-     //      if (event.target.textContent === "All Emojis") {
-     //           this.setState({
-     //                emojisFilteredState: emojis
-     //           });
-     //      }
-     // }
      return (
           <div className = "wrapper animate__animated animate__bounceInDown">
                <div className="sidebar-nav">
