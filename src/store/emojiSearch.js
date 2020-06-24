@@ -1,4 +1,4 @@
-// EMOJI SEARCH FEATURE - REDUCER
+//! EMOJI SEARCH FEATURE - REDUCER
 const initialState = {
      emojis: [],
      emojisCategories: [],
@@ -49,7 +49,7 @@ export default function manageEmojiSearch(state = initialState, action) {
      }
 }
 
-// EMOJI SEARCH FEATURE - ACTION TYPES
+//! EMOJI SEARCH FEATURE - ACTION TYPES
 const START_LOAD_EMOJIS_REQUEST = "START_LOAD_EMOJIS_REQUEST"
 const ADD_EMOJIS = "ADD_EMOJIS"
 const START_LOAD_CATEGORIES_REQUEST = "START_LOAD_CATEGORIES_REQUEST"
@@ -57,9 +57,9 @@ const ADD_CATEGORIES = "ADD_CATEGORIES"
 const QUERY_EMOJIS = "SEARCH_EMOJIS"
 const FILTER_EMOJIS = "FILTER_EMOJIS"
 
-// EMOJI SEARCH FEATURE - ACTION CREATORS
+//! EMOJI SEARCH FEATURE - ACTION CREATORS
 
-// load and add emojis 
+//todo: load and add emojis 
 export const startLoadEmojisRequest = () => ({
      type: START_LOAD_EMOJIS_REQUEST
 })
@@ -71,7 +71,7 @@ export const addEmojis = emojis => ({
      }
 })
 
-// load and add categories 
+//todo: load and add categories 
 export const startLoadCategories = () => ({
      type: START_LOAD_CATEGORIES_REQUEST
 })
@@ -79,22 +79,19 @@ export const startLoadCategories = () => ({
 export const addCategories = emojisCategories => ({
      type: ADD_CATEGORIES,
      payload: {
-          emojisCategories
+          emojisCategories: emojisCategories.filter(cat => cat.slug !== 'component')
      }
 })
 
-// query through emojis 
-export const queryEmojis = (query, emojis) => {
-     const searchResults = emojis.filter(emoji => emoji.unicodeName.startsWith(query) || emoji.unicodeName.includes(query))
-     return {
-          type: QUERY_EMOJIS,
-          payload: {
-               emojiSearchResults: searchResults
-          }
+//todo: query through emojis 
+export const queryEmojis = (query, emojis) => ({
+     type: QUERY_EMOJIS,
+     payload: {
+          emojiSearchResults: emojis.filter(emoji => emoji.unicodeName.startsWith(query) || emoji.unicodeName.includes(query))
      }
-}
+})
 
-// filter through emojis
+//todo: filter through emojis
 export const filterEmojis = (catName, emojis) => {
      const filteredResults = emojis.filter(emoji => emoji.group === catName)
      return {
@@ -105,4 +102,4 @@ export const filterEmojis = (catName, emojis) => {
      }
 }
 
-//################################################
+//!################################################

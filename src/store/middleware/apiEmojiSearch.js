@@ -10,7 +10,7 @@ const { baseUrl, categoriesUrl } = retrieveFrom.endpoints
 const { accessKey } = retrieveFrom.security
 
 export const loadEmojis = () => {
-     // funtion returned in enhanced thunk action creator 
+     //todo: funtion returned in enhanced thunk action creator 
      return dispatch => {
           dispatch(startLoadEmojisRequest())
           fetch(baseUrl + accessKey)
@@ -22,7 +22,7 @@ export const loadEmojis = () => {
 }
 
 export const loadCategories = () => {
-     // funtion returned in enhanced thunk action creator 
+     //todo: funtion returned in enhanced thunk action creator 
      return dispatch => {
           dispatch(startLoadCategories())
           fetch(categoriesUrl + accessKey)
