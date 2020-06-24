@@ -1,25 +1,37 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { queryEmojis } from '../../store/emojiSearch';
+import { useSelector, useDispatch } from 'react-redux';
 
-const EmojiSearchForm = ({ handleEmojiSearch }) => {
-     // Using 'useState' hook to mimic a classes state like behavior 
-     // I create my state var, then my setMethod that will be updating it
-     const [query, setQuery] = useState('')
+
+const EmojiSearchForm = () => {
+     const emojis = useSelector(state => state.emojis)
+     const dispatch = useDispatch()
+
+     const handleEmojiSearch = query => {
+          dispatch(queryEmojis(query, emojis))
+     }
 
      const handleOnChange = event => {
-          setQuery(event.target.value)
-          
-          handleEmojiSearch(query)
+          handleEmojiSearch(event.target.value)
      }
 
      const handleSubmit = event => {
           event.preventDefault()
+          event.target.reset()
      }
 
      return (
           <form onSubmit={ handleSubmit } >
                <div className="search-cont">
-                    <input onChange={ handleOnChange } type="search" placeholder="✍  Describe emoji in a few words" />
-                    <button type="submit"><span role="img" aria-label="magnifying glass emoji">🔍</span></button>
+                    <input
+                         onChange={ handleOnChange }
+                         type="search"
+                         placeholder="✍  Describe emoji in a few words" 
+                         
+                    />
+                    <button type="submit">
+                         <span role="img" aria-label="magnifying glass emoji">🔍</span>
+                    </button>
                </div>
           </form>
      );
