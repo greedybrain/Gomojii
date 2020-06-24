@@ -1,3 +1,4 @@
+//! importing necessary files and/or libraries
 import { retrieveFrom } from '../../config'
 import {
      startLoadEmojisRequest,
@@ -6,29 +7,29 @@ import {
      addCategories
 } from '../emojiSearch'
 
+//todo: returns my endpoint urls from my config file
+//todo: After retrieving the endpoints and access key, I pick them out using destructuring 
 const { baseUrl, categoriesUrl } = retrieveFrom.endpoints
 const { accessKey } = retrieveFrom.security
 
 export const loadEmojis = () => {
      //todo: funtion returned in enhanced thunk action creator 
-     return dispatch => {
+     //todo: Fetching all emojis after a successful load
+     return async dispatch => {
           dispatch(startLoadEmojisRequest())
-          fetch(baseUrl + accessKey)
-               .then(response => response.json())
-               .then(emojis => {
-                    dispatch(addEmojis(emojis))
-               })
+          const response = await fetch(baseUrl + accessKey)
+          const emojis = await response.json()
+          dispatch(addEmojis(emojis))
      }
 }
 
 export const loadCategories = () => {
      //todo: funtion returned in enhanced thunk action creator 
-     return dispatch => {
+     //todo: Fetching all categories after a successful load
+     return async dispatch => {
           dispatch(startLoadCategories())
-          fetch(categoriesUrl + accessKey)
-               .then(response => response.json())
-               .then(categories => {
-                    dispatch(addCategories(categories))
-               })
+          const response = await fetch(categoriesUrl + accessKey)
+          const categories = await response.json()
+          dispatch(addCategories(categories))
      }
 }

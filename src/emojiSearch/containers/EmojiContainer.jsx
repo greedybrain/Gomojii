@@ -5,6 +5,7 @@ import SidebarFilter from '../components/SidebarFilter';
 
 const EmojiContainer = () => {
 
+     //todo: this is just the container that holds all other parts of the emojiSearch feature
      return (
           <div className = "wrapper animate__animated animate__bounceInDown">
                <div className="sidebar-nav">

@@ -4,20 +4,19 @@ import { useSelector, useDispatch } from 'react-redux';
 
 
 const EmojiSearchForm = () => {
+     //todo: using the react hooks useSelector and useDispatch to access the store
      const emojis = useSelector(state => state.emojis)
      const dispatch = useDispatch()
 
+     //todo: this fucntion handles the querying through emojis as a user types something in
      const handleEmojiSearch = event => {
           const query = event.target.value
           dispatch(queryEmojis(query, emojis))
      }
 
-     const handleSubmit = event => {
-          event.preventDefault()
-     }
-
+     //todo: rendering form
      return (
-          <form onSubmit={ handleSubmit } >
+          <form onSubmit={ (event) => event.preventDefault() } >
                <div className="search-cont">
                     <input
                          onChange={ handleEmojiSearch }

@@ -1,4 +1,6 @@
 //! EMOJI SEARCH FEATURE - REDUCER
+
+//todo: setting my initial state for the emojiSearch Feature
 const initialState = {
      emojis: [],
      emojisCategories: [],
@@ -7,6 +9,7 @@ const initialState = {
      loading: false
 }
 
+//todo: this is my reducer handling all types of emojiSearch functions eg. adding emojis and searching through them
 export default function manageEmojiSearch(state = initialState, action) {
      switch (action.type) {
           case START_LOAD_EMOJIS_REQUEST:
@@ -92,14 +95,11 @@ export const queryEmojis = (query, emojis) => ({
 })
 
 //todo: filter through emojis
-export const filterEmojis = (catName, emojis) => {
-     const filteredResults = emojis.filter(emoji => emoji.group === catName)
-     return {
-          type: FILTER_EMOJIS,
-          payload: {
-               emojisFilteredState: filteredResults
-          }
+export const filterEmojis = (catName, emojis) => ({
+     type: FILTER_EMOJIS,
+     payload: {
+          emojisFilteredState: emojis.filter(emoji => emoji.group === catName)
      }
-}
+})
 
 //!################################################

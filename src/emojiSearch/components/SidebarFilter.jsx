@@ -3,22 +3,31 @@ import { useSelector, useDispatch } from 'react-redux'
 import Logo from '../../static/components/Logo';
 import { filterEmojis } from '../../store/emojiSearch';
 
-const SidebarFilter = ({ handleCategoryClick, handleAllEmojiClick }) => {
-     const emojis = useSelector(state => state.emojis)
+const SidebarFilter = () => {
+     //todo: using react hooks useDispatch and useSelector to avoid using the connect function to attach this component to the store
+     const state = useSelector(state => ({
+          emojis: state.emojis,
+          emojisCategories: state.emojisCategories
+     }))
      const dispatch = useDispatch()
-     const emojisCategories = useSelector(state => state.emojisCategories)
 
+     //todo: customization of category names and icons
      const refEmojis = ["😃", "👩🏼‍🤝‍👨🏽", "🐶", "🍟", "🏔️", "🎳", "⌚", "♿", "🏁"];
      const customSlugs = ['Smileys', 'People & Body', 'Animal & Nature', 'Food & Drink', 'Travel', 'Activities', 'Items', 'Symbols', 'Flags']
 
-     handleAllEmojiClick = event => {
+     const { emojis, emojisCategories } = state
+     
+     //todo: this handles the rendering of all emojis when the item "All Emojis" is clicked
+     const handleAllEmojiClick = event => {
           if (event.target.textContent === "All Emojis") dispatch(filterEmojis(event.target.textContent, emojis))
      }
 
-     handleCategoryClick = event => {
+     //todo: this handles the rendering of a particular set of emojis when a category is clicked
+     const handleCategoryClick = event => {
           dispatch(filterEmojis(event.target.dataset.name, emojis))
      }
      
+     //todo: this creates LI tags of all categories in the sidebar filter and attaches the necessary event listeners to each one.
      const renderCategoriesList = emojisCategories.map((cat, index) => {
           return (
                <li
@@ -41,6 +50,8 @@ const SidebarFilter = ({ handleCategoryClick, handleAllEmojiClick }) => {
                </li>
           )
      })
+
+     //todo: this handles the actual rendering of all mapped LI's
      return ( 
           <>   
                <Logo />
