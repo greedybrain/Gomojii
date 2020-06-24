@@ -11,6 +11,10 @@ const SidebarFilter = ({ handleCategoryClick, handleAllEmojiClick }) => {
      const refEmojis = ["😃", "👩🏼‍🤝‍👨🏽", "🐶", "🍟", "🏔️", "🎳", "⌚", "♿", "🏁"];
      const customSlugs = ['Smileys', 'People & Body', 'Animal & Nature', 'Food & Drink', 'Travel', 'Activities', 'Items', 'Symbols', 'Flags']
 
+     handleAllEmojiClick = event => {
+          if (event.target.textContent === "All Emojis") dispatch(filterEmojis(event.target.textContent, emojis))
+     }
+
      handleCategoryClick = event => {
           dispatch(filterEmojis(event.target.dataset.name, emojis))
      }
