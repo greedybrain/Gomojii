@@ -1,12 +1,19 @@
 import React from 'react';
+import { useSelector } from 'react-redux'
 import Emoji from './Emoji';
 
-const EmojiList = ({ emojis, emojisFilteredState, emojiSearchResults }) => {
+const EmojiList = () => {
+     let emojis = useSelector(state => state.emojis)
+     let emojiSearchResults = useSelector(state => state.emojiSearchResults)
+     let emojisFilteredState = useSelector(state => state.emojisFilteredState)
      
      const getEmojis = () => {
-          if (emojiSearchResults !== null && emojiSearchResults.length > 0) {
+          let validateSearchResults = emojiSearchResults !== null && emojiSearchResults !== undefined && emojiSearchResults.length > 0
+          let validateFilteredState = emojisFilteredState !== null && emojisFilteredState !== undefined && emojisFilteredState.length > 0
+
+          if (validateSearchResults) {
                emojis = emojiSearchResults
-          } else if (emojisFilteredState !== null && emojisFilteredState.length > 0) {
+          } else if (validateFilteredState) {
                emojis = emojisFilteredState
           } else {
                return emojis
@@ -31,5 +38,7 @@ const EmojiList = ({ emojis, emojisFilteredState, emojiSearchResults }) => {
           </>
      );
 }
+
+
 
 export default EmojiList;
