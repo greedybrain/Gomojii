@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './emojiSearch/containers/App';
 import * as serviceWorker from './serviceWorker';
+import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
-import manageEmojis from './reducers/manageEmojis'
+import { createStore, applyMiddleware } from 'redux'
+import manageEmojiSearch from './store/emojiSearch'
 
-const store = createStore(manageEmojis)
+const store = createStore(manageEmojiSearch, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
