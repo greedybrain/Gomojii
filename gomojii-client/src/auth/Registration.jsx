@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { setUserUsername, setUserEmail, setUserPassword } from '../store/manageAuthReducer';
+import { createNewUser } from '../store/middleware/serverAuth';
 
 class Registration extends Component {
 
@@ -9,6 +11,12 @@ class Registration extends Component {
           this.props.setEmail(email)
      }
 
+     handleUsernameChange = event => {
+          //todo: updates username field as one types
+          const username = event.target.value
+          this.props.setUsername(username)
+     }
+
      handlePasswordChange = event => {
           //todo: updates password field as one types
           const password = event.target.value
@@ -16,12 +24,13 @@ class Registration extends Component {
      }
 
      handleSubmit = event => {
-          const { email, password, setEmail, setPassword, loginUser } = this.props
+          const { email, username, password, setEmail, setUsername, setPassword, signupUser } = this.props
           
-          loginUser(email, password)
+          signupUser(email, username, password)
 
           //todo: resetting form fields
           setEmail('')
+          setUsername('')
           setPassword('')
           
           event.preventDefault()
@@ -40,6 +49,16 @@ class Registration extends Component {
                               required
                          />
                     </div>
+                    <div className="username">
+                         <input
+                              type="username"
+                              name="username"
+                              placeholder="Username"
+                              value={this.props.username}
+                              onChange={this.handleUsernameChange}
+                              required
+                         />
+                    </div>
                     <div className="password">
                          <input
                               type="password"
@@ -50,7 +69,7 @@ class Registration extends Component {
                               required
                          />
                     </div>
-                    <button type="submit">Login</button>
+                    <button type="submit">Signup</button>
                </form>
           );
      }
@@ -64,8 +83,9 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
      setEmail: email => dispatch(setUserEmail(email)),
+     setUsername: username => dispatch(setUserUsername(username)),
      setPassword: password => dispatch(setUserPassword(password)),
-     loginUser: (email, password) => dispatch(getExistingUser(email, password))
+     signupUser: (email, username, password) => dispatch(createNewUser(email, username, password))
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registration);
