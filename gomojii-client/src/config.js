@@ -1,10 +1,4 @@
 export const retrieveFrom = {
-     userAttributes: {
-          email: '',
-          username: '',
-          password: '',
-          loggedInStatus: "NOT_LOGGED_IN",
-     },
      thirdPartyApiEndpoints: {
           baseEndpoint: "https://emoji-api.com/emojis?",
           categoriesUrl: "https://emoji-api.com/categories?"
