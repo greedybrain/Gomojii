@@ -2,7 +2,8 @@ export const retrieveFrom = {
      userAttributes: {
           email: '',
           username: '',
-          password: ''
+          password: '',
+          loggedInStatus: "NOT_LOGGED_IN",
      },
      thirdPartyApiEndpoints: {
           baseEndpoint: "https://emoji-api.com/emojis?",
@@ -10,6 +11,7 @@ export const retrieveFrom = {
      },
      backendServerEndpoints: {
           baseUrl: "http://localhost:3001",
+          loggedIn: "/logged_in",
           sessions: "/sessions",
           registrations: "/registrations",
           logout: "/logout"
