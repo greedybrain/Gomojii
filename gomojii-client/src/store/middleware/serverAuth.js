@@ -1,26 +1,32 @@
 //! importing necessary files and/or libraries
 import { retrieveFrom } from '../../config'
 import axios from 'axios'
-import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn, setUserEmail, setUserPassword } from '../manageAuthReducer'
+import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn } from '../manageAuthReducer'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
 const { baseUrl, loggedIn, registrations, sessions, logout } = retrieveFrom.backendServerEndpoints
 
-// export const validateSession = () => {
-//      //todo: funtion returned in enhanced thunk action creator 
-//      //todo: Checking if user is logged in
-//      return async dispatch => {
-//           const loggedInPath = baseUrl + loggedIn
-//           const response = await axios
-//                .get(
-//                     loggedInPath,
-//                     { withCredentials: true }
-//                )
-//           const user = response.data
-//           dispatch(proceedIfUserLoggedIn(user, loggedInStatus))
-//      }
-// }
+export const validateSession = (loggedInStatus) => {
+     //todo: funtion returned in enhanced thunk action creator 
+     //todo: Checking if user is logged in
+     return async dispatch => {
+          const loggedInPath = baseUrl + loggedIn
+          const response = await axios
+               .get(
+                    loggedInPath,
+                    { withCredentials: true }
+               )
+          const user = response.data
+          console.log(user)
+          if (user.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
+               loggedInStatus = "LOGGED_IN"
+               dispatch(proceedIfUserLoggedIn(user, loggedInStatus))
+          } else if (!user.logged_in && loggedInStatus === "LOGGED_IN") {
+               loggedInStatus = "NOT_LOGGED_IN"
+          }
+     }
+}
 
 export const createNewUser = (email, username, password) => {
      //todo: funtion returned in enhanced thunk action creator 
@@ -56,7 +62,7 @@ export const getExistingUser = (email, password) => {
 }
 
 export const endUsersSession = () => {
-     //todo: funtion returned in enhanced thunk action creator 
+     //todo: function returned in enhanced thunk action creator 
      //todo: Creating delete request to logout a user
      return async dispatch => {
           const logoutPath = baseUrl + logout
