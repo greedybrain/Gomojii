@@ -31,6 +31,11 @@ body {
           align-items: center;
           height: 100vh;
 
+          form.login-form {
+               justify-self: center;
+               margin-bottom: 30px;
+          }
+
           div.wrapper {
                display: flex;
                height: 90vh;

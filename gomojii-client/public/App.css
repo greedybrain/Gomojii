@@ -37,6 +37,12 @@ body div.App {
   height: 100vh;
 }
 
+body div.App form.login-form {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-bottom: 30px;
+}
+
 body div.App div.wrapper {
   display: -webkit-box;
   display: -ms-flexbox;

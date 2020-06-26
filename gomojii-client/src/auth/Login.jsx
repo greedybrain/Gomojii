@@ -29,7 +29,7 @@ class Login extends Component {
      
      render() {
           return ( 
-               <form onSubmit={this.handleSubmit}>
+               <form className="login-form" onSubmit={this.handleSubmit}>
                     <div className="email">
                          <input
                               type="email"

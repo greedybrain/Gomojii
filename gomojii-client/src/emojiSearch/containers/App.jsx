@@ -28,10 +28,23 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Login />
-        <Registration />
-        <button onClick={this.handleLogout} type="submit">Logout</button>
-        <EmojiContainer />
+        <BrowserRouter>
+          <Switch >
+            <Route 
+              path={'/login'}
+              component={Login}
+            />
+            <Route 
+              path={'/signup'}
+              component={Registration}
+            />
+            <Route 
+              path={'/'}
+              component={EmojiContainer}
+            />
+            <button onClick={this.handleLogout} type="submit">Logout</button>
+          </Switch>
+        </BrowserRouter>
       </div>
     );
   }
