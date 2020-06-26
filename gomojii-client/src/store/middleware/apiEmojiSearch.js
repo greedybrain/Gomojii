@@ -6,7 +6,7 @@ import {
      addEmojis, 
      startLoadCategories, 
      addCategories
-} from '../emojiSearch'
+} from '../manageEmojisReducer'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 

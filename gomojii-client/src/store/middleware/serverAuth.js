@@ -1,12 +1,27 @@
 //! importing necessary files and/or libraries
 import { retrieveFrom } from '../../config'
 import axios from 'axios'
-import { signupUser, loginUser, logoutUser } from '../auth'
+import { signupUser, loginUser, logoutUser, checkIfUserAlreadyLoggedIn } from '../manageAuthReducer'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
-const { baseUrl, registrations, sessions, logout } = retrieveFrom.backendServerEndpoints
+const { baseUrl, loggedIn, registrations, sessions, logout } = retrieveFrom.backendServerEndpoints
 const { email, username, password } = retrieveFrom.userAttributes
+
+export const validateSession = () => {
+     //todo: funtion returned in enhanced thunk action creator 
+     //todo: Checking if user is logged in
+     return async dispatch => {
+          const loggedInPath = baseUrl + loggedIn
+          const response = await axios
+               .get(
+                    loggedInPath,
+                    { withCredentials: true }
+               )
+          const user = response.data
+          if (user) dispatch(checkIfUserAlreadyLoggedIn(user))
+     }
+}
 
 export const createNewUser = () => {
      //todo: funtion returned in enhanced thunk action creator 
