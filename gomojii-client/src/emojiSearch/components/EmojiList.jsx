@@ -6,12 +6,12 @@ import Emoji from './Emoji';
 const EmojiList = () => {
      //todo: using react hook useSelector to retrieve 3 properties from state
      const state = useSelector(state => ({
-          emojis: state.emojis,
-          emojiSearchResults: state.emojiSearchResults,
-          emojisFilteredState: state.emojisFilteredState
+          emojis: state.allEmojis.emojis,
+          emojiSearchResults: state.allEmojis.emojiSearchResults,
+          emojisFilteredState: state.allEmojis.emojisFilteredState
      }))
      let { emojis, emojiSearchResults, emojisFilteredState } = state
-
+     
      const getEmojis = () => {
           //todo:validating particular properties from state 
           let validateSearchResults = emojiSearchResults !== null && emojiSearchResults !== undefined && emojiSearchResults.length > 0

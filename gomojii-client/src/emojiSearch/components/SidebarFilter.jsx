@@ -1,13 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import Logo from '../../static/components/Logo';
-import { filterEmojis } from '../../store/emojiSearch';
+import { filterEmojis } from '../../store/manageEmojisReducer';
 
 const SidebarFilter = () => {
      //todo: using react hooks useDispatch and useSelector to avoid using the connect function to attach this component to the store
      const state = useSelector(state => ({
-          emojis: state.emojis,
-          emojisCategories: state.emojisCategories
+          emojis: state.allEmojis.emojis,
+          emojisCategories: state.allEmojis.emojisCategories
      }))
      const dispatch = useDispatch()
 

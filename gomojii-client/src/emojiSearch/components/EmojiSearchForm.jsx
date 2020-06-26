@@ -1,11 +1,11 @@
 import React from 'react';
-import { queryEmojis } from '../../store/emojiSearch';
+import { queryEmojis } from '../../store/manageEmojisReducer';
 import { useSelector, useDispatch } from 'react-redux';
 
 
 const EmojiSearchForm = () => {
      //todo: using the react hooks useSelector and useDispatch to access the store
-     const emojis = useSelector(state => state.emojis)
+     const emojis = useSelector(state => state.allEmojis.emojis)
      const dispatch = useDispatch()
 
      //todo: this fucntion handles the querying through emojis as a user types something in
