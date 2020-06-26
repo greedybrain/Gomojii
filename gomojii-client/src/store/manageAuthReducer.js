@@ -4,8 +4,11 @@ import { retrieveFrom } from '../config'
 //! AUTH - REDUCER
 
 //todo: setting my initial state for user authentication
-const { loggedInStatus } = retrieveFrom.userAttributes
+const { email, username, password, loggedInStatus } = retrieveFrom.userAttributes
 const initialState = {
+     email,
+     username,
+     password,
      user: {},
      loggedInStatus
 }
@@ -13,7 +16,7 @@ const initialState = {
 //todo: this is my reducer handling all types of emojiSearch functions eg. adding emojis and searching through them
 export default function manageAuth(state = initialState, action) {
      switch (action.type) {
-          case CONFIRM_IF_LOGGED_IN: 
+          case PROCEED_IF_LOGGED_IN:
                return {
                     ...state,
                     user: action.payload.user,
@@ -43,18 +46,19 @@ export default function manageAuth(state = initialState, action) {
 }
 
 //! AUTH - ACTION TYPES
+const PROCEED_IF_LOGGED_IN = "PROCEED_IF_LOGGED_IN"
 const SIGNUP_USER = "SIGNUP_USER"
 const LOGIN_USER = "LOGIN_USER"
 const LOGOUT_USER = "LOGOUT_USER"
-const CONFIRM_IF_LOGGED_IN = "CONFIRM_IF_LOGGED_IN"
 
 //! AUTH - ACTION CREATORS
 
 //todo: checking if user is already logged in
-export const checkIfUserAlreadyLoggedIn = user => ({
-     type: CONFIRM_IF_LOGGED_IN,
+export const proceedIfUserLoggedIn = (user, loggedInStatus) => ({
+     type: PROCEED_IF_LOGGED_IN,
      payload: {
-          user
+          loggedInStatus,
+          user: loggedInStatus === "LOGGED_IN" ? user : {},
      }
 })
 
