@@ -6,8 +6,8 @@ import { filterEmojis } from '../../store/manageEmojisReducer';
 const SidebarFilter = () => {
      //todo: using react hooks useDispatch and useSelector to avoid using the connect function to attach this component to the store
      const state = useSelector(state => ({
-          emojis: state.allEmojis.emojis,
-          emojisCategories: state.allEmojis.emojisCategories
+          emojis: state.emojisRed.emojis,
+          emojisCategories: state.emojisRed.emojisCategories
      }))
      const dispatch = useDispatch()
 
