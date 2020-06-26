@@ -5,9 +5,9 @@ import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware } from 'redux'
-import manageEmojiSearch from './store/emojiSearch'
+import rootReducer from './store/combinedReducers';
 
-const store = createStore(manageEmojiSearch, applyMiddleware(thunk))
+const store = createStore(rootReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>
