@@ -10,7 +10,7 @@ import {
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
-const { baseUrl, categoriesUrl } = retrieveFrom.endpoints
+const { baseEndpoint, categoriesUrl } = retrieveFrom.thirdPartyApiEndpoints
 const { accessKey } = retrieveFrom.security
 
 export const loadEmojis = () => {
@@ -18,7 +18,7 @@ export const loadEmojis = () => {
      //todo: Fetching all emojis after a successful load
      return async dispatch => {
           dispatch(startLoadEmojisRequest())
-          const response = await axios({ url: baseUrl + accessKey })
+          const response = await axios({ url: baseEndpoint + accessKey })
           const emojis = response.data
           dispatch(addEmojis(emojis))
      }

@@ -2,6 +2,8 @@
 import React, { Component } from 'react';
 import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+
 import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
 
 class App extends Component {
