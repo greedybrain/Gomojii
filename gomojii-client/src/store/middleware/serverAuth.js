@@ -1,29 +1,28 @@
 //! importing necessary files and/or libraries
 import { retrieveFrom } from '../../config'
 import axios from 'axios'
-import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn } from '../manageAuthReducer'
+import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn, setUserEmail, setUserPassword } from '../manageAuthReducer'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
 const { baseUrl, loggedIn, registrations, sessions, logout } = retrieveFrom.backendServerEndpoints
-const { email, username, password, loggedInStatus } = retrieveFrom.userAttributes
 
-export const validateSession = () => {
-     //todo: funtion returned in enhanced thunk action creator 
-     //todo: Checking if user is logged in
-     return async dispatch => {
-          const loggedInPath = baseUrl + loggedIn
-          const response = await axios
-               .get(
-                    loggedInPath,
-                    { withCredentials: true }
-               )
-          const user = response.data
-          dispatch(proceedIfUserLoggedIn(user, loggedInStatus))
-     }
-}
+// export const validateSession = () => {
+//      //todo: funtion returned in enhanced thunk action creator 
+//      //todo: Checking if user is logged in
+//      return async dispatch => {
+//           const loggedInPath = baseUrl + loggedIn
+//           const response = await axios
+//                .get(
+//                     loggedInPath,
+//                     { withCredentials: true }
+//                )
+//           const user = response.data
+//           dispatch(proceedIfUserLoggedIn(user, loggedInStatus))
+//      }
+// }
 
-export const createNewUser = () => {
+export const createNewUser = (email, username, password) => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Creating a user after a successful fetch
      return async dispatch => {
@@ -39,7 +38,7 @@ export const createNewUser = () => {
      }
 }
 
-export const getExistingUser = () => {
+export const getExistingUser = (email, password) => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Retrieving existing user after successful fetch
      return async dispatch => {
@@ -51,6 +50,7 @@ export const getExistingUser = () => {
                     { withCredentials: true }
                )
           const user = response.data
+          console.log(user)
           dispatch(loginUser(user))
      }
 }

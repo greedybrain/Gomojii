@@ -4,7 +4,7 @@ import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
-import { validateSession } from '../../store/middleware/serverAuth';
+// import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 
 class App extends Component {
@@ -15,7 +15,7 @@ class App extends Component {
     const { loadEmojis, loadCategories, validateSession } = this.props
     loadEmojis()
     loadCategories()
-    validateSession()
+    // validateSession()
   }
 
   render() {
@@ -32,7 +32,7 @@ class App extends Component {
 const mapDispatchToProps = dispatch => ({
   loadEmojis: () => dispatch(loadEmojis()),
   loadCategories: () => dispatch(loadCategories()),
-  validateSession: () => dispatch(validateSession())
+  // validateSession: () => dispatch(validateSession())
 })
 
 //todo: using connect() allows me to 'connect' a component to the store
