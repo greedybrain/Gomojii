@@ -1,12 +1,10 @@
 class Api::V1::RegistrationsController < ApplicationController
      def create
           user = User.create!(
-               username: params[:username],
                email: params[:email],
+               username: params[:username],
                password: params[:password]
           )
-          
-          binding.pry
           
           if user
                session[:user_id] = user.id 

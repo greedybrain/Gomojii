@@ -45,8 +45,6 @@ export default function manageAuth(state = initialState, action) {
           case LOGIN_USER:
                return {
                     ...state,
-                    email: state.email,
-                    password: state.password,
                     user: action.payload.user,
                     loggedInStatus: "LOGGED_IN",
                }
@@ -96,8 +94,8 @@ export const setUserPassword = password => ({
 export const proceedIfUserLoggedIn = (user, loggedInStatus) => ({
      type: PROCEED_IF_LOGGED_IN,
      payload: {
-          loggedInStatus,
-          user: loggedInStatus === "LOGGED_IN" ? user : {},
+          user,
+          loggedInStatus
      }
 })
 

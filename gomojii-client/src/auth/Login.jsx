@@ -18,10 +18,8 @@ class Login extends Component {
      }
 
      handleSubmit = event => {
-          const { email, password, setEmail, setPassword, loginUser } = this.props
-          
+          const { user, email, password, setEmail, setPassword, loginUser } = this.props
           loginUser(email, password)
-
           //todo: resetting form fields
           setEmail('')
           setPassword('')
@@ -61,6 +59,7 @@ class Login extends Component {
 const mapStateToProps = state => ({
      email: state.authRed.email,
      password: state.authRed.password,
+     user: state.authRed.user
 })
 
 const mapDispatchToProps = dispatch => ({
