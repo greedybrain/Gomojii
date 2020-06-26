@@ -1,36 +1,72 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { Component } from 'react';
+import { getExistingUser } from '../store/middleware/serverAuth';
+import { connect } from 'react-redux';
+import { setUserEmail, setUserPassword } from '../store/manageAuthReducer';
 
-const Login = () => {
-     const state = useSelector(state => {
+class Login extends Component {
+     
+     handleEmailChange = event => {
+          //todo: updates email field as one types
+          const email = event.target.value
+          this.props.setEmail(email)
+     }
+
+     handlePasswordChange = event => {
+          //todo: updates password field as one types
+          const password = event.target.value
+          this.props.setPassword(password)
+     }
+
+     handleSubmit = event => {
+          const { email, password, setEmail, setPassword, loginUser } = this.props
           
-     })
+          loginUser(email, password)
 
-     return ( 
-          <form>
-               <div className="email">
-                    <input
-                         type="email"
-                         name="email"
-                         placeholder="Email"
-                         // value={this.state.email}
-                         // onChange={this.handleChange}
-                         required
-                    />
-               </div>
-               <div className="password">
-                    <input
-                         type="password"
-                         name="password"
-                         placeholder="Password"
-                         // value={this.state.password}
-                         // onChange={this.handleChange}
-                         required
-                    />
-               </div>
-               <button type="submit">Login</button>
-          </form>
-     );
+          //todo: resetting form fields
+          setEmail('')
+          setPassword('')
+          
+          event.preventDefault()
+     }
+     
+     render() {
+          return ( 
+               <form onSubmit={this.handleSubmit}>
+                    <div className="email">
+                         <input
+                              type="email"
+                              name="email"
+                              placeholder="Email"
+                              value={this.props.email}
+                              onChange={this.handleEmailChange}
+                              required
+                         />
+                    </div>
+                    <div className="password">
+                         <input
+                              type="password"
+                              name="password"
+                              placeholder="Password"
+                              value={this.props.password}
+                              onChange={this.handlePasswordChange}
+                              required
+                         />
+                    </div>
+                    <button type="submit">Login</button>
+               </form>
+          );
+     }
 }
 
-export default Login;
+const mapStateToProps = state => ({
+     email: state.authRed.email,
+     password: state.authRed.password,
+})
+
+const mapDispatchToProps = dispatch => ({
+     setEmail: email => dispatch(setUserEmail(email)),
+     setPassword: password => dispatch(setUserPassword(password)),
+     loginUser: (email, password) => dispatch(getExistingUser(email, password))
+})
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
