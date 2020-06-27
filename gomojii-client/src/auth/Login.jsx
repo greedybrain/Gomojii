@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { getExistingUser } from '../store/middleware/serverAuth';
 import { connect } from 'react-redux';
 import { setUserEmail, setUserPassword } from '../store/manageAuthReducer';
+import { Link } from 'react-router-dom';
 
 class Login extends Component {
      
@@ -18,11 +19,13 @@ class Login extends Component {
      }
 
      handleSubmit = event => {
-          const { user, email, password, setEmail, setPassword, loginUser } = this.props
+          const { email, password, setEmail, setPassword, loginUser } = this.props
           loginUser(email, password)
           //todo: resetting form fields
           setEmail('')
           setPassword('')
+
+          this.props.history.replace('/')
           
           event.preventDefault()
      }
@@ -30,7 +33,10 @@ class Login extends Component {
      render() {
           return ( 
                <form className="login-form" onSubmit={this.handleSubmit}>
-                    <div className="email">
+                    <div className="logo-on-form">
+                         <img src="images/gomojii-logo.png" alt="logo"/>
+                    </div>
+                    <div className="login-email login-field">
                          <input
                               type="email"
                               name="email"
@@ -40,7 +46,7 @@ class Login extends Component {
                               required
                          />
                     </div>
-                    <div className="password">
+                    <div className="login-password login-field" >
                          <input
                               type="password"
                               name="password"
@@ -50,7 +56,12 @@ class Login extends Component {
                               required
                          />
                     </div>
-                    <button type="submit">Login</button>
+                    <div className="login-btn-cont">
+                         <button className="login-btn" type="submit">Login</button>
+                    </div>
+                    <div className="form-footer">
+                         <span role="img" aria-label="copyright emoji">©️</span> 2020 Gomojii | <Link to="/">Home</Link> 
+                    </div>
                </form>
           );
      }

@@ -1,6 +1,3 @@
-//! importing necessary files and/or libraries
-import { retrieveFrom } from '../config'
-
 //! AUTH - REDUCER
 
 //todo: setting my initial state for user authentication

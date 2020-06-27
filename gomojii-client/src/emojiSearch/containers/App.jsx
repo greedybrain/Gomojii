@@ -22,7 +22,6 @@ class App extends Component {
 
   handleLogout = () => {
     this.props.logoutUser()
-    console.log(this.props.user)
   }
 
   render() {
@@ -42,9 +41,9 @@ class App extends Component {
               path={'/'}
               component={EmojiContainer}
             />
-            <button onClick={this.handleLogout} type="submit">Logout</button>
           </Switch>
         </BrowserRouter>
+        {/* <button onClick={this.handleLogout} type="submit">Logout</button> */}
       </div>
     );
   }
