@@ -17,12 +17,11 @@ export const validateSession = (loggedInStatus) => {
                     loggedInPath,
                     { withCredentials: true }
                )
-          const user = response.data
-          console.log(user)
-          if (user.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
+          const userData = response.data
+          if (userData.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
                loggedInStatus = "LOGGED_IN"
-               dispatch(proceedIfUserLoggedIn(user, loggedInStatus))
-          } else if (!user.logged_in && loggedInStatus === "LOGGED_IN") {
+               dispatch(proceedIfUserLoggedIn(userData, loggedInStatus))
+          } else if (!userData.logged_in && loggedInStatus === "LOGGED_IN") {
                loggedInStatus = "NOT_LOGGED_IN"
           }
      }
