@@ -4,7 +4,7 @@ import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
-import { validateSession, endUsersSession } from '../../store/middleware/serverAuth';
+import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 import Registration from '../../auth/Registration';
 
@@ -13,37 +13,37 @@ class App extends Component {
   //todo: inside this lifecycle method I'm loading the emojis and categories to work with later on throughout the application
   componentDidMount() {
     //todo: getting the below methods from props
-    const { user, loadEmojis, loadCategories, validateSession, loggedInStatus } = this.props
+    const { loadEmojis, loadCategories, validateSession, loggedInStatus } = this.props
     loadEmojis()
     loadCategories()
     validateSession(loggedInStatus)
-    console.log(user)
-  }
-
-  handleLogout = () => {
-    this.props.logoutUser()
   }
 
   render() {
     return (
       <div className="App">
         <BrowserRouter>
+          
           <Switch >
-            <Route 
-              path={'/login'}
-              component={Login}
+            
+            <Route
+              path='/login'
+              component={Login} 
             />
+
             <Route 
-              path={'/signup'}
+              path='/signup'
               component={Registration}
             />
-            <Route 
-              path={'/'}
-              component={EmojiContainer}
+
+            <Route
+              path='/emoji_search'
+              render={(props) => <EmojiContainer {...props} />} 
             />
+
           </Switch>
+
         </BrowserRouter>
-        {/* <button onClick={this.handleLogout} type="submit">Logout</button> */}
       </div>
     );
   }
@@ -58,8 +58,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loadEmojis: () => dispatch(loadEmojis()),
   loadCategories: () => dispatch(loadCategories()),
-  validateSession: status => dispatch(validateSession(status)),
-  logoutUser: () => dispatch(endUsersSession())
+  validateSession: status => dispatch(validateSession(status))
 })
 
 //todo: using connect() allows me to 'connect' a component to the store
