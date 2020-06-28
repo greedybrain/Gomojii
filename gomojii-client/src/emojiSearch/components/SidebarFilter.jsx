@@ -76,7 +76,7 @@ const SidebarFilter = () => {
                     {renderCategoriesList}
                </ul>
                <div className="side-footer">
-                    <span role="img" aria-label="copyright emoji">©️</span> 2020 EmojiWorld
+                    <span role="img" aria-label="copyright emoji">©️</span> 2020 GoMojii
                </div>
           </>
      );

@@ -3,6 +3,7 @@ import { getExistingUser } from '../store/middleware/serverAuth';
 import { useSelector, useDispatch } from 'react-redux';
 import { setUserEmail, setUserPassword } from '../store/manageAuthReducer';
 import { Link } from 'react-router-dom';
+import Logo from '../static/components/Logo';
 
 const Login = (props) => {
      const state = useSelector(state => ({
@@ -40,7 +41,7 @@ const Login = (props) => {
      return ( 
           <form className="login-form" onSubmit={handleSubmit}>
                <div className="logo-on-form">
-                    <img src="images/gomojii-logo-3.png" alt="logo"/>
+                    <Logo />
                </div>
                <div className="login-email login-field">
                     <input
@@ -65,6 +66,7 @@ const Login = (props) => {
                <div className="login-btn-cont">
                     <button className="login-btn" type="submit">Login</button>
                </div>
+               <p className="not-user-yet">Don''t have an account? <Link to="/signup">Signup</Link></p>
                <div className="form-footer">
                     <span role="img" aria-label="copyright emoji">©️</span> 2020 Gomojii | <Link to="/emoji_search">Home</Link> 
                </div>

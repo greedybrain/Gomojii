@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setUserUsername, setUserEmail, setUserPassword } from '../store/manageAuthReducer';
 import { createNewUser } from '../store/middleware/serverAuth';
+import { Link } from 'react-router-dom';
+import Logo from '../static/components/Logo';
 
 class Registration extends Component {
 
@@ -32,14 +34,19 @@ class Registration extends Component {
           setEmail('')
           setUsername('')
           setPassword('')
+
+          this.props.history.push('/emoji_search')
           
           event.preventDefault()
      }
      
      render() {
           return ( 
-               <form onSubmit={this.handleSubmit}>
-                    <div className="email">
+               <form className="signup-form" onSubmit={this.handleSubmit}>
+                    <div className="logo-on-form">
+                         <Logo />
+                    </div>
+                    <div className="signup-email signup-field">
                          <input
                               type="email"
                               name="email"
@@ -49,7 +56,7 @@ class Registration extends Component {
                               required
                          />
                     </div>
-                    <div className="username">
+                    <div className="signup-username signup-field" >
                          <input
                               type="username"
                               name="username"
@@ -59,7 +66,7 @@ class Registration extends Component {
                               required
                          />
                     </div>
-                    <div className="password">
+                    <div className="signup-password signup-field" >
                          <input
                               type="password"
                               name="password"
@@ -69,7 +76,13 @@ class Registration extends Component {
                               required
                          />
                     </div>
-                    <button type="submit">Signup</button>
+                    <div className="signup-btn-cont">
+                         <button className="signup-btn" type="submit">Signup</button>
+                    </div>
+                    <p className="already-user">Already a user? <Link to="/login">Login</Link></p>
+                    <div className="form-footer">
+                         <span role="img" aria-label="copyright emoji">©️</span> 2020 Gomojii | <Link to="/emoji_search">Home</Link> 
+                    </div>
                </form>
           );
      }

@@ -2,7 +2,7 @@
 import React, { Component } from 'react';
 import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
 import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
@@ -20,26 +20,42 @@ class App extends Component {
   }
 
   render() {
+    const { user } = this.props
     return (
       <div className="App">
         <BrowserRouter>
           
           <Switch >
+            {
+              user.logged_in ? 
+                <Redirect
+                  from="/login"
+                  to="/emoji_search"
+                />
+                :
+                <Route
+                  path='/login'
+                  component={Login} 
+                />
+            }
+
+            {
+              user.logged_in ? 
+                <Redirect
+                  from="/signup"
+                  to="/emoji_search"
+                />
+                :
+                <Route 
+                  path='/signup'
+                  component={Registration}
+                />
+            }
             
             <Route
-              path='/login'
-              component={Login} 
-            />
-
-            <Route 
-              path='/signup'
-              component={Registration}
-            />
-
-            <Route
-              path='/emoji_search'
-              render={(props) => <EmojiContainer {...props} />} 
-            />
+                path='/emoji_search'
+                render={(props) => <EmojiContainer {...props} />} 
+              />
 
           </Switch>
 
