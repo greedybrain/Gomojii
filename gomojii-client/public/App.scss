@@ -35,22 +35,20 @@ body {
           align-items: center;
           height: 100vh;
 
-          form.login-form {
+          form.login-form,
+          form.signup-form {
                justify-self: center;
                margin-bottom: 30px;
-               width: 25%;
-               padding: 10px 20px 50px;
+               width: 27%;
+               padding: 10px 20px 30px;
                border-radius: 8px;
                background-color: #ffffffb2;
                -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
 
-               div.logo-on-form {
-                    margin-bottom: 20px;
-               }
-
-               div.login-field {
+               div.login-field,
+               div.signup-field {
                     height: 40px;
                     margin-bottom: 25px;
                     border-radius: 5px;
@@ -70,7 +68,8 @@ body {
                     }
                }
 
-               button.login-btn {
+               button.login-btn,
+               button.signup-btn {
                     outline: none;
                     border: none;
                     width: 100%;
@@ -85,11 +84,19 @@ body {
                     letter-spacing: 2px;
                }
 
+               p.already-user,
+               p.not-user-yet {
+                    text-align: center;
+                    margin-top: 15px;
+                    font-size: .9rem;
+               }
+
                div.form-footer {
                     text-align: center;
                     position: relative;
-                    top: 40px;
+                    top: 15px;
                     font-weight: 800;
+                    font-size: .9rem;
                     
                     a {
                          color: #333;
@@ -100,11 +107,12 @@ body {
           ul.nav-btns {
                display: flex;
                width: 90%;
+               max-width: 1100px;
                margin: 0 auto;
                float: right;
 
                li {
-                    background-color: #fafafab2;
+                    background-color: #474747;
                     padding: 5px 10px;
                     border-radius: 30px;
                     display: flex;
@@ -112,8 +120,11 @@ body {
                     -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                     -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                     box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
-                    color: #333;
                     letter-spacing: 1px;
+
+                    a {
+                         color: #fff;
+                    }
                }
                
                li.signup-btn {
@@ -140,21 +151,10 @@ body {
                     background-color: #8b018b;
                     border-top-left-radius: 50px;
                     border-bottom-left-radius: 50px;
-                    padding: 30px 0;
+                    padding: 10px 0;
                     -webkit-box-shadow: 3px 0px 8px 1px rgba(212, 212, 212, 1);
                     -moz-box-shadow: 3px 0px 8px 1px rgba(212, 212, 212, 1);
                     box-shadow: 3px 0px 8px 1px rgba(212, 212, 212, 1);
-     
-                    h1.logo {
-                         margin: 0 auto 20px auto;
-                         margin-bottom: 30px;
-                         text-align: left;
-                         font-size: 1.5rem;
-                         color: #fff;
-                         width: 125px;
-                         font-weight: bolder;
-                         line-height: 1;
-                    }
      
                     ul {
                          padding: 0 30px;
@@ -280,7 +280,7 @@ body {
                          row-gap: 15px;
                          column-gap: 15px;
                          padding: 20px;
-                         height: 550px;
+                         height: 75vh;
                          overflow-y: scroll;
                          position: relative;
                          bottom: 10px;
