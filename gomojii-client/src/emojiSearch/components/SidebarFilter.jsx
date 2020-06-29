@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import Logo from '../../static/components/Logo';
 import { filterEmojis } from '../../store/manageEmojisReducer';
 
 const SidebarFilter = () => {
@@ -54,8 +53,8 @@ const SidebarFilter = () => {
 
      //todo: this handles the actual rendering of all mapped LI's
      return ( 
-          <>   
-               <Logo />
+          <> 
+               <h2>Search Emojis <span role="img" aria-label="smiling emoji">😀</span></h2>
                <ul>
                     <li
                          onClick={handleAllEmojiClick}
