@@ -4,9 +4,9 @@ import EmojiList from '../components/EmojiList';
 import SidebarFilter from '../components/SidebarFilter';
 import { useDispatch } from 'react-redux';
 import { endUsersSession } from '../../store/middleware/serverAuth';
-import Navbar from '../../static/components/Navbar';
+import Header from '../../static/components/Header';
 
-const EmojiContainer = ({ showSpinner }) => {
+const EmojiContainer = () => {
      const dispatch = useDispatch()
 
      const handleLogout = () => {
@@ -16,7 +16,7 @@ const EmojiContainer = ({ showSpinner }) => {
      //todo: this is just the container that holds all other parts of the emojiSearch feature
      return (
           <>
-               <Navbar handleLogout={handleLogout} />
+               <Header handleLogout={handleLogout} />
                {/* animate__animated animate__bounceInDown */}
                <div className="wrapper">
                     <div className="sidebar-nav">
