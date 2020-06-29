@@ -272,6 +272,18 @@ body {
                          font-size: 1.5rem;
                     }
 
+                    div.load-wrapper {
+                         display: flex;
+                         align-items: center;
+                         justify-content: center;
+                         height: 70vh;
+                         
+                         div.loading-indicator {
+                              font-size: 10rem;
+                              --animate-repeat: 1000;
+                         }
+                    }
+
                     ul {
                          display: grid;
                          grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
