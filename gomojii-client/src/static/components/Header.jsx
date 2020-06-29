@@ -12,7 +12,7 @@ const Header = ({ handleLogout }) => {
 
      return ( 
           <header>
-               <div className="logo-area">
+               <div className="logo-area-header">
                     <Logo />
                </div>
                <ul className="nav-btns">
