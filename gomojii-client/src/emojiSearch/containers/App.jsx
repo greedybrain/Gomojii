@@ -19,14 +19,6 @@ class App extends Component {
     validateSession(loggedInStatus)
   }
 
-  showSpinner = () => {
-    if (this.props.loading) {
-      return <h1>LOADING...</h1>
-    } else {
-      return null
-    }
-  }
-
   render() {
     const { user } = this.props
     return (
@@ -51,7 +43,7 @@ class App extends Component {
             
             <Route
                 path='/emoji_search'
-                render={(props) => <EmojiContainer {...props} showSpinner={this.showSpinner} />} 
+                render={(props) => <EmojiContainer {...props} />} 
               />
 
           </Switch>
