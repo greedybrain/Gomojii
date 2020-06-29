@@ -19,6 +19,14 @@ class App extends Component {
     validateSession(loggedInStatus)
   }
 
+  showSpinner = () => {
+    if (this.props.loading) {
+      return <h1>LOADING...</h1>
+    } else {
+      return null
+    }
+  }
+
   render() {
     const { user } = this.props
     return (
@@ -26,35 +34,24 @@ class App extends Component {
         <BrowserRouter>
           
           <Switch >
-            {
-              user.logged_in ? 
-                <Redirect
-                  from="/login"
-                  to="/emoji_search"
-                />
-                :
-                <Route
-                  path='/login'
-                  component={Login} 
-                />
-            }
+    
+            <Route
+              path='/login'
+              render={(props) => {
+                return user.logged_in ? <Redirect to="/emoji_search" /> : <Login {...props} />
+              }} 
+            />
 
-            {
-              user.logged_in ? 
-                <Redirect
-                  from="/signup"
-                  to="/emoji_search"
-                />
-                :
-                <Route 
-                  path='/signup'
-                  component={Registration}
-                />
-            }
+            <Route 
+              path='/signup'
+              render={(props) => {
+                return user.logged_in ? <Redirect to="/emoji_search" /> : <Registration {...props} />
+              }}
+            />
             
             <Route
                 path='/emoji_search'
-                render={(props) => <EmojiContainer {...props} />} 
+                render={(props) => <EmojiContainer {...props} showSpinner={this.showSpinner} />} 
               />
 
           </Switch>
@@ -67,7 +64,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   loggedInStatus: state.authRed.loggedInStatus,
-  user: state.authRed.user
+  user: state.authRed.user,
+  loading: state.emojisRed.loading
 })
 
 //todo: mapping my dispatch to props 

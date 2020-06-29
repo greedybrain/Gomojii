@@ -2,8 +2,10 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import Emoji from './Emoji';
+import { CopyToClipboard } from 'react-copy-to-clipboard'
 
-const EmojiList = () => {
+const EmojiList = ({ showSpinner }) => {
+
      //todo: using react hook useSelector to retrieve 3 properties from state
      const state = useSelector(state => ({
           emojis: state.emojisRed.emojis,
@@ -29,7 +31,9 @@ const EmojiList = () => {
 
      //todo: mapping information to each emoji component which is an li
      const renderEmojis = getEmojis().map((emoji, index) => {
-          return <Emoji key={index} emoji={emoji} />
+          return (
+               <Emoji key={index} emoji={emoji} />
+          )
      })
 
      //todo: rendering the result amount and the actual emojis
@@ -39,6 +43,7 @@ const EmojiList = () => {
                     Results: {getEmojis() === null ? 0 : getEmojis().length}
                </div>
                <ul>
+                    { showSpinner() }
                     { renderEmojis }
                </ul>
           </>

@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { endUsersSession } from '../../store/middleware/serverAuth';
 import Navbar from '../../static/components/Navbar';
 
-const EmojiContainer = () => {
+const EmojiContainer = ({ showSpinner }) => {
      const dispatch = useDispatch()
 
      const handleLogout = () => {
@@ -26,7 +26,7 @@ const EmojiContainer = () => {
                               <EmojiSearchForm />
                          </div>
                          <div className="emoji-list">
-                              <EmojiList />
+                              <EmojiList showSpinner={showSpinner} />
                          </div>
                     </div>
                </div>

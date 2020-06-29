@@ -11,17 +11,21 @@ const Login = (props) => {
           password: state.authRed.password
      }))
      const dispatch = useDispatch()
+
+     const resetFields = () => {
+          dispatch(setUserEmail(''))
+          dispatch(setUserPassword(''))
+     }
      
-     const handleEmailChange = event => {
+     const handleEmailChange = (event) => {
           //todo: updates email field as one types
-          const email = event.target.value
-          dispatch(setUserEmail(email))
+          const { value } = event.target
+          dispatch(setUserEmail(value))
      }
 
-     const handlePasswordChange = event => {
-          //todo: updates password field as one types
-          const password = event.target.value
-          dispatch(setUserPassword(password))
+     const handlePasswordChange = (event) => {
+          const { value } = event.target
+          dispatch(setUserPassword(value))
      }
 
      const handleSubmit = event => {
@@ -29,9 +33,7 @@ const Login = (props) => {
           dispatch(getExistingUser(email, password))
 
           //todo: resetting form fields
-          dispatch(setUserEmail(''))
-          dispatch(setUserPassword(''))
-
+          resetFields()
           
           props.history.replace('/emoji_search')
           
