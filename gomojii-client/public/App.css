@@ -50,8 +50,14 @@ body div.App header {
       -ms-flex-pack: justify;
           justify-content: space-between;
   width: 90%;
-  height: 6vh;
+  height: 10vh;
   margin: 0 auto;
+  background: #b300b3;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(179, 0, 179, 0.948278)), color-stop(0%, rgba(40, 40, 40, 0.925175)));
+  background: linear-gradient(90deg, rgba(179, 0, 179, 0.948278) 0%, rgba(40, 40, 40, 0.925175) 0%);
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
 }
 
 body div.App header div.logo-area {
@@ -66,7 +72,7 @@ body div.App header ul.nav-btns {
 }
 
 body div.App header ul.nav-btns li {
-  background-color: #4747479f;
+  border: none;
   padding: 5px 10px;
   border-radius: 30px;
   display: -webkit-box;
@@ -78,23 +84,26 @@ body div.App header ul.nav-btns li {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -webkit-box-shadow: 0px 0px 10px -1px #666666;
-  box-shadow: 0px 0px 10px -1px #666666;
   letter-spacing: 1px;
 }
 
 body div.App header ul.nav-btns li:hover {
-  background-color: #474747d8;
-  -webkit-transition: background-color .2s linear;
-  transition: background-color .2s linear;
+  border: 3px solid #ffffff;
+  -webkit-transition: border .2s ease-in;
+  transition: border .2s ease-in;
+}
+
+body div.App header ul.nav-btns li span {
+  font-size: 1.5rem;
 }
 
 body div.App header ul.nav-btns li a {
   color: #fff;
+  font-size: 1.2rem;
 }
 
 body div.App header ul.nav-btns li.signup-btn {
-  margin-left: 20px;
+  margin-left: 10px;
 }
 
 body div.App form.login-form,
@@ -185,6 +194,8 @@ body div.App div.wrapper {
   width: 90%;
   max-width: 1100px;
   margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
 }
 
 body div.App div.wrapper div.sidebar-nav {
@@ -202,7 +213,9 @@ body div.App div.wrapper div.sidebar-nav {
   position: sticky;
   top: 0;
   width: 25%;
-  background-color: #8b018b;
+  background: #b300b3;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(179, 0, 179, 0.948278)), color-stop(0%, rgba(40, 40, 40, 0.925175)));
+  background: linear-gradient(90deg, rgba(179, 0, 179, 0.948278) 0%, rgba(40, 40, 40, 0.925175) 0%);
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   padding: 10px 0;
