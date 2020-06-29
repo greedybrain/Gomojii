@@ -17,7 +17,8 @@ const EmojiContainer = ({ showSpinner }) => {
      return (
           <>
                <Navbar handleLogout={handleLogout} />
-               <div className="wrapper animate__animated animate__bounceInDown">
+               {/* animate__animated animate__bounceInDown */}
+               <div className="wrapper">
                     <div className="sidebar-nav">
                          <SidebarFilter />
                     </div>
@@ -26,7 +27,7 @@ const EmojiContainer = ({ showSpinner }) => {
                               <EmojiSearchForm />
                          </div>
                          <div className="emoji-list">
-                              <EmojiList showSpinner={showSpinner} />
+                              <EmojiList />
                          </div>
                     </div>
                </div>
