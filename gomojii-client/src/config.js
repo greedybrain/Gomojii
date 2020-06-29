@@ -12,5 +12,10 @@ export const retrieveFrom = {
      },
      security: {
           accessKey: "access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321"
+     },
+     customMethods: {
+          innyMinnyMineyMo: arr => {
+               return arr[Math.floor(Math.random() * arr.length)]
+          }
      }
 }
