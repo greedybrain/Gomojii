@@ -2,6 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import Emoji from './Emoji';
+import { retrieveFrom } from '../../config'
 
 const EmojiList = () => {
 
@@ -14,12 +15,23 @@ const EmojiList = () => {
           categoriesLoading: state.emojisRed.loading
      }))
      let { emojis, emojiSearchResults, emojisFilteredState } = state
+     const { innyMinnyMineyMo } = retrieveFrom.customMethods
 
-     const showSpinner = () => {
+     const randomEmoji = () => {
+          const randEmojiSelection = ['👿', '🤠', '🤪', '🤡', '🤖', '💩', '👻', '🤩', '🥶']
+          return innyMinnyMineyMo(randEmojiSelection)
+     }
+
+     const showLoadIndicator = () => {
           if (state.emojisLoading) {
                return (
                     <div className="load-wrapper">
-                         <div className="loading-indicator animate__animated animate__heartBeat animate__repeat-3"><span role="img" aria-label="heart emoji">❤️</span></div>
+                         <div className="loading-indicator animate__animated animate__bounce animate__repeat-3">
+                              <div className="load-heading">
+                                   Summoning Emojis...
+                              </div>
+                              <span role="img" aria-label="heart emoji">{ randomEmoji() }</span>
+                         </div>
                     </div>
                )
           } else {
@@ -53,9 +65,9 @@ const EmojiList = () => {
      return (
           <>
                <div className="results">
-                    Results: {getEmojis() === null ? 0 : getEmojis().length}
+                    {getEmojis() === null ? 0 : getEmojis().length} emojis found
                </div>
-               { showSpinner() }
+               { showLoadIndicator() }
                <ul>
                     { renderEmojis }
                </ul>
