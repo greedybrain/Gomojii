@@ -2,17 +2,30 @@
 import React from 'react';
 import { useSelector } from 'react-redux'
 import Emoji from './Emoji';
-import { CopyToClipboard } from 'react-copy-to-clipboard'
 
-const EmojiList = ({ showSpinner }) => {
+const EmojiList = () => {
 
      //todo: using react hook useSelector to retrieve 3 properties from state
      const state = useSelector(state => ({
           emojis: state.emojisRed.emojis,
           emojiSearchResults: state.emojisRed.emojiSearchResults,
-          emojisFilteredState: state.emojisRed.emojisFilteredState
+          emojisFilteredState: state.emojisRed.emojisFilteredState,
+          emojisLoading: state.emojisRed.emojisLoading,
+          categoriesLoading: state.emojisRed.loading
      }))
      let { emojis, emojiSearchResults, emojisFilteredState } = state
+
+     const showSpinner = () => {
+          if (state.emojisLoading) {
+               return (
+                    <div className="load-wrapper">
+                         <div className="loading-indicator animate__animated animate__heartBeat animate__repeat-3"><span role="img" aria-label="heart emoji">❤️</span></div>
+                    </div>
+               )
+          } else {
+               return null
+          }
+     }
      
      const getEmojis = () => {
           //todo:validating particular properties from state 
@@ -42,8 +55,8 @@ const EmojiList = ({ showSpinner }) => {
                <div className="results">
                     Results: {getEmojis() === null ? 0 : getEmojis().length}
                </div>
+               { showSpinner() }
                <ul>
-                    { showSpinner() }
                     { renderEmojis }
                </ul>
           </>
