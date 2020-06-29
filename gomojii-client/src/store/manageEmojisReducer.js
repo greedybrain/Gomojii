@@ -6,7 +6,8 @@ const initialState = {
      emojisCategories: [],
      emojisFilteredState: [],
      emojiSearchResults: [],
-     loading: false
+     emojisLoading: false,
+     categoriesLoading: false
 }
 
 //todo: this is my reducer handling all types of emojiSearch functions eg. adding emojis and searching through them
@@ -15,24 +16,24 @@ export default function manageEmojis(state = initialState, action) {
           case START_LOAD_EMOJIS_REQUEST:
                return {
                     ...state,
-                    loading: true
+                    emojisLoading: true
                }
           case ADD_EMOJIS:
                return {
                     ...state,
                     emojis: action.payload.emojis,
-                    loading: false
+                    emojisLoading: false
                }
           case START_LOAD_CATEGORIES_REQUEST:
                return {
                     ...state,
-                    loading: true
+                    categoriesLoading: true
                }
           case ADD_CATEGORIES:
                return {
                     ...state,
                     emojisCategories: action.payload.emojisCategories,
-                    loading: false
+                    categoriesLoading: false
                }
           case QUERY_EMOJIS:
                return {
