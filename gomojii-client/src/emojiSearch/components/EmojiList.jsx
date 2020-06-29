@@ -17,11 +17,6 @@ const EmojiList = () => {
      let { emojis, emojiSearchResults, emojisFilteredState } = state
      const { innyMinnyMineyMo } = retrieveFrom.customMethods
 
-     const randomEmoji = () => {
-          const randEmojiSelection = ['👿', '🤠', '🤪', '🤡', '🤖', '💩', '👻', '🤩', '🥶']
-          return innyMinnyMineyMo(randEmojiSelection)
-     }
-
      const showLoadIndicator = () => {
           if (state.emojisLoading) {
                return (
@@ -30,7 +25,7 @@ const EmojiList = () => {
                               <div className="load-heading">
                                    Summoning Emojis...
                               </div>
-                              <span role="img" aria-label="heart emoji">{ randomEmoji() }</span>
+                              <span role="img" aria-label="heart emoji">{ innyMinnyMineyMo(['👿', '🤠', '🤪', '🤡', '🤖', '💩', '👻', '🤩', '🥶']) }</span>
                          </div>
                     </div>
                )
