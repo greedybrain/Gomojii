@@ -10,14 +10,12 @@ li {
      list-style-type: none;
 }
 
-img {
-     width: 100%;
-     max-width: 100%;
-     display: block;
-}
-
 a {
      text-decoration: none;
+}
+
+img {
+     width: 100%;
 }
 
 ::-webkit-scrollbar {
@@ -34,6 +32,50 @@ body {
           display: grid;
           align-items: center;
           height: 100vh;
+
+          header {
+               display: flex;
+               align-items: center;
+               justify-content: space-between;
+               width: 90%;
+               height: 6vh;
+               margin: 0 auto;
+               
+               div.logo-area {
+                    width: 250px;
+               }
+
+               ul.nav-btns {
+                    display: flex;
+                    margin-right: 15px;
+
+                    li {
+                         background-color: #4747479f;
+                         padding: 5px 10px;
+                         border-radius: 30px;
+                         display: flex;
+                         align-items: center;
+                         justify-content: center;
+                         -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
+                         -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
+                         box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
+                         letter-spacing: 1px;
+
+                         &:hover {
+                              background-color: #474747d8;
+                              transition: background-color .2s linear;
+                         }
+
+                         a {
+                              color: #fff;
+                         }
+                    }
+
+                    li.signup-btn {
+                         margin-left: 20px;
+                    }
+               }
+          }
 
           form.login-form,
           form.signup-form {
@@ -104,47 +146,22 @@ body {
                }
           }
 
-          ul.nav-btns {
-               display: flex;
-               width: 90%;
-               max-width: 1100px;
-               margin: 0 auto;
-               float: right;
-
-               li {
-                    background-color: #474747;
-                    padding: 5px 10px;
-                    border-radius: 30px;
-                    display: flex;
-                    align-items: center;
-                    -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
-                    -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
-                    box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
-                    letter-spacing: 1px;
-
-                    a {
-                         color: #fff;
-                    }
-               }
-               
-               li.signup-btn {
-                    margin-left: 20px;
-               }
-          }
-
           div.wrapper {
                display: flex;
-               height: 90vh;
+               height: 85vh;
                border-radius: 50px;
                background-color: #fff;
                width: 90%;
                max-width: 1100px;
                margin: 0 auto;
-               -webkit-box-shadow: 0px 0px 65px 19px rgba(179, 179, 179, 1);
-               -moz-box-shadow: 0px 0px 65px 19px rgba(179, 179, 179, 1);
-               box-shadow: 0px 0px 65px 19px rgba(179, 179, 179, 1);
+               // -webkit-box-shadow: 0px 0px 65px 19px rgba(179, 179, 179, 1);
+               // -moz-box-shadow: 0px 0px 65px 19px rgba(179, 179, 179, 1);
+               // box-shadow: 0px 0px 65px 19px rgba(179, 179, 179, 1);
      
                div.sidebar-nav {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
                     position: sticky;
                     top: 0;
                     width: 25%;
@@ -155,14 +172,21 @@ body {
                     -webkit-box-shadow: 3px 0px 8px 1px rgba(212, 212, 212, 1);
                     -moz-box-shadow: 3px 0px 8px 1px rgba(212, 212, 212, 1);
                     box-shadow: 3px 0px 8px 1px rgba(212, 212, 212, 1);
+
+                    h2 {
+                         color: #fff;
+                         margin: 35px 0;
+                    }
      
                     ul {
                          padding: 0 30px;
+                         display: flex;
+                         flex-direction: column;
+                         justify-content: center;
 
                          li {
                               display: flex;
                               align-items: center;
-                              // justify-content: space-between;
                               overflow-x: scroll;
                               margin-bottom: 5px;
                               color: #fff;
@@ -267,7 +291,7 @@ body {
 
                     div.results {
                          width: 95%;
-                         margin: 10px auto;
+                         margin: 10px auto 20px auto;
                          text-align: center;
                          font-size: 1.5rem;
                     }
@@ -276,7 +300,11 @@ body {
                          display: flex;
                          align-items: center;
                          justify-content: center;
-                         height: 70vh;
+                         height: 60vh;
+
+                         div.load-heading {
+                              font-size: 1rem;
+                         }
                          
                          div.loading-indicator {
                               font-size: 10rem;
@@ -292,7 +320,7 @@ body {
                          row-gap: 15px;
                          column-gap: 15px;
                          padding: 20px;
-                         height: 75vh;
+                         height: 70vh;
                          overflow-y: scroll;
                          position: relative;
                          bottom: 10px;
