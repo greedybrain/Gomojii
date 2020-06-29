@@ -7,6 +7,7 @@ import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearc
 import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 import Registration from '../../auth/Registration';
+import Header from '../../static/components/Header';
 
 class App extends Component {
 
@@ -26,7 +27,6 @@ class App extends Component {
         <BrowserRouter>
           
           <Switch >
-    
             <Route
               path='/login'
               render={(props) => {
