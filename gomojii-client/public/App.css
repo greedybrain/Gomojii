@@ -1,5 +1,7 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Montserrat:wght@300&family=Mouse+Memoirs&family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -28,6 +30,7 @@ body {
   background-image: url("images/emoji-bg-1.jpg");
   background-position: center;
   background-repeat: repeat;
+  padding: 20px 0;
 }
 
 body div.App {
@@ -49,9 +52,13 @@ body div.App header {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
   width: 90%;
   height: 10vh;
   margin: 0 auto;
+  padding: 0 20px;
   background: #b300b3;
   background: -webkit-gradient(linear, left top, right top, from(rgba(179, 0, 179, 0.948278)), color-stop(0%, rgba(40, 40, 40, 0.925175)));
   background: linear-gradient(90deg, rgba(179, 0, 179, 0.948278) 0%, rgba(40, 40, 40, 0.925175) 0%);
@@ -60,15 +67,28 @@ body div.App header {
   box-shadow: 0px 0px 10px -1px #666666;
 }
 
-body div.App header div.logo-area {
+body div.App header div.logo-area-header {
   width: 250px;
+}
+
+body div.App header h1.logo-name {
+  font-size: 2.5rem;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+body div.App header h1.logo-name span {
+  font-size: 1.5rem;
+}
+
+body div.App header h1.logo-name a {
+  color: #fff;
 }
 
 body div.App header ul.nav-btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-right: 15px;
 }
 
 body div.App header ul.nav-btns li {
@@ -87,14 +107,14 @@ body div.App header ul.nav-btns li {
   letter-spacing: 1px;
 }
 
-body div.App header ul.nav-btns li:hover {
-  border: 3px solid #ffffff;
-  -webkit-transition: border .2s ease-in;
-  transition: border .2s ease-in;
+body div.App header ul.nav-btns li:hover span {
+  font-size: 2rem;
+  -webkit-transition: font-size .2s linear;
+  transition: font-size .2s linear;
 }
 
 body div.App header ul.nav-btns li span {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 body div.App header ul.nav-btns li a {
@@ -229,7 +249,7 @@ body div.App div.wrapper div.sidebar-nav h2 {
 }
 
 body div.App div.wrapper div.sidebar-nav ul {
-  padding: 0 30px;
+  padding: 20px 30px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -268,9 +288,9 @@ body div.App div.wrapper div.sidebar-nav ul li div.category {
 }
 
 body div.App div.wrapper div.sidebar-nav ul li:hover {
-  background-color: #720172;
-  -webkit-transition: background-color .5s linear;
-  transition: background-color .5s linear;
+  background-color: #5a5a5a;
+  -webkit-transition: background-color .3s ease-in;
+  transition: background-color .3s ease-in;
 }
 
 body div.App div.wrapper div.sidebar-nav div.side-footer {
