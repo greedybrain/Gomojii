@@ -1,6 +1,7 @@
 //! importing necessary files and/or libraries
 import { retrieveFrom } from '../../config'
 import axios from 'axios'
+// import moment from 'moment'
 import {
      startLoadEmojisRequest,
      addEmojis, 
@@ -17,6 +18,10 @@ export const loadEmojis = () => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Fetching all emojis after a successful load
      return async dispatch => {
+          // const { lastEmojisFetch } = getState().emojisRed
+          // const diffInHours = moment().diff(moment(lastEmojisFetch), 'minutes')
+          // if (diffInHours < 10) return;
+
           dispatch(startLoadEmojisRequest())
           const response = await axios({ url: baseEndpoint + accessKey })
           const emojis = response.data

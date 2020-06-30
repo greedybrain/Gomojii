@@ -8,8 +8,8 @@ const initialState = {
      emojiSearchResults: [],
      emojisLoading: false,
      categoriesLoading: false,
-     lastEmojisFetch: null,
-     lastCategoriesFetch: null
+     // lastEmojisFetch: null,
+     // lastCategoriesFetch: null
 }
 
 //todo: this is my reducer handling all types of emojiSearch functions eg. adding emojis and searching through them
@@ -25,7 +25,7 @@ export default function manageEmojis(state = initialState, action) {
                     ...state,
                     emojis: action.payload.emojis,
                     emojisLoading: false,
-                    lastEmojisFetch: Date.now()
+                    // lastEmojisFetch: Date.now()
           }
           case START_LOAD_CATEGORIES_REQUEST:
                return {
@@ -37,7 +37,7 @@ export default function manageEmojis(state = initialState, action) {
                     ...state,
                     emojisCategories: action.payload.emojisCategories,
                     categoriesLoading: false,
-                    lastCategoriesFetch: Date.now()
+                    // lastCategoriesFetch: Date.now()
                }
           case QUERY_EMOJIS:
                return {
