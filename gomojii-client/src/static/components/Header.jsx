@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import Logout from '../../auth/Logout';
 import Logo from './Logo';
 
-const Header = ({ handleLogout }) => {
+const Header = () => {
      const state = useSelector(state => ({
           user: state.authRed.user 
      }))
@@ -24,7 +24,7 @@ const Header = ({ handleLogout }) => {
                                         { user.user.username.slice(0,1).toUpperCase() + user.user.username.slice(1)}
                                    </li>
                                    <li className="logout-btn nav-link">
-                                        <span role="img" aria-label="peace sign emoji">✌</span><Logout handleLogout={handleLogout} />
+                                        <span role="img" aria-label="peace sign emoji">✌</span><Logout />
                                    </li>
                               </>
                               :
