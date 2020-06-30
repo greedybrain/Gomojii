@@ -35,13 +35,13 @@ const Login = (props) => {
           //todo: resetting form fields
           resetFields()
           
-          props.history.replace('/emoji_search')
+          props.history.replace('/emojis')
           
           event.preventDefault()
      }
      
      return ( 
-          <form className="login-form" onSubmit={handleSubmit}>
+          <form  className="login-form" onSubmit={handleSubmit}>
                <div className="logo-on-form">
                     <Logo />
                </div>
@@ -70,7 +70,7 @@ const Login = (props) => {
                </div>
                <p className="not-user-yet">Don''t have an account? <Link to="/signup">Signup</Link></p>
                <div className="form-footer">
-                    <span role="img" aria-label="copyright emoji">©️</span> 2020 Gomojii | <Link to="/emoji_search">Home</Link> 
+                    <span role="img" aria-label="copyright emoji">©️</span> 2020 Gomojii | <Link to="/emojis">Home</Link> 
                </div>
           </form>
      );

@@ -4,9 +4,11 @@ import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
-import { validateSession } from '../../store/middleware/serverAuth';
+import { validateSession, endUsersSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 import Registration from '../../auth/Registration';
+import Header from '../../static/components/Header';
+import NotFound from '../../static/components/NotFound';
 
 class App extends Component {
 
@@ -24,26 +26,30 @@ class App extends Component {
     return (
       <div className="App">
         <BrowserRouter>
-          
+          <Header />
           <Switch >
             <Route
               path='/login'
               render={(props) => {
-                return user.logged_in ? <Redirect to="/emoji_search" /> : <Login {...props} />
+                return user.logged_in ? <Redirect to="/emojis" /> : <Login {...props} />
               }} 
             />
 
-            <Route 
+            <Route
               path='/signup'
               render={(props) => {
-                return user.logged_in ? <Redirect to="/emoji_search" /> : <Registration {...props} />
+                return user.logged_in ? <Redirect to="/emojis" /> : <Registration {...props} />
               }}
             />
             
             <Route
-                path='/emoji_search'
+                path='/emojis'
                 render={(props) => <EmojiContainer {...props} />} 
-              />
+            />
+
+            <Route path="/not_found" component={NotFound} />
+
+            <Redirect to="/not_found" />
 
           </Switch>
 
@@ -63,7 +69,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   loadEmojis: () => dispatch(loadEmojis()),
   loadCategories: () => dispatch(loadCategories()),
-  validateSession: status => dispatch(validateSession(status))
+  validateSession: status => dispatch(validateSession(status)),
 })
 
 //todo: using connect() allows me to 'connect' a component to the store
