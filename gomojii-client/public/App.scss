@@ -29,7 +29,7 @@ body {
      background-image: url("images/emoji-bg-1.jpg");
      background-position: center;
      background-repeat: repeat;
-     padding: 20px 0;
+     // padding: 20px 0;
 
      div.App {
           display: grid;
@@ -43,17 +43,16 @@ body {
                position: sticky;
                top: 0;
                width: 90%;
-               height: 10vh;
+               height: 8vh;
                margin: 0 auto;
                padding: 0 20px;
-               // background-color: #b300b3;
-               background: rgb(179, 0, 179);
+               background: #282828ec;
                background: linear-gradient(90deg, rgba(179, 0, 179, 0.9482776402640264) 0%, rgba(40, 40, 40, 0.9251753300330033) 0%);
                border-radius: 30px;
                -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
-               
+
                div.logo-area-header {
                     width: 250px;
                }
@@ -83,13 +82,19 @@ body {
                          align-items: center;
                          justify-content: center;
                          letter-spacing: 1px;
+                         color: #fff;
 
                          &:hover {
-                              
+
                               span {
                                    font-size: 2rem;
                                    transition: font-size .2s linear;
                               }
+                         }
+
+                         i.user-icon {
+                              font-size: 1.2rem;
+                              margin-right: 5px;
                          }
 
                          span {
@@ -105,6 +110,22 @@ body {
                     li.signup-btn {
                          margin-left: 10px;
                     }
+               }
+          }
+
+          div.logo-on-form {
+               font-size: 2rem;
+               font-family: 'Orbitron', sans-serif;
+               letter-spacing: 1px;
+               text-align: center;
+               margin-bottom: 30px;
+
+               span {
+                    font-size: 2rem;
+               }
+
+               a {
+                    color: #333;
                }
           }
 
@@ -153,7 +174,7 @@ body {
                     -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                     -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                     box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
-                    background-color: #8b018b;
+                    background-color: #282828ec;
                     letter-spacing: 2px;
                }
 
@@ -170,7 +191,7 @@ body {
                     top: 15px;
                     font-weight: 800;
                     font-size: .9rem;
-                    
+
                     a {
                          color: #333;
                     }
@@ -188,7 +209,7 @@ body {
                -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
-     
+
                div.sidebar-nav {
                     display: flex;
                     flex-direction: column;
@@ -196,9 +217,7 @@ body {
                     position: sticky;
                     top: 0;
                     width: 25%;
-                    // background-color: #b300b3;
-                    background: rgb(179, 0, 179);
-                    background: linear-gradient(90deg, rgba(179, 0, 179, 0.9482776402640264) 0%, rgba(40, 40, 40, 0.9251753300330033) 0%);
+                    background-color: #282828ec;
                     border-top-left-radius: 50px;
                     border-bottom-left-radius: 50px;
                     padding: 10px 0;
@@ -208,9 +227,9 @@ body {
 
                     h2 {
                          color: #fff;
-                         margin: 35px 0;
+                         margin: 25px 0;
                     }
-     
+
                     ul {
                          padding: 20px 30px;
                          display: flex;
@@ -254,7 +273,7 @@ body {
                          left: 40px;
                     }
                }
-     
+
                div.form-and-list-cont {
                     width: 75%;
                     display: flex;
@@ -295,7 +314,7 @@ body {
                                    padding-left: 20px;
                                    font-size: 1rem;
                                    font-family: 'Montserrat',
-                                   sans-serif;
+                                        sans-serif;
 
                                    &::-webkit-input-placeholder {
                                         color: #949494;
@@ -322,11 +341,22 @@ body {
                          }
                     }
 
-                    div.results {
+                    div.directions-and-results {
+                         display: flex;
+                         align-items: center;
+                         justify-content: space-between;
+                         padding: 0 20px;
                          width: 95%;
                          margin: 10px auto 20px auto;
-                         text-align: center;
-                         font-size: 1.5rem;
+                         font-weight: bold;
+
+                         div.directions {
+                              font-size: 1.1rem;
+                         }
+
+                         div.results {
+                              font-size: .9rem;
+                         }
                     }
 
                     div.load-wrapper {
@@ -338,7 +368,7 @@ body {
                          div.load-heading {
                               font-size: 1rem;
                          }
-                         
+
                          div.loading-indicator {
                               font-size: 10rem;
                               --animate-repeat: 1000;
@@ -360,8 +390,8 @@ body {
 
                          li {
                               font-size: 3rem;
-                              cursor:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0,
-                              auto;
+                              cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0,
+                                   auto;
                          }
 
                     }

@@ -30,7 +30,6 @@ body {
   background-image: url("images/emoji-bg-1.jpg");
   background-position: center;
   background-repeat: repeat;
-  padding: 20px 0;
 }
 
 body div.App {
@@ -56,10 +55,10 @@ body div.App header {
   position: sticky;
   top: 0;
   width: 90%;
-  height: 10vh;
+  height: 8vh;
   margin: 0 auto;
   padding: 0 20px;
-  background: #b300b3;
+  background: #282828ec;
   background: -webkit-gradient(linear, left top, right top, from(rgba(179, 0, 179, 0.948278)), color-stop(0%, rgba(40, 40, 40, 0.925175)));
   background: linear-gradient(90deg, rgba(179, 0, 179, 0.948278) 0%, rgba(40, 40, 40, 0.925175) 0%);
   border-radius: 30px;
@@ -105,12 +104,18 @@ body div.App header ul.nav-btns li {
       -ms-flex-pack: center;
           justify-content: center;
   letter-spacing: 1px;
+  color: #fff;
 }
 
 body div.App header ul.nav-btns li:hover span {
   font-size: 2rem;
   -webkit-transition: font-size .2s linear;
   transition: font-size .2s linear;
+}
+
+body div.App header ul.nav-btns li i.user-icon {
+  font-size: 1.2rem;
+  margin-right: 5px;
 }
 
 body div.App header ul.nav-btns li span {
@@ -124,6 +129,22 @@ body div.App header ul.nav-btns li a {
 
 body div.App header ul.nav-btns li.signup-btn {
   margin-left: 10px;
+}
+
+body div.App div.logo-on-form {
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+body div.App div.logo-on-form span {
+  font-size: 2rem;
+}
+
+body div.App div.logo-on-form a {
+  color: #333;
 }
 
 body div.App form.login-form,
@@ -177,7 +198,7 @@ body div.App form.signup-form button.signup-btn {
   border-radius: 5px;
   -webkit-box-shadow: 0px 0px 10px -1px #666666;
   box-shadow: 0px 0px 10px -1px #666666;
-  background-color: #8b018b;
+  background-color: #282828ec;
   letter-spacing: 2px;
 }
 
@@ -233,9 +254,7 @@ body div.App div.wrapper div.sidebar-nav {
   position: sticky;
   top: 0;
   width: 25%;
-  background: #b300b3;
-  background: -webkit-gradient(linear, left top, right top, from(rgba(179, 0, 179, 0.948278)), color-stop(0%, rgba(40, 40, 40, 0.925175)));
-  background: linear-gradient(90deg, rgba(179, 0, 179, 0.948278) 0%, rgba(40, 40, 40, 0.925175) 0%);
+  background-color: #282828ec;
   border-top-left-radius: 50px;
   border-bottom-left-radius: 50px;
   padding: 10px 0;
@@ -245,7 +264,7 @@ body div.App div.wrapper div.sidebar-nav {
 
 body div.App div.wrapper div.sidebar-nav h2 {
   color: #fff;
-  margin: 35px 0;
+  margin: 25px 0;
 }
 
 body div.App div.wrapper div.sidebar-nav ul {
@@ -378,11 +397,28 @@ body div.App div.wrapper div.form-and-list-cont div.form div.search-cont button:
   transition: font-size .2s linear;
 }
 
-body div.App div.wrapper div.form-and-list-cont div.results {
+body div.App div.wrapper div.form-and-list-cont div.directions-and-results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
   width: 95%;
   margin: 10px auto 20px auto;
-  text-align: center;
-  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.directions-and-results div.directions {
+  font-size: 1.1rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.directions-and-results div.results {
+  font-size: .9rem;
 }
 
 body div.App div.wrapper div.form-and-list-cont div.load-wrapper {
