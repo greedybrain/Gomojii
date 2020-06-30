@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
-      resources :users
+      resources :users do 
+        resources :emojis, only: [:create, :destroy]
+      end
       resources :sessions, only: [:create]
       resources :registrations, only: [:create]
       delete :logout, to: "sessions#logout"
