@@ -70,7 +70,7 @@ const EmojiList = () => {
           <>
                <div className="directions-and-results">
                     <div className="directions">
-                         Click to copy <i className="far fa-copy"></i>, then paste <i className="far fa-clipboard"></i> emoji
+                         Double click to copy <i className="far fa-copy"></i>, then paste <i className="far fa-clipboard"></i> <span role="img" aria-label="winking emoji">😉</span>
                     </div>
                     <div className="results">
                          {allEmojis === null ? 0 : allEmojis.length} emojis found

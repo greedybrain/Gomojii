@@ -7,7 +7,7 @@ const Emoji = ({ emoji }) => {
      }
      return (  
           <CopyToClipboard text={emoji.character}>
-               <li onClick={copySuccessMsg} className="emoji animate__animated animate__fadeIn animate__fast" title={emoji.unicodeName || emoji.slug}>
+               <li onDoubleClick={copySuccessMsg} className="emoji animate__animated animate__fadeIn animate__fast" title={emoji.unicodeName || emoji.slug}>
                     {emoji.character}
                </li>
           </CopyToClipboard>
