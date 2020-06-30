@@ -19,20 +19,21 @@ const Header = ({ handleLogout }) => {
                     {
                          user.logged_in ?
                               <>
-                                   <div className="username">
+                                   <li className="username nav-link">
+                                        <i className="fas fa-user user-icon"></i>
                                         { user.user.username.slice(0,1).toUpperCase() + user.user.username.slice(1)}
-                                   </div>
-                                   <li className="logout-btn">
+                                   </li>
+                                   <li className="logout-btn nav-link">
                                         <span role="img" aria-label="peace sign emoji">✌</span><Logout handleLogout={handleLogout} />
                                    </li>
                               </>
                               :
                               <>
-                                   <li className="login-btn">
+                                   <li className="login-btn nav-link">
                                         <Link to="/login"><span role="img" aria-label="woman on computer emoji">👩‍💻</span> Login</Link>
                                    </li>
-                                   <li className="signup-btn">
-                                        <Link to="/signup"><span role="img" aria-label="woman raising hand">🙋</span> Signup</Link>
+                                   <li className="signup-btn nav-link">
+                                        <Link to="/signup"><span role="img" aria-label="woman raising hand">🙋🏽‍♂️</span> Signup</Link>
                                    </li>
                               </>
 
