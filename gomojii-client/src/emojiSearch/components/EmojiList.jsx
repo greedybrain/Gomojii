@@ -50,17 +50,31 @@ const EmojiList = () => {
      }
 
      //todo: mapping information to each emoji component which is an li
-     const renderEmojis = getEmojis().map((emoji, index) => {
-          return (
-               <Emoji key={index} emoji={emoji} />
-          )
+     const allEmojis = []
+     getEmojis().forEach(emoji => {
+          if (Object.keys(emoji).includes("variants")) {
+               emoji.variants.forEach(variant => {
+                    allEmojis.push(variant)
+               })
+          } else {
+               allEmojis.push(emoji)
+          }
      })
+     const renderEmojis = allEmojis.map((emoji, index) => {
+          return <Emoji key={index} emoji={emoji} />
+     })
+     
 
      //todo: rendering the result amount and the actual emojis
      return (
           <>
-               <div className="results">
-                    {getEmojis() === null ? 0 : getEmojis().length} emojis found
+               <div className="directions-and-results">
+                    <div className="directions">
+                         Click to copy <i className="far fa-copy"></i>, then paste <i className="far fa-clipboard"></i> emoji
+                    </div>
+                    <div className="results">
+                         {allEmojis === null ? 0 : allEmojis.length} emojis found
+                    </div>
                </div>
                { showLoadIndicator() }
                <ul>
