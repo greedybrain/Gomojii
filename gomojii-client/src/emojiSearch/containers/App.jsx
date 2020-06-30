@@ -4,7 +4,7 @@ import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
 import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
-import { validateSession, endUsersSession } from '../../store/middleware/serverAuth';
+import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 import Registration from '../../auth/Registration';
 import Header from '../../static/components/Header';

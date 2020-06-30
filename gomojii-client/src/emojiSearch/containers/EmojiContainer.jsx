@@ -2,9 +2,6 @@ import React from 'react';
 import EmojiSearchForm from '../components/EmojiSearchForm';
 import EmojiList from '../components/EmojiList';
 import SidebarFilter from '../components/SidebarFilter';
-import { useDispatch } from 'react-redux';
-import { endUsersSession } from '../../store/middleware/serverAuth';
-import Header from '../../static/components/Header';
 
 const EmojiContainer = () => {
 
