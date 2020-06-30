@@ -29,11 +29,12 @@ body {
      background-image: url("images/emoji-bg-1.jpg");
      background-position: center;
      background-repeat: repeat;
-     // padding: 20px 0;
 
      div.App {
           display: grid;
-          align-items: center;
+          border: 1px solid #333;
+          padding: 15px 0;
+          // align-items: center;
           height: 100vh;
 
           header {
@@ -132,7 +133,7 @@ body {
           form.login-form,
           form.signup-form {
                justify-self: center;
-               margin-bottom: 30px;
+               margin-bottom: 90px;
                width: 27%;
                padding: 10px 20px 30px;
                border-radius: 8px;
