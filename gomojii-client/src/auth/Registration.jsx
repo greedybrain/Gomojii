@@ -41,7 +41,7 @@ const Registration = ({ history }) => {
           dispatch(setUserUsername(''))
           dispatch(setUserPassword(''))
 
-          history.push('/emoji_search')
+          history.push('/emojis')
           
           event.preventDefault()
      }
@@ -86,7 +86,7 @@ const Registration = ({ history }) => {
                </div>
                <p className="already-user">Already a user? <Link to="/login">Login</Link></p>
                <div className="form-footer">
-                    <span role="img" aria-label="copyright emoji">©️</span> 2020 Gomojii | <Link to="/emoji_search">Home</Link> 
+                    <span role="img" aria-label="copyright emoji">©️</span> 2020 Gomojii | <Link to="/emojis">Home</Link> 
                </div>
           </form>
      );
