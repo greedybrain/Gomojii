@@ -6,9 +6,9 @@ import Logo from './Logo';
 
 const Header = () => {
      const state = useSelector(state => ({
-          user: state.authRed.user 
+          userData: state.authRed.userData 
      }))
-     const { user } = state
+     const { userData } = state
 
      return ( 
           <header>
@@ -17,11 +17,21 @@ const Header = () => {
                </div>
                <ul className="nav-btns">
                     {
-                         user.logged_in ?
+                         userData.logged_in ?
                               <>
+                                   <li className="favmojis nav-link">
+                                        <Link to="#">
+                                             <span className="heart-moji" role="img" aria-label="heart emoji">❤️</span>
+                                             <span className="save-count">
+                                                  { userData.user.data.attributes.emojis.length }
+                                             </span>
+                                        </Link>
+                                   </li>
                                    <li className="username nav-link">
                                         <i className="fas fa-user user-icon"></i>
-                                        { user.user.username.slice(0,1).toUpperCase() + user.user.username.slice(1)}
+                                        {
+                                             userData.user.data.attributes.username.slice(0, 1).toUpperCase() + userData.user.data.attributes.username.slice(1)
+                                        }
                                    </li>
                                    <li className="logout-btn nav-link">
                                         <span role="img" aria-label="peace sign emoji">✌</span><Logout />
