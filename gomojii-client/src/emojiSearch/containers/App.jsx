@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
+import { loadEmojis, loadCategories, loadUsersSavedEmojis } from '../../store/middleware/apiEmojiSearch';
 import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 import Registration from '../../auth/Registration';
@@ -15,14 +15,17 @@ class App extends Component {
   //todo: inside this lifecycle method I'm loading the emojis and categories to work with later on throughout the application
   componentDidMount() {
     //todo: getting the below methods from props
-    const { loadEmojis, loadCategories, validateSession, loggedInStatus } = this.props
+    const { loadUsersEmojis, loadEmojis, loadCategories, validateSession, loggedInStatus } = this.props
     loadEmojis()
     loadCategories()
     validateSession(loggedInStatus)
+    setTimeout(() => {
+      loadUsersEmojis()
+    }, 15000)
   }
 
   render() {
-    const { user } = this.props
+    const { userData } = this.props
     return (
       <div className="App">
         <BrowserRouter>
@@ -31,14 +34,14 @@ class App extends Component {
             <Route
               path='/login'
               render={(props) => {
-                return user.logged_in ? <Redirect to="/emojis" /> : <Login {...props} />
+                return userData.logged_in ? <Redirect to="/emojis" /> : <Login {...props} />
               }} 
             />
 
             <Route
               path='/signup'
               render={(props) => {
-                return user.logged_in ? <Redirect to="/emojis" /> : <Registration {...props} />
+                return userData.logged_in ? <Redirect to="/emojis" /> : <Registration {...props} />
               }}
             />
             
@@ -61,7 +64,7 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   loggedInStatus: state.authRed.loggedInStatus,
-  user: state.authRed.user,
+  userData: state.authRed.userData,
   loading: state.emojisRed.loading
 })
 
@@ -70,6 +73,7 @@ const mapDispatchToProps = dispatch => ({
   loadEmojis: () => dispatch(loadEmojis()),
   loadCategories: () => dispatch(loadCategories()),
   validateSession: status => dispatch(validateSession(status)),
+  loadUsersEmojis: () => dispatch(loadUsersSavedEmojis())
 })
 
 //todo: using connect() allows me to 'connect' a component to the store
