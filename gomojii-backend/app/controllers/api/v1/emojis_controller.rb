@@ -14,7 +14,7 @@ class Api::V1::EmojisController < ApplicationController
                     }
                else
                     render json: {
-                         message: "We couldn't save that emoji, try again"
+                         message: "You already saved that emoji"
                     }
                end
           else 
