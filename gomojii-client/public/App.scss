@@ -85,6 +85,10 @@ body {
                          letter-spacing: 1px;
                          color: #fff;
 
+                         &:not(:last-child) {
+                              margin-right: 5px;
+                         }
+
                          &:hover {
 
                               span {
@@ -106,6 +110,15 @@ body {
                               color: #fff;
                               font-size: 1.2rem;
                          }
+                    }
+
+                    span.heart-moji {
+                         margin-right: 2px;
+                    }
+
+                    span.save-count {
+                         font-family: 'Orbitron', sans-serif;
+                         font-size: 1.1rem;
                     }
 
                     li.signup-btn {

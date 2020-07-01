@@ -106,6 +106,10 @@ body div.App header ul.nav-btns li {
   color: #fff;
 }
 
+body div.App header ul.nav-btns li:not(:last-child) {
+  margin-right: 5px;
+}
+
 body div.App header ul.nav-btns li:hover span {
   font-size: 2rem;
   -webkit-transition: font-size .2s linear;
@@ -124,6 +128,15 @@ body div.App header ul.nav-btns li span {
 body div.App header ul.nav-btns li a {
   color: #fff;
   font-size: 1.2rem;
+}
+
+body div.App header ul.nav-btns span.heart-moji {
+  margin-right: 2px;
+}
+
+body div.App header ul.nav-btns span.save-count {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.1rem;
 }
 
 body div.App header ul.nav-btns li.signup-btn {
