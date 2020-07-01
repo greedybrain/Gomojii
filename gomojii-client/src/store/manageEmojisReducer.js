@@ -6,6 +6,7 @@ const initialState = {
      emojisCategories: [],
      emojisFilteredState: [],
      emojiSearchResults: [],
+     currentUsersSavedEmojis: [],
      emojisLoading: false,
      categoriesLoading: false,
      // lastEmojisFetch: null,
@@ -27,6 +28,16 @@ export default function manageEmojis(state = initialState, action) {
                     emojisLoading: false,
                     // lastEmojisFetch: Date.now()
           }
+          case USER_SAVES_EMOJI:
+               return {
+                    ...state,
+                    currentUsersSavedEmojis: [...state.currentUsersSavedEmojis, action.payload.emoji]
+               }
+          case LOAD_ALL_USERS_SAVED_EMOJIS:
+               return {
+                    ...state,
+                    currentUsersSavedEmojis: action.payload.currentUsersSavedEmojis
+               }
           case START_LOAD_CATEGORIES_REQUEST:
                return {
                     ...state,
@@ -60,6 +71,8 @@ export default function manageEmojis(state = initialState, action) {
 //! EMOJI SEARCH FEATURE - ACTION TYPES
 const START_LOAD_EMOJIS_REQUEST = "START_LOAD_EMOJIS_REQUEST"
 const ADD_EMOJIS = "ADD_EMOJIS"
+const USER_SAVES_EMOJI = "USER_SAVES_EMOJI"
+const LOAD_ALL_USERS_SAVED_EMOJIS = "LOAD_ALL_USERS_SAVED_EMOJIS"
 const START_LOAD_CATEGORIES_REQUEST = "START_LOAD_CATEGORIES_REQUEST"
 const ADD_CATEGORIES = "ADD_CATEGORIES"
 const QUERY_EMOJIS = "QUERY_EMOJIS"
@@ -76,6 +89,21 @@ export const addEmojis = emojis => ({
      type: ADD_EMOJIS,
      payload: {
           emojis
+     }
+})
+
+//todo: user saves emoji
+export const userSavesEmoji = emoji => ({
+     type: USER_SAVES_EMOJI,
+     payload: {
+          emoji
+     }
+})
+
+export const loadAllUsersSavedEmojis = currentUsersSavedEmojis => ({
+     type: LOAD_ALL_USERS_SAVED_EMOJIS,
+     payload: {
+          currentUsersSavedEmojis
      }
 })
 
