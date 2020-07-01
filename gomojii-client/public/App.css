@@ -131,6 +131,7 @@ body div.App header ul.nav-btns li a {
 }
 
 body div.App header ul.nav-btns span.heart-moji {
+  display: inline-block;
   margin-right: 2px;
 }
 
