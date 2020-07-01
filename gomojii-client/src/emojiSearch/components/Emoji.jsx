@@ -7,16 +7,11 @@ const Emoji = ({ emoji }) => {
      const copySuccessMsg = () => {
           alert("COPIED!")
      }
-     const state = useSelector(state => ({
-          userData: state.authRed.userData
-     }))
-     const { emojis } = state.userData.user.data.attributes
      const dispatch = useDispatch()
 
      const handleSaveEmoji = () => {
           const { slug, character } = emoji
           dispatch(saveEmoji(slug, character))
-          emojis.length++
      }
 
      return (  
