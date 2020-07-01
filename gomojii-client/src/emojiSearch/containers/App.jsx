@@ -19,9 +19,7 @@ class App extends Component {
     loadEmojis()
     loadCategories()
     validateSession(loggedInStatus)
-    setTimeout(() => {
-      loadUsersEmojis()
-    }, 15000)
+    setTimeout(() => loadUsersEmojis(), 5000)
   }
 
   render() {
