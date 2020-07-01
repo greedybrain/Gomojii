@@ -5,7 +5,7 @@ const initialState = {
      email: '',
      username: '',
      password: '',
-     user: {},
+     userData: {},
      loggedInStatus: "NOT_LOGGED_IN",
 }
 
@@ -30,25 +30,25 @@ export default function manageAuth(state = initialState, action) {
           case PROCEED_IF_LOGGED_IN:
                return {
                     ...state,
-                    user: action.payload.user,
+                    userData: action.payload.userData,
                     loggedInStatus: "LOGGED_IN"
                }
           case SIGNUP_USER:
                return {
                     ...state,
-                    user: action.payload.user,
+                    userData: action.payload.userData,
                     loggedInStatus: "LOGGED_IN"
                }
           case LOGIN_USER:
                return {
                     ...state,
-                    user: action.payload.user,
+                    userData: action.payload.userData,
                     loggedInStatus: "LOGGED_IN",
                }
           case LOGOUT_USER:
                return {
                     ...state,
-                    user: {},
+                    userData: {},
                     loggedInStatus: "NOT_LOGGED_IN"
                }
           default:
@@ -88,27 +88,27 @@ export const setUserPassword = password => ({
 })
 
 //todo: checking if user is already logged in
-export const proceedIfUserLoggedIn = (user, loggedInStatus) => ({
+export const proceedIfUserLoggedIn = (userData, loggedInStatus) => ({
      type: PROCEED_IF_LOGGED_IN,
      payload: {
-          user,
+          userData,
           loggedInStatus
      }
 })
 
 //todo: signup user
-export const signupUser = user => ({
+export const signupUser = userData => ({
      type: SIGNUP_USER,
      payload: {
-          user
+          userData
      }
 })
 
 //todo: login user
-export const loginUser = user => ({
+export const loginUser = userData => ({
      type: LOGIN_USER,
      payload: {
-          user
+          userData
      }
 })
 
