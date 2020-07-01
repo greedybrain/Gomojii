@@ -6,9 +6,10 @@ import Logo from './Logo';
 
 const Header = () => {
      const state = useSelector(state => ({
-          userData: state.authRed.userData 
+          userData: state.authRed.userData,
+          currentUsersSavedEmojis: state.emojisRed.currentUsersSavedEmojis
      }))
-     const { userData } = state
+     const { userData, currentUsersSavedEmojis } = state
 
      return ( 
           <header>
@@ -23,7 +24,7 @@ const Header = () => {
                                         <Link to="#">
                                              <span className="heart-moji" role="img" aria-label="heart emoji">❤️</span>
                                              <span className="save-count">
-                                                  { userData.user.data.attributes.emojis.length }
+                                                  { currentUsersSavedEmojis.length }
                                              </span>
                                         </Link>
                                    </li>
