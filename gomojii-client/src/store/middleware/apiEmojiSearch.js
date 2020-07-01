@@ -49,8 +49,16 @@ export const saveEmoji = (slug, character) => {
                     { slug, character },
                     { withCredentials: true }
                )
-          const emoji = response.data.emoji.data
-          dispatch(userSavesEmoji(emoji))
+          if (response.data.message) {
+               const message = response.data.message
+               alert(message);
+          } else {
+               const emoji = response.data.emoji.data
+               dispatch(userSavesEmoji(emoji))
+               const { slug, character } = emoji.attributes
+               alert(`You just saved the ${slug} ${character} emoji`)
+               data.attributes.emojis.length++
+          }
      }
 }
 
