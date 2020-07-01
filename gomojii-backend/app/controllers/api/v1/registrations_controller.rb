@@ -10,7 +10,7 @@ class Api::V1::RegistrationsController < ApplicationController
                session[:user_id] = user.id 
                render json: {
                     status: :created,
-                    user: user
+                    user: UserSerializer.new(user).serializable_hash
                }
           else
                render json: {

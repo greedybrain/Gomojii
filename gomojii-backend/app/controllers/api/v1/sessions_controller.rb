@@ -6,7 +6,7 @@ class Api::V1::SessionsController < ApplicationController
                render json: {
                     status: :created,
                     logged_in: true,
-                    user: user
+                    user: UserSerializer.new(user).serializable_hash
                }
           else
                render json: {
@@ -19,7 +19,7 @@ class Api::V1::SessionsController < ApplicationController
           if @current_user 
                render json: {
                     logged_in: true,
-                    user: @current_user
+                    user: UserSerializer.new(@current_user).serializable_hash
                }
           else 
                render json: {
