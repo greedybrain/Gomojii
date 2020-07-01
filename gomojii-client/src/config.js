@@ -8,7 +8,9 @@ export const retrieveFrom = {
           loggedIn: "/logged_in",
           sessions: "/sessions",
           registrations: "/registrations",
-          logout: "/logout"
+          logout: "/logout",
+          users_path: '/users',
+          emojis_path: '/emojis',
      },
      security: {
           accessKey: "access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321"
