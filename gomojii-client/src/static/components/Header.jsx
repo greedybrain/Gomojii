@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Logout from '../../auth/Logout';
 import Logo from './Logo';
@@ -10,23 +10,6 @@ const Header = () => {
           usersSavedEmojisLoading: state.emojisRed.usersSavedEmojisLoading
      }))
      const { userData } = state
-
-     const showLoadIndicatorThenRenderFavs = () => {
-          if (state.usersSavedEmojisLoading) {
-               return (
-                    <div className="loading-indicator-in-header">
-                         <span className="circle-moji animate__animated animate__rotateIn animate__repeat-3 animate__faster" role="img" aria-label="circle emoji">⭕</span>
-                    </div>
-               )
-          } else {
-               return (
-                    <div className="loading-indicator-in-header">
-                         <span className="heart-moji" role="img" aria-label="heart emoji">❤️</span>
-                         <span className="save-count">{ userData.user.data.attributes.emojis.length }</span>
-                    </div>
-               )
-          }
-     }
 
      return ( 
           <header>
@@ -39,7 +22,10 @@ const Header = () => {
                               <>
                                    <li className="favmojis nav-link">
                                         <Link to="#">
-                                             { showLoadIndicatorThenRenderFavs() }
+                                             <div className="loading-indicator-in-header">
+                                                  <span className="heart-moji" role="img" aria-label="heart emoji">❤️</span>
+                                                  <span className="save-count">{ userData.user.data.attributes.emojis.length }</span>
+                                             </div>
                                         </Link>
                                    </li>
                                    <li className="username nav-link">
@@ -55,10 +41,10 @@ const Header = () => {
                               :
                               <>
                                    <li className="login-btn nav-link">
-                                        <Link to="/login"><span role="img" aria-label="woman on computer emoji">👩‍💻</span> Login</Link>
+                                        <NavLink activeClassName="active" to="/login"><span role="img" aria-label="woman on computer emoji" className="nav-icon">👩‍💻</span> Login</NavLink>
                                    </li>
                                    <li className="signup-btn nav-link">
-                                        <Link to="/signup"><span role="img" aria-label="woman raising hand">🙋🏽‍♂️</span> Signup</Link>
+                                        <NavLink activeClassName="active" to="/signup"><span role="img" aria-label="woman raising hand" className="nav-icon">🙋🏽‍♂️</span> Signup</NavLink>
                                    </li>
                               </>
 
