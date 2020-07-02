@@ -130,12 +130,14 @@ body div.App header ul.nav-btns li a {
   font-size: 1.2rem;
 }
 
-body div.App header ul.nav-btns span.heart-moji {
+body div.App header ul.nav-btns div.loading-indicator-in-header span.circle-moji,
+body div.App header ul.nav-btns div.loading-indicator-in-header span.heart-moji {
   display: inline-block;
   margin-right: 2px;
+  --animate-repeat: 1000;
 }
 
-body div.App header ul.nav-btns span.save-count {
+body div.App header ul.nav-btns div.loading-indicator-in-header span.save-count {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.1rem;
 }
