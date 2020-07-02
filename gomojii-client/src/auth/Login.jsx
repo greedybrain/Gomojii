@@ -5,6 +5,7 @@ import { setUserEmail, setUserPassword } from '../store/manageAuthReducer';
 import { Link } from 'react-router-dom';
 import Logo from '../static/components/Logo';
 
+
 const Login = (props) => {
      const state = useSelector(state => ({
           email: state.authRed.email,
