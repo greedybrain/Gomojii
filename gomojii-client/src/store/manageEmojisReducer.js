@@ -9,7 +9,6 @@ const initialState = {
      currentUsersSavedEmojis: [],
      emojisLoading: false,
      categoriesLoading: false,
-     usersSavedEmojisLoading: false
 }
 
 //todo: this is my reducer handling all types of emojiSearch functions eg. adding emojis and searching through them
@@ -31,16 +30,10 @@ export default function manageEmojis(state = initialState, action) {
                     ...state,
                     currentUsersSavedEmojis: [...state.currentUsersSavedEmojis, action.payload.emoji]
                }
-          case START_LOAD_USERS_SAVED_EMOJIS_REQUEST:
-               return {
-                    ...state,
-                    usersSavedEmojisLoading: true,
-               }
           case ADD_USERS_SAVED_EMOJIS:
                return {
                     ...state,
-                    usersSavedEmojisLoading: false,
-                    currentUsersSavedEmojis: [...action.payload.currentUsersSavedEmojis]
+                    currentUsersSavedEmojis: [...action.payload.currentUsersSavedEmojis],
                }
           case START_LOAD_CATEGORIES_REQUEST:
                return {
@@ -80,7 +73,6 @@ export default function manageEmojis(state = initialState, action) {
 const START_LOAD_EMOJIS_REQUEST = "START_LOAD_EMOJIS_REQUEST"
 const ADD_EMOJIS = "ADD_EMOJIS"
 const USER_SAVES_EMOJI = "USER_SAVES_EMOJI"
-const START_LOAD_USERS_SAVED_EMOJIS_REQUEST = "START_LOAD_USERS_SAVED_EMOJIS_REQUEST"
 const ADD_USERS_SAVED_EMOJIS = "ADD_USERS_SAVED_EMOJIS"
 const START_LOAD_CATEGORIES_REQUEST = "START_LOAD_CATEGORIES_REQUEST"
 const ADD_CATEGORIES = "ADD_CATEGORIES"
@@ -108,11 +100,6 @@ export const userSavesEmoji = emoji => ({
      payload: {
           emoji
      }
-})
-
-//todo: begins loading users saved emojis
-export const loadAllUsersSavedEmojis = () => ({
-     type: START_LOAD_USERS_SAVED_EMOJIS_REQUEST
 })
 
 //todo: once saved emojis are retrieved add them to state
