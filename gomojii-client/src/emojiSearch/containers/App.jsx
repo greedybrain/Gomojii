@@ -19,7 +19,7 @@ class App extends Component {
     loadEmojis()
     loadCategories()
     validateSession(loggedInStatus)
-    setTimeout(() => loadUsersEmojis(), 5000)
+    setTimeout(() => loadUsersEmojis(), 3000)
   }
 
   render() {
@@ -63,7 +63,7 @@ class App extends Component {
 const mapStateToProps = state => ({
   loggedInStatus: state.authRed.loggedInStatus,
   userData: state.authRed.userData,
-  loading: state.emojisRed.loading
+  loading: state.emojisRed.loading,
 })
 
 //todo: mapping my dispatch to props 
