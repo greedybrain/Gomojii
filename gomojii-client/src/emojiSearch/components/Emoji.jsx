@@ -4,14 +4,20 @@ import { useDispatch, useSelector } from 'react-redux';
 import { saveEmoji } from '../../store/middleware/apiEmojiSearch';
 
 const Emoji = ({ emoji }) => {
+     const dispatch = useDispatch()
+     const state = useSelector(state => ({
+          userData: state.authRed.userData
+     }))
+     const { emojis } = state.userData.user !== undefined ? state.userData.user.data.attributes : 0
+     
      const copySuccessMsg = () => {
           alert("COPIED!")
      }
-     const dispatch = useDispatch()
-
+     
      const handleSaveEmoji = () => {
           const { slug, character } = emoji
           dispatch(saveEmoji(slug, character))
+          emojis.length++
      }
 
      return (  
