@@ -2,6 +2,7 @@
 import { retrieveFrom } from '../../config'
 import axios from 'axios'
 import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn } from '../manageAuthReducer'
+import { clearEmojisOnLogout } from '../manageEmojisReducer'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
@@ -70,6 +71,7 @@ export const endUsersSession = () => {
                     logoutPath,
                     { withCredentials: true }
                )
+          dispatch(clearEmojisOnLogout())
           dispatch(logoutUser())
      }
 }

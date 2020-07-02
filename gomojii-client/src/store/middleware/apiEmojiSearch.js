@@ -7,7 +7,8 @@ import {
      startLoadCategories, 
      addCategories,
      userSavesEmoji,
-     loadAllUsersSavedEmojis
+     loadAllUsersSavedEmojis,
+     addAllUsersSavedEmojis
 } from '../manageEmojisReducer'
 
 //todo: returns my endpoint urls from my config file
@@ -49,16 +50,8 @@ export const saveEmoji = (slug, character) => {
                     { slug, character },
                     { withCredentials: true }
                )
-          if (response.data.message) {
-               const message = response.data.message
-               alert(message);
-          } else {
-               const emoji = response.data.emoji.data
-               dispatch(userSavesEmoji(emoji))
-               const { slug, character } = emoji.attributes
-               alert(`You just saved the ${slug} ${character} emoji`)
-               data.attributes.emojis.length++
-          }
+          const emojiData = response.data.emoji.data
+          dispatch(userSavesEmoji(emojiData))
      }
 }
 
@@ -66,14 +59,21 @@ export const loadUsersSavedEmojis = () => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Fetch request to get all of a current users saved emojis
      return async (dispatch, getState) => {
-          const { data } = getState().authRed.userData.user
-          const response = await axios(
-               {
-                    url: `${baseUrl}${users_path}/${data.id}`
-               },
-               { withCredentials: true }
-          )
-          const savedEmojis = response.data.user.data.attributes.emojis
-          dispatch(loadAllUsersSavedEmojis(savedEmojis))
+          //todo: dispatch action here to begin loading saved emojis 
+          dispatch(loadAllUsersSavedEmojis())
+          const { userData } = getState().authRed
+          if (userData.user !== undefined) {
+               const response = await axios(
+                    {
+                         url: `${baseUrl}${users_path}/${userData.user.data.id}`
+                    },
+                    { withCredentials: true }
+               )
+               const savedEmojis = response.data.user.data.attributes.emojis
+               dispatch(addAllUsersSavedEmojis(savedEmojis))
+          } else {
+               return null
+          }
+          
      }    
 }
