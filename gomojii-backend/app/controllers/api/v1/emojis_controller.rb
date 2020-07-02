@@ -8,6 +8,7 @@ class Api::V1::EmojisController < ApplicationController
      def create 
           if @current_user
                emoji = @current_user.emojis.build(emoji_params)
+          
                if emoji.save
                     render json: {
                          emoji: EmojiSerializer.new(emoji).serializable_hash
