@@ -25,6 +25,11 @@ img {
   display: none;
 }
 
+.active {
+  border-bottom: 3px solid #ffffffaf;
+  padding-bottom: 3px;
+}
+
 body {
   font-family: 'Montserrat', sans-serif;
   background-image: url("images/emoji-bg-1.jpg");
