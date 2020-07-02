@@ -7,9 +7,26 @@ import Logo from './Logo';
 const Header = () => {
      const state = useSelector(state => ({
           userData: state.authRed.userData,
-          currentUsersSavedEmojis: state.emojisRed.currentUsersSavedEmojis
+          usersSavedEmojisLoading: state.emojisRed.usersSavedEmojisLoading
      }))
-     const { userData, currentUsersSavedEmojis } = state
+     const { userData } = state
+
+     const showLoadIndicatorThenRenderFavs = () => {
+          if (state.usersSavedEmojisLoading) {
+               return (
+                    <div className="loading-indicator-in-header">
+                         <span className="circle-moji animate__animated animate__rotateIn animate__repeat-3 animate__faster" role="img" aria-label="circle emoji">⭕</span>
+                    </div>
+               )
+          } else {
+               return (
+                    <div className="loading-indicator-in-header">
+                         <span className="heart-moji" role="img" aria-label="heart emoji">❤️</span>
+                         <span className="save-count">{ userData.user.data.attributes.emojis.length }</span>
+                    </div>
+               )
+          }
+     }
 
      return ( 
           <header>
@@ -22,10 +39,7 @@ const Header = () => {
                               <>
                                    <li className="favmojis nav-link">
                                         <Link to="#">
-                                             <span className="heart-moji" role="img" aria-label="heart emoji">❤️</span>
-                                             <span className="save-count">
-                                                  { currentUsersSavedEmojis.length }
-                                             </span>
+                                             { showLoadIndicatorThenRenderFavs() }
                                         </Link>
                                    </li>
                                    <li className="username nav-link">
