@@ -7,7 +7,6 @@ import {
      startLoadCategories, 
      addCategories,
      userSavesEmoji,
-     loadAllUsersSavedEmojis,
      addAllUsersSavedEmojis
 } from '../manageEmojisReducer'
 
@@ -59,10 +58,8 @@ export const loadUsersSavedEmojis = () => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Fetch request to get all of a current users saved emojis
      return async (dispatch, getState) => {
-          //todo: dispatch action here to begin loading saved emojis 
-          dispatch(loadAllUsersSavedEmojis())
           const { userData } = getState().authRed
-          if (userData.user !== undefined) {
+          // if (userData.user !== undefined) {
                const response = await axios(
                     {
                          url: `${baseUrl}${users_path}/${userData.user.data.id}`
@@ -71,9 +68,9 @@ export const loadUsersSavedEmojis = () => {
                )
                const savedEmojis = response.data.user.data.attributes.emojis
                dispatch(addAllUsersSavedEmojis(savedEmojis))
-          } else {
-               return null
-          }
+          // } else {
+          //      return null
+          // }
           
      }    
 }
