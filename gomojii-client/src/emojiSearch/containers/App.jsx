@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
-import { loadEmojis, loadCategories, loadUsersSavedEmojis } from '../../store/middleware/apiEmojiSearch';
+import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
 import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 import Registration from '../../auth/Registration';
@@ -15,11 +15,10 @@ class App extends Component {
   //todo: inside this lifecycle method I'm loading the emojis and categories to work with later on throughout the application
   componentDidMount() {
     //todo: getting the below methods from props
-    const { loadUsersEmojis, loadEmojis, loadCategories, validateSession, loggedInStatus } = this.props
+    const { loadEmojis, loadCategories, validateSession, loggedInStatus } = this.props
     loadEmojis()
     loadCategories()
     validateSession(loggedInStatus)
-    setTimeout(() => loadUsersEmojis(), 3000)
   }
 
   render() {
@@ -71,7 +70,6 @@ const mapDispatchToProps = dispatch => ({
   loadEmojis: () => dispatch(loadEmojis()),
   loadCategories: () => dispatch(loadCategories()),
   validateSession: status => dispatch(validateSession(status)),
-  loadUsersEmojis: () => dispatch(loadUsersSavedEmojis())
 })
 
 //todo: using connect() allows me to 'connect' a component to the store
