@@ -17,7 +17,7 @@ const EmojiList = () => {
      let { emojis, emojiSearchResults, emojisFilteredState } = state
      const { innyMinnyMineyMo } = retrieveFrom.customMethods
 
-     const showLoadIndicator = () => {
+     const showLoadIndicatorThenRenderEmojis = () => {
           if (state.emojisLoading) {
                return (
                     <div className="load-wrapper">
@@ -70,13 +70,13 @@ const EmojiList = () => {
           <>
                <div className="directions-and-results">
                     <div className="directions">
-                         Double click to copy <i className="far fa-copy"></i>, then paste <i className="far fa-clipboard"></i> <span role="img" aria-label="winking emoji">😉</span>
+                         Click to bookmark <span role="img" aria-label="bookmark emoji">🔖</span><span role="img" aria-label="winking emoji"> emoji 😉</span>
                     </div>
                     <div className="results">
                          {allEmojis === null ? 0 : allEmojis.length} emojis found
                     </div>
                </div>
-               { showLoadIndicator() }
+               { showLoadIndicatorThenRenderEmojis() }
                <ul>
                     { renderEmojis }
                </ul>
