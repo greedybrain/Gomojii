@@ -54,7 +54,7 @@ const SidebarFilter = () => {
      //todo: this handles the actual rendering of all mapped LI's
      return ( 
           <> 
-               <h2>Search Emojis <span role="img" aria-label="smiling emoji">😀</span></h2>
+               <h2><span role="img" aria-label="magnifying-glass emoji">🔎</span> Emojis <span role="img" aria-label="looking emoji">👀</span></h2>
                <ul>
                     <li
                          onClick={handleAllEmojiClick}
