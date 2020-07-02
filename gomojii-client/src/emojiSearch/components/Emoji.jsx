@@ -17,8 +17,25 @@ const Emoji = ({ emoji }) => {
      const handleSaveEmoji = () => {
           const { slug, character } = emoji
           dispatch(saveEmoji(slug, character))
+          const heartMoji = document.querySelector('.heart-moji')
+          heartMoji.classList.add(
+               "animate__animated",
+               "animate__heartBeat",
+               "animate__fast"
+          )
           emojis.length++
+          setTimeout(() => {
+               heartMoji.classList.remove(
+                    "animate__animated",
+                    "animate__heartBeat",
+                    "animate__fast"
+               )
+          }, 500)
      }
+
+     // const animateHeartBeatOnSave = event => {
+          
+     // }
 
      return (  
           <CopyToClipboard text={emoji.character}>
