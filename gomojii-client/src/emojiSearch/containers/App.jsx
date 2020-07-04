@@ -2,13 +2,15 @@
 import React, { Component } from 'react';
 import EmojiContainer from './EmojiContainer';
 import { connect } from 'react-redux';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom'
+import { Switch, Route, Redirect } from 'react-router-dom'
 import { loadEmojis, loadCategories } from '../../store/middleware/apiEmojiSearch';
 import { validateSession } from '../../store/middleware/serverAuth';
 import Login from '../../auth/Login';
 import Registration from '../../auth/Registration';
-import Header from '../../static/components/Header';
 import NotFound from '../../static/components/NotFound';
+import { helper } from '../../helper';
+import HeaderIfLoggedIn from '../../static/components/HeaderIfLoggedIn';
+import HeaderIfLoggedOut from '../../static/components/HeaderIfLoggedOut';
 
 class App extends Component {
 
@@ -21,24 +23,30 @@ class App extends Component {
     validateSession(loggedInStatus)
   }
 
+  renderCorrectHeader = () => {
+    const { userData } = this.props
+    const { userIsLoggedIn } = helper
+    return userIsLoggedIn(userData) ? <HeaderIfLoggedIn /> : <HeaderIfLoggedOut/>
+  }
+
   render() {
     const { userData } = this.props
+    const { userIsLoggedIn } = helper
     return (
       <div className="App">
-        <BrowserRouter>
-          <Header />
+          { this.renderCorrectHeader() }
           <Switch >
             <Route
               path='/login'
               render={(props) => {
-                return userData.logged_in ? <Redirect to="/emojis" /> : <Login {...props} />
+                return userIsLoggedIn(userData) ? <Redirect to="/emojis" /> : <Login {...props} />
               }} 
             />
 
             <Route
               path='/signup'
               render={(props) => {
-                return userData.logged_in ? <Redirect to="/emojis" /> : <Registration {...props} />
+                return userIsLoggedIn(userData) ? <Redirect to="/emojis" /> : <Registration {...props} /> 
               }}
             />
             
@@ -52,8 +60,6 @@ class App extends Component {
             <Redirect to="/not_found" />
 
           </Switch>
-
-        </BrowserRouter>
       </div>
     );
   }
