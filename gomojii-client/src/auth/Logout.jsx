@@ -5,12 +5,12 @@ import { endUsersSession } from '../store/middleware/serverAuth';
 
 const Logout = () => {
      const dispatch = useDispatch()
-
+     
      const logout = () => {
           dispatch(endUsersSession())
      }
      return ( 
-          <Link to='#' onClick={logout}>Logout</Link>
+          <a href='/login' onClick={logout}>Logout</a>
      );
 }
 
