@@ -7,19 +7,21 @@ const EmojiContainer = () => {
 
      //todo: this is just the container that holds all other parts of the emojiSearch feature
      return (
-          <div className="wrapper">
-               <div className="sidebar-nav">
-                    <SidebarFilter />
-               </div>
-               <div className="form-and-list-cont">
-                    <div className="form">
-                         <EmojiSearchForm />
+          <>
+               <div className="wrapper">
+                    <div className="sidebar-nav">
+                         <SidebarFilter />
                     </div>
-                    <div className="emoji-list">
-                         <EmojiList />
+                    <div className="form-and-list-cont">
+                         <div className="form">
+                              <EmojiSearchForm />
+                         </div>
+                         <div className="emoji-list">
+                              <EmojiList />
+                         </div>
                     </div>
                </div>
-          </div>
+          </>
      );
 }
 
