@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "emojis.scss"
+    ],
+    "names": [],
+    "file": "emojis.css"
+}

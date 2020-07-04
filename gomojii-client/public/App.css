@@ -25,11 +25,6 @@ img {
   display: none;
 }
 
-.active {
-  border-bottom: 3px solid #ffffffaf;
-  padding-bottom: 3px;
-}
-
 body {
   font-family: 'Montserrat', sans-serif;
   background-image: url("images/emoji-bg-1.jpg");
@@ -45,7 +40,8 @@ body div.App {
   height: 100vh;
 }
 
-body div.App header {
+body div.App header.header-logged-in,
+body div.App header.header-logged-out {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -70,31 +66,53 @@ body div.App header {
   box-shadow: 0px 0px 10px -1px #666666;
 }
 
-body div.App header div.logo-area-header {
+body div.App header.header-logged-in .active,
+body div.App header.header-logged-out .active {
+  border-bottom: 3px solid #ffffffaf;
+}
+
+body div.App header.header-logged-in .active .nav-icon,
+body div.App header.header-logged-out .active .nav-icon {
+  font-size: 2rem;
+}
+
+body div.App header.header-logged-in div.logo-area-header,
+body div.App header.header-logged-out div.logo-area-header {
   width: 250px;
 }
 
-body div.App header h1.logo-name {
+body div.App header.header-logged-in h1.logo-name,
+body div.App header.header-logged-out h1.logo-name {
   font-size: 2.5rem;
   font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
 }
 
-body div.App header h1.logo-name span {
+body div.App header.header-logged-in h1.logo-name span,
+body div.App header.header-logged-out h1.logo-name span {
   font-size: 1.5rem;
 }
 
-body div.App header h1.logo-name a {
+body div.App header.header-logged-in h1.logo-name a,
+body div.App header.header-logged-out h1.logo-name a {
   color: #fff;
 }
 
-body div.App header ul.nav-btns {
+body div.App header.header-logged-in ul.nav-btns,
+body div.App header.header-logged-out ul.nav-btns {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-body div.App header ul.nav-btns li {
+body div.App header.header-logged-in ul.nav-btns span.home-btn,
+body div.App header.header-logged-out ul.nav-btns span.home-btn {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+body div.App header.header-logged-in ul.nav-btns li,
+body div.App header.header-logged-out ul.nav-btns li {
   border: none;
   padding: 5px 10px;
   border-radius: 30px;
@@ -111,43 +129,45 @@ body div.App header ul.nav-btns li {
   color: #fff;
 }
 
-body div.App header ul.nav-btns li:not(:last-child) {
+body div.App header.header-logged-in ul.nav-btns li:not(:last-child),
+body div.App header.header-logged-out ul.nav-btns li:not(:last-child) {
   margin-right: 5px;
 }
 
-body div.App header ul.nav-btns li:hover span {
-  font-size: 2rem;
-  -webkit-transition: font-size .2s linear;
-  transition: font-size .2s linear;
-}
-
-body div.App header ul.nav-btns li i.user-icon {
+body div.App header.header-logged-in ul.nav-btns li i.user-icon,
+body div.App header.header-logged-out ul.nav-btns li i.user-icon {
   font-size: 1.2rem;
   margin-right: 5px;
 }
 
-body div.App header ul.nav-btns li span {
+body div.App header.header-logged-in ul.nav-btns li span,
+body div.App header.header-logged-out ul.nav-btns li span {
   font-size: 1.3rem;
 }
 
-body div.App header ul.nav-btns li a {
+body div.App header.header-logged-in ul.nav-btns li a,
+body div.App header.header-logged-out ul.nav-btns li a {
   color: #fff;
   font-size: 1.2rem;
 }
 
-body div.App header ul.nav-btns div.loading-indicator-in-header span.circle-moji,
-body div.App header ul.nav-btns div.loading-indicator-in-header span.heart-moji {
+body div.App header.header-logged-in ul.nav-btns div.loading-indicator-in-header span.circle-moji,
+body div.App header.header-logged-in ul.nav-btns div.loading-indicator-in-header span.heart-moji,
+body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-header span.circle-moji,
+body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-header span.heart-moji {
   display: inline-block;
   margin-right: 2px;
   --animate-repeat: 1000;
 }
 
-body div.App header ul.nav-btns div.loading-indicator-in-header span.save-count {
+body div.App header.header-logged-in ul.nav-btns div.loading-indicator-in-header span.save-count,
+body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-header span.save-count {
   font-family: 'Orbitron', sans-serif;
   font-size: 1.1rem;
 }
 
-body div.App header ul.nav-btns li.signup-btn {
+body div.App header.header-logged-in ul.nav-btns li.signup-btn,
+body div.App header.header-logged-out ul.nav-btns li.signup-btn {
   margin-left: 10px;
 }
 

@@ -24,11 +24,6 @@ img {
      display: none;
 }
 
-.active {
-     border-bottom: 3px solid #ffffffaf;
-     padding-bottom: 3px;
-}
-
 body {
      font-family: 'Montserrat', sans-serif;
      background-image: url("images/emoji-bg-1.jpg");
@@ -42,7 +37,8 @@ body {
           // align-items: center;
           height: 100vh;
 
-          header {
+          header.header-logged-in,
+          header.header-logged-out {
                display: flex;
                align-items: center;
                justify-content: space-between;
@@ -58,6 +54,14 @@ body {
                -webkit-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
+
+               .active {
+                    border-bottom: 3px solid #ffffffaf;
+
+                    .nav-icon {
+                         font-size: 2rem;
+                    }
+               }
 
                div.logo-area-header {
                     width: 250px;
@@ -80,6 +84,11 @@ body {
                ul.nav-btns {
                     display: flex;
 
+                    span.home-btn {
+                         display: inline-block;
+                         margin-right: 5px;
+                    }
+
                     li {
                          border: none;
                          padding: 5px 10px;
@@ -92,14 +101,6 @@ body {
 
                          &:not(:last-child) {
                               margin-right: 5px;
-                         }
-
-                         &:hover {
-
-                              span {
-                                   font-size: 2rem;
-                                   transition: font-size .2s linear;
-                              }
                          }
 
                          i.user-icon {
