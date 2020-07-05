@@ -11,13 +11,12 @@ const Emoji = ({ emoji }) => {
      const { emojis } = state.userData.user !== undefined ? state.userData.user.data.attributes : 0
      
      const copySuccessMsg = () => {
-          alert("COPIED!")
+          // alert("COPIED!")
      }
      
      const handleSaveEmoji = () => {
           const { slug, character } = emoji
           dispatch(saveEmoji(slug, character))
-          emojis.length++
      }
 
      return (  
