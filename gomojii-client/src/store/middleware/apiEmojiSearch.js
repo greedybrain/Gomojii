@@ -7,7 +7,9 @@ import {
      startLoadCategories, 
      addCategories,
      userSavesEmoji,
-     addUsersSavedEmojis
+     addUsersSavedEmojis,
+     addEmojiSaveError,
+     addEmojiSaveSuccessMessage
 } from '../manageEmojisReducer'
 import { helper } from '../../helper'
 
@@ -52,11 +54,16 @@ export const saveEmoji = (slug, character) => {
                     { withCredentials: true }
                )
           let emojiData; 
+          let successMsg;
+          let errorCaught;
           if (response.data.emoji) {
                emojiData = response.data.emoji
+               successMsg = response.data.success
+               dispatch(addEmojiSaveSuccessMessage(successMsg))
                dispatch(userSavesEmoji(emojiData))
           } else {
-               alert("You already saved that emoji")
+               errorCaught = response.data.error
+               dispatch(addEmojiSaveError(errorCaught))
           }
      }
 }
