@@ -8,10 +8,11 @@ const EmojiSearchForm = () => {
      const emojis = useSelector(state => state.emojisRed.emojis)
      const dispatch = useDispatch()
 
-     //todo: this fucntion handles the querying through emojis as a user types something in
+     //todo: this fucntion handles the querying through emojis as a user types something 
      const handleEmojiSearch = event => {
           const query = event.target.value
-          dispatch(queryEmojis(query, emojis))
+          setTimeout(() => dispatch(queryEmojis(query, emojis)), 1000)
+          
      }
 
      //todo: rendering form
