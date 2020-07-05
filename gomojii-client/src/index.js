@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './emojiSearch/containers/App';
+import App from '../src/App'
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
