@@ -4,14 +4,18 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setUserEmail, setUserPassword } from '../store/manageAuthReducer';
 import { Link } from 'react-router-dom';
 import Logo from '../static/components/Logo';
+import { helper } from '../helper';
 
 
 const Login = (props) => {
      const state = useSelector(state => ({
           email: state.authRed.email,
-          password: state.authRed.password
+          password: state.authRed.password,
+          userData: state.authRed.userData
      }))
      const dispatch = useDispatch()
+     const { userIsLoggedIn } = helper
+     const { email, password, userData } = state
 
      const resetFields = () => {
           dispatch(setUserEmail(''))
@@ -33,10 +37,12 @@ const Login = (props) => {
           const { email, password } = state
           dispatch(getExistingUser(email, password))
 
-          //todo: resetting form fields
-          resetFields()
-          
-          props.history.replace('/emojis')
+          if (userIsLoggedIn(userData)) {
+               props.history.replace('/emojis')
+               resetFields()
+          } else {
+               props.history.push('/login')
+          }
           
           event.preventDefault()
      }
@@ -51,7 +57,7 @@ const Login = (props) => {
                          type="email"
                          name="email_for_login"
                          placeholder="Email"
-                         value={state.email}
+                         value={email}
                          onChange={handleEmailChange}
                          required
                     />
@@ -61,7 +67,7 @@ const Login = (props) => {
                          type="password"
                          name="password_for_login"
                          placeholder="Password"
-                         value={state.password}
+                         value={password}
                          onChange={handlePasswordChange}
                          required
                     />
