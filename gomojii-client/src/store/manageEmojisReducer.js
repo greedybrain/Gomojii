@@ -33,7 +33,7 @@ export default function manageEmojis(state = initialState, action) {
           case ADD_USERS_SAVED_EMOJIS:
                return {
                     ...state,
-                    currentUsersSavedEmojis: [...action.payload.currentUsersSavedEmojis],
+                    currentUsersSavedEmojis: action.payload.currentUsersSavedEmojis,
                }
           case START_LOAD_CATEGORIES_REQUEST:
                return {
@@ -102,8 +102,9 @@ export const userSavesEmoji = emoji => ({
      }
 })
 
-//todo: once saved emojis are retrieved add them to state
-export const addAllUsersSavedEmojis = currentUsersSavedEmojis => ({
+
+//todo: add users saved emojis
+export const addUsersSavedEmojis = currentUsersSavedEmojis => ({
      type: ADD_USERS_SAVED_EMOJIS,
      payload: {
           currentUsersSavedEmojis
