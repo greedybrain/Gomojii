@@ -17,10 +17,10 @@ const Login = (props) => {
      const { userIsLoggedIn } = helper
      const { email, password, userData } = state
 
-     const resetFields = () => {
-          dispatch(setUserEmail(''))
-          dispatch(setUserPassword(''))
-     }
+     // const resetFields = () => {
+     //      dispatch(setUserEmail(''))
+     //      dispatch(setUserPassword(''))
+     // }
      
      const handleEmailChange = (event) => {
           //todo: updates email field as one types
@@ -34,17 +34,12 @@ const Login = (props) => {
      }
 
      const handleSubmit = event => {
+          event.preventDefault()
+
           const { email, password } = state
           dispatch(getExistingUser(email, password))
-
-          if (userIsLoggedIn(userData)) {
-               props.history.replace('/emojis')
-               resetFields()
-          } else {
-               props.history.push('/login')
-          }
+          return userIsLoggedIn(userData) ? props.history.replace('/dashboard') : props.history.push('/login')
           
-          event.preventDefault()
      }
      
      return ( 
