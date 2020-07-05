@@ -14,7 +14,4 @@ export const helper = {
                emojis
           }
      },
-     currentUsersEmojis: userData => {
-          return helper.currentUser(userData).emojis
-     }
 }
