@@ -32,11 +32,12 @@ class Api::V1::EmojisController < ApplicationController
                if !isDuplicate?(emoji)
                     emoji.save
                     render json: {
+                         success: "Emoji saved successfully",
                          emoji: EmojiSerializer.new(emoji).serializable_hash
                     }
                else
                     render json: {
-                         message: "You already saved that emoji"
+                         error: "You already saved that emoji"
                     }
                end
           end
