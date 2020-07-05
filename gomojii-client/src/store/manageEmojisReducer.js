@@ -9,6 +9,8 @@ const initialState = {
      currentUsersSavedEmojis: [],
      emojisLoading: false,
      categoriesLoading: false,
+     saveError: "",
+     saveSuccess: ""
 }
 
 //todo: this is my reducer handling all types of emojiSearch functions eg. adding emojis and searching through them
@@ -25,16 +27,6 @@ export default function manageEmojis(state = initialState, action) {
                     emojis: action.payload.emojis,
                     emojisLoading: false
           }
-          case USER_SAVES_EMOJI:
-               return {
-                    ...state,
-                    currentUsersSavedEmojis: [...state.currentUsersSavedEmojis, action.payload.emoji]
-               }
-          case ADD_USERS_SAVED_EMOJIS:
-               return {
-                    ...state,
-                    currentUsersSavedEmojis: action.payload.currentUsersSavedEmojis,
-               }
           case START_LOAD_CATEGORIES_REQUEST:
                return {
                     ...state,
@@ -59,6 +51,29 @@ export default function manageEmojis(state = initialState, action) {
                     emojisFilteredState: action.payload.emojisFilteredState,
                     emojiSearchResults: []
                }
+          case USER_SAVES_EMOJI:
+               return {
+                    ...state,
+                    saveError: "",
+                    currentUsersSavedEmojis: [...state.currentUsersSavedEmojis, action.payload.emoji],
+               }
+          case ADD_EMOJI_SAVE_SUCCESS_MESSAGE:
+               return {
+                    ...state,
+                    saveSuccess: action.payload.saveSuccess,
+                    saveError: ''
+               }
+          case ADD_EMOJI_SAVE_ERROR_MESSAGE:
+               return {
+                    ...state,
+                    saveError: action.payload.saveError,
+                    saveSuccess: ''
+               }
+          case ADD_USERS_SAVED_EMOJIS:
+               return {
+                    ...state,
+                    currentUsersSavedEmojis: action.payload.currentUsersSavedEmojis,
+               }
           case CLEAR_EMOJIS_ON_LOGOUT:
                return {
                     ...state,
@@ -73,6 +88,8 @@ export default function manageEmojis(state = initialState, action) {
 const START_LOAD_EMOJIS_REQUEST = "START_LOAD_EMOJIS_REQUEST"
 const ADD_EMOJIS = "ADD_EMOJIS"
 const USER_SAVES_EMOJI = "USER_SAVES_EMOJI"
+const ADD_EMOJI_SAVE_SUCCESS_MESSAGE = "ADD_EMOJI_SAVE_SUCCESS_MESSAGE"
+const ADD_EMOJI_SAVE_ERROR_MESSAGE = "ADD_EMOJI_SAVE_ERROR_MESSAGE"
 const ADD_USERS_SAVED_EMOJIS = "ADD_USERS_SAVED_EMOJIS"
 const START_LOAD_CATEGORIES_REQUEST = "START_LOAD_CATEGORIES_REQUEST"
 const ADD_CATEGORIES = "ADD_CATEGORIES"
@@ -102,6 +119,21 @@ export const userSavesEmoji = emoji => ({
      }
 })
 
+//todo: emoji success message handler
+export const addEmojiSaveSuccessMessage = saveSuccess => ({
+     type: ADD_EMOJI_SAVE_SUCCESS_MESSAGE,
+     payload: {
+          saveSuccess
+     }
+})
+
+//todo: emojis save error handler
+export const addEmojiSaveError = saveError => ({
+     type: ADD_EMOJI_SAVE_ERROR_MESSAGE,
+     payload: {
+          saveError
+     }
+})
 
 //todo: add users saved emojis
 export const addUsersSavedEmojis = currentUsersSavedEmojis => ({
