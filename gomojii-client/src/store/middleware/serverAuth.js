@@ -55,9 +55,13 @@ export const getExistingUser = (email, password) => {
                     { email, password },
                     { withCredentials: true }
                )
-          const user = response.data
-          console.log(user)
-          dispatch(loginUser(user))
+          const session = response.data
+          if (session.status === 'created') {
+               console.log(session)
+               dispatch(loginUser(session))
+          } else {
+               alert(session.message)
+          }
      }
 }
 
