@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { helper } from '../../helper'
 import Logo from './Logo'
 import { Link, NavLink } from 'react-router-dom'
