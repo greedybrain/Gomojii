@@ -56,7 +56,7 @@ body div.App header.header-logged-out {
   top: 0;
   width: 90%;
   height: 8vh;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
   padding: 0 20px;
   background: #282828ec;
   background: -webkit-gradient(linear, left top, right top, from(rgba(179, 0, 179, 0.948278)), color-stop(0%, rgba(40, 40, 40, 0.925175)));
@@ -64,11 +64,6 @@ body div.App header.header-logged-out {
   border-radius: 30px;
   -webkit-box-shadow: 0px 0px 10px -1px #666666;
   box-shadow: 0px 0px 10px -1px #666666;
-}
-
-body div.App header.header-logged-in .active,
-body div.App header.header-logged-out .active {
-  border-bottom: 3px solid #ffffffaf;
 }
 
 body div.App header.header-logged-in .active .nav-icon,
@@ -503,5 +498,120 @@ body div.App div.wrapper div.form-and-list-cont ul {
 body div.App div.wrapper div.form-and-list-cont ul li {
   font-size: 3rem;
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0, auto;
+}
+
+body div.dashboard {
+  border-radius: 50px;
+  height: 85vh;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 50% 30%;
+      grid-template-columns: 20% 50% 30%;
+  background-color: #f3f3f3;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
+}
+
+body div.dashboard div.dash-sidebar-nav {
+  background-color: #282828ec;
+  border-top-left-radius: 49px;
+  border-bottom-left-radius: 49px;
+}
+
+body div.dashboard div.dash-sidebar-nav h2 {
+  text-align: center;
+  padding: 25px 0 30px 0;
+  color: #fff;
+}
+
+body div.dashboard div.dash-sidebar-nav ul {
+  padding: 20px;
+  overflow: hidden;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li div.dash-sidenav-icon {
+  margin-bottom: 5px;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li div.dash-sidenav-icon span {
+  display: inline-block;
+  font-size: 2.5rem;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li a {
+  color: #fff;
+}
+
+body div.dashboard div.widget-section {
+  border-left: 1px solid #dadada;
+  height: 80vh;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+body div.dashboard div.widget-section h3 {
+  text-align: center;
+  color: #646464;
+  margin-bottom: 15px;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form {
+  height: 40px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form div.widget-search-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-shadow: 0px 0px 21px -2px #d1d1d1;
+  box-shadow: 0px 0px 21px -2px #d1d1d1;
+  border-radius: 50px;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form div.widget-search-cont input {
+  display: block;
+  width: 85%;
+  height: 100%;
+  border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  font-size: 1rem;
+  padding-left: 10px;
+  outline: none;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form div.widget-search-cont button {
+  display: block;
+  width: 15%;
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  outline: none;
+  cursor: pointer;
 }
 /*# sourceMappingURL=App.css.map */
