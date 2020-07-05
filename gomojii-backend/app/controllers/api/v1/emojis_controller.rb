@@ -1,15 +1,36 @@
 class Api::V1::EmojisController < ApplicationController
+     skip_before_action :set_current_user, only: [:create]
 
      def index
           emojis = Emoji.all 
           render json: EmojiSerializer.new(emojis).serialized_json
      end
+
+     def usersEmojis 
+          if params[:user_id]
+               user = User.find(params[:user_id])
+               return user.emojis.all
+          end
+     end
+
+     def isDuplicate?(emoji)
+          if usersEmojis() != nil 
+               found_emoji = usersEmojis().find{|userEmoji| userEmoji.slug == emoji.slug}
+               if found_emoji 
+                    return true
+               else 
+                    return false
+               end
+          end
+     end
      
      def create 
-          if @current_user
-               emoji = @current_user.emojis.build(emoji_params)
-          
-               if emoji.save
+          if params[:user_id]
+               user = User.find(params[:user_id])
+               emoji = user.emojis.build(emoji_params)
+               
+               if !isDuplicate?(emoji)
+                    emoji.save
                     render json: {
                          emoji: EmojiSerializer.new(emoji).serializable_hash
                     }
@@ -18,11 +39,8 @@ class Api::V1::EmojisController < ApplicationController
                          message: "You already saved that emoji"
                     }
                end
-          else 
-               render json: {
-                    status: 402
-               }
           end
+          
      end
 
      def destroy 
