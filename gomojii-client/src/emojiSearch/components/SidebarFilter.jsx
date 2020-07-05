@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { filterEmojis } from '../../store/manageEmojisReducer';
+import Footer from '../../static/components/Footer';
 
 const SidebarFilter = () => {
      //todo: using react hooks useDispatch and useSelector to avoid using the connect function to attach this component to the store
@@ -75,7 +76,7 @@ const SidebarFilter = () => {
                     {renderCategoriesList}
                </ul>
                <div className="side-footer">
-                    <span role="img" aria-label="copyright emoji">©️</span> 2020 GoMojii
+                    <Footer />
                </div>
           </>
      );
