@@ -1,18 +1,19 @@
 import React from 'react';
 import { queryEmojis } from '../../store/manageEmojisReducer';
 import { useSelector, useDispatch } from 'react-redux';
-
+import { useState } from 'react';
 
 const EmojiSearchForm = () => {
+     const [query, setQuery] = useState('')
+
      //todo: using the react hooks useSelector and useDispatch to access the store
      const emojis = useSelector(state => state.emojisRed.emojis)
      const dispatch = useDispatch()
 
      //todo: this fucntion handles the querying through emojis as a user types something 
      const handleEmojiSearch = event => {
-          const query = event.target.value
+          setQuery(event.target.value)
           setTimeout(() => dispatch(queryEmojis(query, emojis)), 1000)
-          
      }
 
      //todo: rendering form
