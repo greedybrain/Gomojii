@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import EmojiContainer from './emojiSearch/containers/EmojiContainer';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom'
-import { loadEmojis, loadCategories, loadUsersSavedEmojis } from './store/middleware/apiEmojiSearch';
+import { loadEmojis, loadCategories } from './store/middleware/apiEmojiSearch';
 import { validateSession } from './store/middleware/serverAuth';
 import Login from './auth/Login';
 import Registration from './auth/Registration';
@@ -21,17 +21,15 @@ class App extends Component {
     const {
       loadEmojis,
       loadCategories,
-      validateSession,
       loggedInStatus,
-      loadUsersEmojis,
+      validateSession
     } = this.props
 
+    validateSession(loggedInStatus)
     loadEmojis()
     loadCategories()
-    validateSession(loggedInStatus)
-    setTimeout(() => loadUsersEmojis(), 1000)
   }
-
+  
   render() {
     const { userData } = this.props
     const { userIsLoggedIn } = helper
@@ -42,30 +40,35 @@ class App extends Component {
           <Route
             path='/login'
             render={props => {
-              return userIsLoggedIn(userData) ? <Redirect to="/dashboard" /> : <Login {...props} />
+              return userIsLoggedIn(userData) ? <Redirect to="/" /> : <Login {...props} />
             }} 
           />
 
           <Route
             path='/signup'
             render={props => {
-              return userIsLoggedIn(userData) ? <Redirect to="/dashboard" /> : <Registration {...props} /> 
-            }}
-          />
-        
-          <Route 
-            path="/dashboard"
-            render={props => {
-              return userIsLoggedIn(userData) ? <Dashboard {...props} /> : <Redirect to="/login" />
+              return userIsLoggedIn(userData) ? <Redirect to="/" /> : <Registration {...props} /> 
             }}
           />
           
           <Route
+
               path='/emojis'
               render={props => <EmojiContainer {...props} />} 
           />
         
-          <Route path="/not_found" component={NotFound} />
+          <Route
+            path="/not_found"
+            component={NotFound} 
+          />
+
+          <Route
+            exact
+            path="/"
+            render={props => {
+              return userIsLoggedIn(userData) ? <Dashboard {...props} /> : <Redirect to="/login" />
+            }}
+          />
 
           <Redirect to="/not_found" />
 
@@ -86,7 +89,6 @@ const mapDispatchToProps = dispatch => ({
   loadEmojis: () => dispatch(loadEmojis()),
   loadCategories: () => dispatch(loadCategories()),
   validateSession: status => dispatch(validateSession(status)),
-  loadUsersEmojis: () => dispatch(loadUsersSavedEmojis())
 })
 
 //todo: using connect() allows me to 'connect' a component to the store
