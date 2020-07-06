@@ -25,7 +25,7 @@ const HeaderIfLoggedIn = () => {
                          </NavLink>
                     </li>
                     <li className="dashboard">
-                         <NavLink activeClassName="active" to="/dashboard">
+                         <NavLink activeClassName="active" to="/">
                               <span className="home-btn nav-icon" role="img" aria-label="home emojis">🎮</span> Dashboard
                          </NavLink>
                     </li>
