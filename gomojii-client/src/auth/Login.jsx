@@ -1,69 +1,59 @@
 import React from 'react';
 import { getExistingUser } from '../store/middleware/serverAuth';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserEmail, setUserPassword } from '../store/manageAuthReducer';
 import { Link } from 'react-router-dom';
 import Logo from '../static/components/Logo';
 import { helper } from '../helper';
+import { useState } from 'react';
 
 
 const Login = (props) => {
+     const [formData, setFormData] = useState({email: '', password: ''})
+
      const state = useSelector(state => ({
-          email: state.authRed.email,
-          password: state.authRed.password,
           userData: state.authRed.userData
      }))
      const dispatch = useDispatch()
+     const { userData } = state
      const { userIsLoggedIn } = helper
-     const { email, password, userData } = state
-
-     // const resetFields = () => {
-     //      dispatch(setUserEmail(''))
-     //      dispatch(setUserPassword(''))
-     // }
      
-     const handleEmailChange = (event) => {
-          //todo: updates email field as one types
-          const { value } = event.target
-          dispatch(setUserEmail(value))
-     }
-
-     const handlePasswordChange = (event) => {
-          const { value } = event.target
-          dispatch(setUserPassword(value))
+     const handleChange = event => {
+          setFormData({
+               ...formData,
+               [event.target.name]: event.target.value
+          })
      }
 
      const handleSubmit = event => {
           event.preventDefault()
 
-          const { email, password } = state
-          dispatch(getExistingUser(email, password))
-          return userIsLoggedIn(userData) ? props.history.replace('/dashboard') : props.history.push('/login')
+          dispatch(getExistingUser(formData))
+          return userIsLoggedIn(userData) ? props.history.replace('/') : props.history.push('/login')
           
      }
      
      return ( 
-          <form  className="login-form" onSubmit={handleSubmit}>
+          <form className="login-form" onSubmit={handleSubmit}>
                <div className="logo-on-form">
                     <Logo />
                </div>
                <div className="login-email login-field">
                     <input
                          type="email"
-                         name="email_for_login"
+                         name="email"
+                         value={formData.email}
+                         onChange={handleChange}
                          placeholder="Email"
-                         value={email}
-                         onChange={handleEmailChange}
                          required
                     />
                </div>
                <div className="login-password login-field" >
                     <input
                          type="password"
-                         name="password_for_login"
+                         name="password"
+                         value={formData.password}
+                         onChange={handleChange}
                          placeholder="Password"
-                         value={password}
-                         onChange={handlePasswordChange}
                          required
                     />
                </div>
