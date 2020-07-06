@@ -14,11 +14,11 @@ const EmojiList = () => {
           emojisLoading: state.emojisRed.emojisLoading,
           categoriesLoading: state.emojisRed.loading
      }))
-     let { emojis, emojiSearchResults, emojisFilteredState } = state
+     let { emojis, emojiSearchResults, emojisFilteredState, emojisLoading } = state
      const { innyMinnyMineyMo } = retrieveFrom.customMethods
 
      const showLoadIndicatorThenRenderEmojis = () => {
-          if (state.emojisLoading) {
+          if (emojisLoading) {
                return (
                     <div className="load-wrapper">
                          <div className="loading-indicator animate__animated animate__bounce animate__repeat-3">
@@ -63,7 +63,6 @@ const EmojiList = () => {
      const renderEmojis = allEmojis.map((emoji, index) => {
           return <Emoji key={index} emoji={emoji} />
      })
-     
 
      //todo: rendering the result amount and the actual emojis
      return (
