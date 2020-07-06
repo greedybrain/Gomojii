@@ -1,49 +1,31 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { setUserUsername, setUserEmail, setUserPassword } from '../store/manageAuthReducer';
 import { createNewUser } from '../store/middleware/serverAuth';
 import { Link } from 'react-router-dom';
 import Logo from '../static/components/Logo';
+import { useState } from 'react';
+import { helper } from '../helper';
 
-const Registration = ({ history }) => {
-     const state = useSelector(state => ({
-          email: state.authRed.email,
-          username: state.authRed.username,
-          password: state.authRed.password
-     }))
+const Registration = (props) => {
+     const [formData, setFormData] = useState({email: '', username: '', password: ''})
+
+     const userData = useSelector(state => state.authRed.userData)
      const dispatch = useDispatch()
 
-     const handleEmailChange = event => {
-          //todo: updates email field as one types
-          const {value} = event.target
-          dispatch(setUserEmail(value))
-     }
+     const { userIsLoggedIn } = helper
 
-     const handleUsernameChange = event => {
-          //todo: updates username field as one types
-          const {value} = event.target
-          dispatch(setUserUsername(value))
-     }
-
-     const handlePasswordChange = event => {
-          //todo: updates password field as one types
-          const {value} = event.target
-          dispatch(setUserPassword(value))
+     const handleChange = event => {
+          setFormData({
+               ...formData,
+               [event.target.name]: event.target.value
+          })
      }
 
      const handleSubmit = event => {
-          const { email, username, password } = state
-          
-          dispatch(createNewUser(email, username, password))
-
-          //todo: resetting form fields
-          dispatch(setUserEmail(''))
-          dispatch(setUserUsername(''))
-          dispatch(setUserPassword(''))
-
-          history.push('/emojis')
-          
           event.preventDefault()
+          
+          dispatch(createNewUser(formData))
+          return userIsLoggedIn(userData) ? props.history.replace('/') : props.history.push('/signup')
      }
      
      return ( 
@@ -56,8 +38,8 @@ const Registration = ({ history }) => {
                          type="email"
                          name="email"
                          placeholder="Email"
-                         value={state.email}
-                         onChange={handleEmailChange}
+                         value={formData.email}
+                         onChange={handleChange}
                          required
                     />
                </div>
@@ -66,8 +48,8 @@ const Registration = ({ history }) => {
                          type="username"
                          name="username"
                          placeholder="Username"
-                         value={state.username}
-                         onChange={handleUsernameChange}
+                         value={formData.username}
+                         onChange={handleChange}
                          required
                     />
                </div>
@@ -76,8 +58,8 @@ const Registration = ({ history }) => {
                          type="password"
                          name="password"
                          placeholder="Password"
-                         value={state.password}
-                         onChange={handlePasswordChange}
+                         value={formData.password}
+                         onChange={handleChange}
                          required
                     />
                </div>
