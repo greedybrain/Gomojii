@@ -2,11 +2,13 @@
 import { retrieveFrom } from '../../config'
 import axios from 'axios'
 import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn } from '../manageAuthReducer'
-import { clearEmojisOnLogout } from '../manageEmojisReducer'
+import { clearEmojisOnLogout, addUsersSavedEmojis } from '../manageEmojisReducer'
+import { helper } from '../../helper'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
 const { baseUrl, loggedIn, registrations, sessions, logout } = retrieveFrom.backendServerEndpoints
+const { currentUser } = helper
 
 export const validateSession = (loggedInStatus) => {
      //todo: funtion returned in enhanced thunk action creator 
@@ -22,13 +24,14 @@ export const validateSession = (loggedInStatus) => {
           if (userData.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
                loggedInStatus = "LOGGED_IN"
                dispatch(proceedIfUserLoggedIn(userData, loggedInStatus))
+               dispatch(addUsersSavedEmojis(currentUser(userData).emojis))
           } else if (!userData.logged_in && loggedInStatus === "LOGGED_IN") {
                loggedInStatus = "NOT_LOGGED_IN"
           }
      }
 }
 
-export const createNewUser = (email, username, password) => {
+export const createNewUser = formData => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Creating a user after a successful fetch
      return async dispatch => {
@@ -36,7 +39,7 @@ export const createNewUser = (email, username, password) => {
           const response = await axios
                .post(
                     signupPath,
-                    { email, username, password },
+                    formData,
                     { withCredentials: true }
                )
           const user = response.data
@@ -44,7 +47,7 @@ export const createNewUser = (email, username, password) => {
      }
 }
 
-export const getExistingUser = (email, password) => {
+export const getExistingUser = formData => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Retrieving existing user after successful fetch
      return async dispatch => {
@@ -52,13 +55,14 @@ export const getExistingUser = (email, password) => {
           const response = await axios
                .post(
                     loginPath,
-                    { email, password },
+                    formData,
                     { withCredentials: true }
                )
           const session = response.data
           if (session.status === 'created') {
-               console.log(session)
+               const savedEmojis = session.user.data.attributes.emojis
                dispatch(loginUser(session))
+               dispatch(addUsersSavedEmojis(savedEmojis))
           } else {
                alert(session.message)
           }
