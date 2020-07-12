@@ -1,9 +1,9 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { helper } from '../../helper'
+import { helper } from '../../Tools/helper'
 import Logo from './Logo'
 import { Link, NavLink } from 'react-router-dom'
-import Logout from '../../auth/Logout'
+import Logout from '../../Auth/Logout'
 
 const HeaderIfLoggedIn = () => {
      const state = useSelector(state => ({
@@ -26,7 +26,7 @@ const HeaderIfLoggedIn = () => {
                     </li>
                     <li className="dashboard">
                          <NavLink activeClassName="active" to="/">
-                              <span className="home-btn nav-icon" role="img" aria-label="home emojis">🎮</span> Dashboard
+                              <span className="controller-btn nav-icon" role="img" aria-label="controller emoji">🎮</span> Dashboard
                          </NavLink>
                     </li>
                     <li className="favmojis nav-link">

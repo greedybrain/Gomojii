@@ -1,5 +1,5 @@
 import React from 'react'
-import { widgets } from '../../widgetData'
+import { widgets } from '../../Tools/widgetData'
 import Widget from './Widget'
 
 const WidgetsList = () => {

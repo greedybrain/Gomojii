@@ -1,5 +1,5 @@
 //! importing necessary files and/or libraries
-import { retrieveFrom } from '../../config'
+import { retrieveFrom } from '../../Tools/config'
 import axios from 'axios'
 import {
      startLoadEmojisRequest,
@@ -7,10 +7,9 @@ import {
      startLoadCategories, 
      addCategories,
      userSavesEmoji,
-     addEmojiSaveError,
-     addEmojiSaveSuccessMessage
-} from '../manageEmojisReducer'
-import { helper } from '../../helper'
+     addEmojiSaveResponseMessage
+} from '../Actions/manageEmojisReducer'
+import { helper } from '../../Tools/helper'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
@@ -52,17 +51,11 @@ export const saveEmoji = (slug, character) => {
                     { slug, character },
                     { withCredentials: true }
                )
-          let emojiData; 
-          let successMsg;
-          let errorCaught;
           if (response.data.emoji) {
-               emojiData = response.data.emoji
-               successMsg = response.data.success
-               dispatch(addEmojiSaveSuccessMessage(successMsg))
-               dispatch(userSavesEmoji(emojiData))
+               dispatch(userSavesEmoji(response.data.emoji))
+               dispatch(addEmojiSaveResponseMessage(response.data.success))
           } else {
-               errorCaught = response.data.error
-               dispatch(addEmojiSaveError(errorCaught))
+               dispatch(addEmojiSaveResponseMessage(response.data.error))
           }
      }
 }

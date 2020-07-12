@@ -1,9 +1,9 @@
 //! importing necessary files and/or libraries
-import { retrieveFrom } from '../../config'
+import { retrieveFrom } from '../../Tools/config'
 import axios from 'axios'
-import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn } from '../manageAuthReducer'
-import { clearEmojisOnLogout, addUsersSavedEmojis } from '../manageEmojisReducer'
-import { helper } from '../../helper'
+import { signupUser, loginUser, logoutUser, proceedIfUserLoggedIn } from '../Actions/manageAuthReducer'
+import { clearEmojisOnLogout, addUsersSavedEmojis } from '../Actions/manageEmojisReducer'
+import { helper } from '../../Tools/helper'
 
 //todo: returns my endpoint urls from my config file
 //todo: After retrieving the endpoints and access key, I pick them out using destructuring 
