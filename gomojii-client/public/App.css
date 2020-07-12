@@ -158,7 +158,7 @@ body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-heade
 body div.App header.header-logged-in ul.nav-btns div.loading-indicator-in-header span.save-count,
 body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-header span.save-count {
   font-family: 'Orbitron', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 
 body div.App header.header-logged-in ul.nav-btns li.signup-btn,
@@ -559,6 +559,16 @@ body div.dashboard div.dash-sidebar-nav ul li div.dash-sidenav-icon span {
 
 body div.dashboard div.dash-sidebar-nav ul li a {
   color: #fff;
+}
+
+body div.dashboard div.dash-sidebar-nav div.dash-sidebar-footer {
+  text-align: center;
+  color: #fff;
+}
+
+body div.dashboard div.dash-sidebar-nav div.dash-sidebar-footer span {
+  display: inline-block;
+  margin-top: 50px;
 }
 
 body div.dashboard div.widget-section {

@@ -127,7 +127,7 @@ body {
 
                          span.save-count {
                               font-family: 'Orbitron', sans-serif;
-                              font-size: 1.1rem;
+                              font-size: 1rem;
                          }
                     }
 
@@ -475,7 +475,17 @@ body {
                          }
                     }
                }
-          }
+
+               div.dash-sidebar-footer {
+                    text-align: center;
+                    color: #fff;
+
+                    span {
+                         display: inline-block;
+                         margin-top: 50px;
+                    }
+               }
+          } 
 
           div.widget-section {
                border-left: 1px solid #dadada;
