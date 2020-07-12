@@ -1,15 +1,16 @@
 import React from 'react';
-import { getExistingUser } from '../store/middleware/serverAuth';
+import { getExistingUser } from '../Store/Middleware/serverAuth';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import Logo from '../static/components/Logo';
-import { helper } from '../helper';
+import Logo from '../Static/components/Logo';
+import { helper } from '../Tools/helper'
 import { useState } from 'react';
 
-
 const Login = (props) => {
+     //todo: setting up initial state via useState hooks
      const [formData, setFormData] = useState({email: '', password: ''})
 
+     //todo: getting userData property from store
      const state = useSelector(state => ({
           userData: state.authRed.userData
      }))
@@ -17,6 +18,7 @@ const Login = (props) => {
      const { userData } = state
      const { userIsLoggedIn } = helper
      
+     //todo: handling input change / controlled form/component
      const handleChange = event => {
           setFormData({
                ...formData,
@@ -27,9 +29,13 @@ const Login = (props) => {
      const handleSubmit = event => {
           event.preventDefault()
 
+          //todo: borrowing getExisitingUser function/action from store
           dispatch(getExistingUser(formData))
+          setFormData({
+               email: '',
+               password: ''
+          })
           return userIsLoggedIn(userData) ? props.history.replace('/') : props.history.push('/login')
-          
      }
      
      return ( 

@@ -1,10 +1,11 @@
 import React from 'react'
 import { useDispatch } from 'react-redux';
-import { endUsersSession } from '../store/middleware/serverAuth';
+import { endUsersSession } from '../Store/Middleware/serverAuth';
 
 const Logout = () => {
      const dispatch = useDispatch()
      
+     //todo: getting endUsersSession action from store
      const logout = () => {
           dispatch(endUsersSession())
      }

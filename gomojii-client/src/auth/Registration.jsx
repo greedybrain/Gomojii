@@ -1,10 +1,10 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createNewUser } from '../store/middleware/serverAuth';
+import { createNewUser } from '../Store/Middleware/serverAuth';
 import { Link } from 'react-router-dom';
-import Logo from '../static/components/Logo';
+import Logo from '../Static/components/Logo';
 import { useState } from 'react';
-import { helper } from '../helper';
+import { helper } from '../Tools/helper'
 
 const Registration = (props) => {
      const [formData, setFormData] = useState({email: '', username: '', password: ''})
