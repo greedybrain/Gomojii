@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from '../src/App'
+import App from './Main/App'
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 import { createStore, applyMiddleware, compose } from 'redux'
-import rootReducer from './store/reducer';
+import rootReducer from './Store/reducer'
 import { BrowserRouter } from 'react-router-dom'
 
 const composeEnhancer = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
@@ -19,7 +19,7 @@ ReactDOM.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById('root') 
 );
 
 // If you want your app to work offline and load faster, you can change
