@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/Gomojii/static/js/main.f550f6c2.chunk.js",
-    "main.js.map": "/Gomojii/static/js/main.f550f6c2.chunk.js.map",
+    "main.js": "/Gomojii/static/js/main.34bcf16b.chunk.js",
+    "main.js.map": "/Gomojii/static/js/main.34bcf16b.chunk.js.map",
     "runtime-main.js": "/Gomojii/static/js/runtime-main.66517842.js",
     "runtime-main.js.map": "/Gomojii/static/js/runtime-main.66517842.js.map",
     "static/js/2.94e0b06e.chunk.js": "/Gomojii/static/js/2.94e0b06e.chunk.js",
     "static/js/2.94e0b06e.chunk.js.map": "/Gomojii/static/js/2.94e0b06e.chunk.js.map",
     "index.html": "/Gomojii/index.html",
-    "precache-manifest.c61b8a5cc134499da846e72f21b44ef8.js": "/Gomojii/precache-manifest.c61b8a5cc134499da846e72f21b44ef8.js",
+    "precache-manifest.b1229e8f458dcf75d29e75ed3d810da9.js": "/Gomojii/precache-manifest.b1229e8f458dcf75d29e75ed3d810da9.js",
     "service-worker.js": "/Gomojii/service-worker.js",
     "static/js/2.94e0b06e.chunk.js.LICENSE.txt": "/Gomojii/static/js/2.94e0b06e.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.66517842.js",
     "static/js/2.94e0b06e.chunk.js",
-    "static/js/main.f550f6c2.chunk.js"
+    "static/js/main.34bcf16b.chunk.js"
   ]
 }

@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "01c87a33a171a1d0bb5d9b9c5bd4dca5",
+    "revision": "7b6abf22fee1d1c82df7f69fd03f6924",
     "url": "/Gomojii/index.html"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Gomojii/static/js/2.94e0b06e.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "690a74d77b934094f77e",
-    "url": "/Gomojii/static/js/main.f550f6c2.chunk.js"
+    "revision": "efe5b0490a4ef0ac72f7",
+    "url": "/Gomojii/static/js/main.34bcf16b.chunk.js"
   },
   {
     "revision": "cce7cbe258ba2af2273c",
