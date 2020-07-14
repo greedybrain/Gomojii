@@ -9,7 +9,7 @@ Rails.application.config.middleware.insert_before 0, Rack::Cors do
      end
 
      allow do 
-          origins '>> PRODUCTION DOMAIN GOES HERE <<'
+          origins 'http://www.gomojii.com'
 
           resource '*',
           headers: 'any',
