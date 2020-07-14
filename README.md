@@ -25,6 +25,21 @@ Gomojii is a playful emoji themed application that allows a user to search exist
 
 # Installation 
 
-***Backend***
+***Backend/API***
 
-1. ```git clone 
+1. ```git clone git@github.com:greedybrain/Gomojii.git```
+2. ```cd``` into projects backend directory ```gomojii-backend```
+3. Run ```bundle install``` to install all of Gomojii's dependencies
+4. Confirm that Postgres is installed on your machine. If not, get it [here](https://www.postgresql.org/download/)
+5. Create the database by running ```rails db:create```
+6. Create migrations by running ```rails db:migrate```
+7. If applicable, run ```rails db:seed``` to generate any seed data
+8. Lastly, run ```rails s``` or ```rails server``` to generate a live server
+
+***Frontend/Client***
+
+1.
+
+
+
+
