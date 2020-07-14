@@ -1,4 +1,4 @@
-![Gomojii Logo](/images/gomojii-logo.png)
+![](https://user-images.githubusercontent.com/51010236/87365074-4b98b080-c543-11ea-9cc7-e8e057fa03b9.png)
 
 ### Overview
 
