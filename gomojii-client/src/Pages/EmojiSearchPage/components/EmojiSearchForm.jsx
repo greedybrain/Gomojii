@@ -13,7 +13,7 @@ const EmojiSearchForm = () => {
      //todo: this fucntion handles the querying through emojis as a user types something 
      const handleEmojiSearch = event => {
           setQuery(event.target.value)
-          dispatch(queryEmojis(query, emojis))
+          setTimeout(() => dispatch(queryEmojis(query, emojis)), 500)
      }
 
      //todo: rendering form

@@ -66,11 +66,6 @@ body div.App header.header-logged-out {
   box-shadow: 0px 0px 10px -1px #666666;
 }
 
-body div.App header.header-logged-in .active .nav-icon,
-body div.App header.header-logged-out .active .nav-icon {
-  font-size: 2rem;
-}
-
 body div.App header.header-logged-in div.logo-area-header,
 body div.App header.header-logged-out div.logo-area-header {
   width: 250px;
@@ -287,6 +282,7 @@ body div.App div.wrapper div.sidebar-nav {
           align-items: center;
   position: -webkit-sticky;
   position: sticky;
+  z-index: 1;
   top: 0;
   width: 25%;
   background-color: #282828ec;
@@ -392,10 +388,6 @@ body div.App div.wrapper div.form-and-list-cont div.form div.search-cont {
   box-shadow: 0px 0px 9px 1px #ededed;
 }
 
-body div.App div.wrapper div.form-and-list-cont div.form div.search-cont:focus {
-  outline-color: red;
-}
-
 body div.App div.wrapper div.form-and-list-cont div.form div.search-cont input {
   display: block;
   height: 100%;
@@ -492,12 +484,104 @@ body div.App div.wrapper div.form-and-list-cont ul {
   height: 70vh;
   overflow-y: scroll;
   position: relative;
+  z-index: 200;
   bottom: 10px;
 }
 
 body div.App div.wrapper div.form-and-list-cont ul li {
+  position: relative;
   font-size: 3rem;
   cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0, auto;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay {
+  display: none;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  z-index: 2;
+  width: 250px;
+  right: 20px;
+  bottom: 30px;
+  background-color: #ececec;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  -webkit-box-shadow: 0px 0px 28px 8px #a6a6a6;
+  box-shadow: 0px 0px 28px 8px #a6a6a6;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.modal-heading {
+  position: relative;
+  grid-column: 1/-1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  font-size: 1rem;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  border-bottom: 1px solid #333;
+  background-color: #282828ec;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #fff;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.modal-body {
+  grid-column: 1/-1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 25px;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.emoji-char {
+  font-size: 4rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div button {
+  cursor: pointer;
+  padding: 10px 25px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #333;
+  font-size: .9rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div button:hover {
+  background-color: #282828ec;
+  color: #fff;
+  -webkit-transition: background-color .3s linear;
+  transition: background-color .3s linear;
+  -webkit-transition: color .1s linear;
+  transition: color .1s linear;
 }
 
 body div.dashboard {
@@ -569,6 +653,18 @@ body div.dashboard div.dash-sidebar-nav div.dash-sidebar-footer {
 body div.dashboard div.dash-sidebar-nav div.dash-sidebar-footer span {
   display: inline-block;
   margin-top: 50px;
+}
+
+body div.dashboard div.dash-mid-section {
+  height: 80vh;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 0 20px;
+}
+
+body div.dashboard div.dash-mid-section h3 {
+  text-align: center;
 }
 
 body div.dashboard div.widget-section {

@@ -53,7 +53,7 @@ export default function manageEmojis(state = initialState, action) {
           case USER_SAVES_EMOJI:
                return {
                     ...state,
-                    saveError: "",
+                    responseMessage: "",
                     currentUsersSavedEmojis: [...state.currentUsersSavedEmojis, action.payload.emoji],
                }
           case ADD_EMOJI_SAVE_RESPONSE_MESSAGE:

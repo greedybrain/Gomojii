@@ -13,7 +13,6 @@ import HeaderIfLoggedOut from '../Static/components/HeaderIfLoggedOut';
 import Dashboard from '../Pages/DashboardPage/containers/Dashboard';
 import EmojiContainer from '../Pages/EmojiSearchPage/containers/EmojiContainer'
 
-
 class App extends Component {
   //todo: inside this lifecycle method I'm loading the emojis and categories to work with later on throughout the application
   componentDidMount() {
@@ -25,7 +24,7 @@ class App extends Component {
       validateSession
     } = this.props
 
-    console.log(validateSession(loggedInStatus))
+    validateSession(loggedInStatus)
     loadEmojis()
     loadCategories()
   }
@@ -49,8 +48,7 @@ class App extends Component {
               return userIsLoggedIn(userData) ? <Redirect to="/" /> : <Registration {...props} /> 
             }}
           />
-          <Route
-
+          <Route 
               path='/emojis'
               render={props => <EmojiContainer {...props} />} 
           />

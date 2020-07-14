@@ -54,12 +54,7 @@ body {
                -moz-box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
                box-shadow: 0px 0px 10px -1px rgba(102, 102, 102, 1);
 
-               .active {
-
-                    .nav-icon {
-                         font-size: 2rem;
-                    }
-               }
+               // 
 
                div.logo-area-header {
                     width: 250px;
@@ -240,6 +235,7 @@ body {
                     flex-direction: column;
                     align-items: center;
                     position: sticky;
+                    z-index: 1;
                     top: 0;
                     width: 25%;
                     background-color: #282828ec;
@@ -324,10 +320,6 @@ body {
                               -moz-box-shadow: 0px 0px 9px 1px rgba(237, 237, 237, 1);
                               box-shadow: 0px 0px 9px 1px rgba(237, 237, 237, 1);
 
-                              &:focus {
-                                   outline-color: red;
-                              }
-
                               input {
                                    display: block;
                                    height: 100%;
@@ -338,8 +330,7 @@ body {
                                    outline: none;
                                    padding-left: 20px;
                                    font-size: 1rem;
-                                   font-family: 'Montserrat',
-                                        sans-serif;
+                                   font-family: 'Montserrat', sans-serif;
 
                                    &::-webkit-input-placeholder {
                                         color: #949494;
@@ -411,12 +402,86 @@ body {
                          height: 70vh;
                          overflow-y: scroll;
                          position: relative;
+                         z-index: 200;
                          bottom: 10px;
 
                          li {
+                              position: relative;
                               font-size: 3rem;
-                              cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0,
-                                   auto;
+                              cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0, auto;
+
+                              div.emoji-overlay {
+                                   display: none;
+                                   grid-template-columns: repeat(2, 1fr);
+                                   position: absolute;
+                                   z-index: 2;
+                                   width: 250px;
+                                   right: 20px;
+                                   bottom: 30px;
+                                   background-color: #ececec;
+                                   border-top-left-radius: 20px;
+                                   border-top-right-radius: 20px;
+                                   border-bottom-left-radius: 20px;
+                                   -webkit-box-shadow: 0px 0px 28px 8px rgba(166, 166, 166, 1);
+                                   -moz-box-shadow: 0px 0px 28px 8px rgba(166, 166, 166, 1);
+                                   box-shadow: 0px 0px 28px 8px rgba(166, 166, 166, 1);
+
+                                   div.modal-heading {
+                                        position: relative;
+                                        grid-column: 1/-1;
+                                        grid-row: 1/2;
+                                        font-size: 1rem;
+                                        text-align: center;
+                                        padding: 15px;
+                                        width: 100%;
+                                        border-bottom: 1px solid #333;
+                                        background-color: #282828ec;
+                                        border-top-left-radius: 20px;
+                                        border-top-right-radius: 20px;
+                                        color: #fff;
+                                   }
+
+                                   div.modal-body {
+                                        grid-column: 1/-1;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: space-between;
+                                        padding: 15px 25px;
+                                   }
+
+                                   div.emoji-char {
+                                        font-size: 4rem;
+                                   }
+
+                                   div.save-copy-btns {
+                                        display: flex;
+                                        flex-direction: column;
+
+                                        div {
+                                             display: flex;
+
+                                             &:not(:last-child) {
+                                                  margin-bottom: 10px;
+                                             }
+
+                                             button {
+                                                  cursor: pointer;
+                                                  padding: 10px 25px;
+                                                  border-radius: 5px;
+                                                  outline: none;
+                                                  border: 1px solid #333;
+                                                  font-size: .9rem;
+
+                                                  &:hover {
+                                                       background-color: #282828ec;
+                                                       color: #fff;
+                                                       transition: background-color .3s linear;
+                                                       transition: color .1s linear;
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
                          }
 
                     }
@@ -487,6 +552,16 @@ body {
                }
           } 
 
+          div.dash-mid-section {
+               height: 80vh;
+               align-self: center;
+               padding: 0 20px;
+
+               h3 {
+                    text-align: center;
+               }
+          }
+
           div.widget-section {
                border-left: 1px solid #dadada;
                height: 80vh;
@@ -556,20 +631,20 @@ body {
                                    // -webkit-box-shadow: 0px 0px 21px -2px rgba(209, 209, 209, 1);
                                    // -moz-box-shadow: 0px 0px 21px -2px rgba(209, 209, 209, 1);
                                    // box-shadow: 0px 0px 21px -2px rgba(209, 209, 209, 1);
-     
+
                                    div.widget-icon {
                                         width: 30%;
                                         text-align: center;
-     
+
                                         span {
                                              display: inline-block;
                                              font-size: 2rem;
                                         }
                                    }
-                                   
+
                                    div.widget-name {
                                         width: 70%;
-     
+
                                         span {
                                              display: inline-block;
                                              font-size: 1rem;
@@ -585,7 +660,7 @@ body {
                               font-weight: bolder;
                          }
                     }
-               } 
+               }
           }
      }
 }

@@ -64,6 +64,7 @@ const EmojiList = () => {
           return <Emoji key={index} emoji={emoji} />
      })
 
+
      //todo: rendering the result amount and the actual emojis
      return (
           <>
