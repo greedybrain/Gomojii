@@ -14,7 +14,7 @@ const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)))
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HashRouter basename='/emojis'>
+      <HashRouter basename='/'>
         <App />
       </HashRouter>
     </Provider>
