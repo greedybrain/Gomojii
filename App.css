@@ -1,0 +1,769 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Cutive+Mono&family=Montserrat:wght@300&family=Mouse+Memoirs&family=Space+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&family=Orbitron&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  width: 100%;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-image: url("images/emoji-bg-1.jpg");
+  background-position: center;
+  background-repeat: repeat;
+}
+
+body div.App {
+  display: -ms-grid;
+  display: grid;
+  border: 1px solid #333;
+  padding: 15px 0;
+  height: 100vh;
+}
+
+body div.App header.header-logged-in,
+body div.App header.header-logged-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  width: 90%;
+  height: 8vh;
+  margin: 0 auto 20px auto;
+  padding: 0 20px;
+  background: #282828ec;
+  background: -webkit-gradient(linear, left top, right top, from(rgba(179, 0, 179, 0.948278)), color-stop(0%, rgba(40, 40, 40, 0.925175)));
+  background: linear-gradient(90deg, rgba(179, 0, 179, 0.948278) 0%, rgba(40, 40, 40, 0.925175) 0%);
+  border-radius: 30px;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
+}
+
+body div.App header.header-logged-in div.logo-area-header,
+body div.App header.header-logged-out div.logo-area-header {
+  width: 250px;
+}
+
+body div.App header.header-logged-in h1.logo-name,
+body div.App header.header-logged-out h1.logo-name {
+  font-size: 2.5rem;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+}
+
+body div.App header.header-logged-in h1.logo-name span,
+body div.App header.header-logged-out h1.logo-name span {
+  font-size: 1.5rem;
+}
+
+body div.App header.header-logged-in h1.logo-name a,
+body div.App header.header-logged-out h1.logo-name a {
+  color: #fff;
+}
+
+body div.App header.header-logged-in ul.nav-btns,
+body div.App header.header-logged-out ul.nav-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div.App header.header-logged-in ul.nav-btns span.home-btn,
+body div.App header.header-logged-out ul.nav-btns span.home-btn {
+  display: inline-block;
+  margin-right: 5px;
+}
+
+body div.App header.header-logged-in ul.nav-btns li,
+body div.App header.header-logged-out ul.nav-btns li {
+  border: none;
+  padding: 5px 10px;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  letter-spacing: 1px;
+  color: #fff;
+}
+
+body div.App header.header-logged-in ul.nav-btns li:not(:last-child),
+body div.App header.header-logged-out ul.nav-btns li:not(:last-child) {
+  margin-right: 5px;
+}
+
+body div.App header.header-logged-in ul.nav-btns li i.user-icon,
+body div.App header.header-logged-out ul.nav-btns li i.user-icon {
+  font-size: 1.2rem;
+  margin-right: 5px;
+}
+
+body div.App header.header-logged-in ul.nav-btns li span,
+body div.App header.header-logged-out ul.nav-btns li span {
+  font-size: 1.3rem;
+}
+
+body div.App header.header-logged-in ul.nav-btns li a,
+body div.App header.header-logged-out ul.nav-btns li a {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+body div.App header.header-logged-in ul.nav-btns div.loading-indicator-in-header span.circle-moji,
+body div.App header.header-logged-in ul.nav-btns div.loading-indicator-in-header span.heart-moji,
+body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-header span.circle-moji,
+body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-header span.heart-moji {
+  display: inline-block;
+  margin-right: 2px;
+  --animate-repeat: 1000;
+}
+
+body div.App header.header-logged-in ul.nav-btns div.loading-indicator-in-header span.save-count,
+body div.App header.header-logged-out ul.nav-btns div.loading-indicator-in-header span.save-count {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1rem;
+}
+
+body div.App header.header-logged-in ul.nav-btns li.signup-btn,
+body div.App header.header-logged-out ul.nav-btns li.signup-btn {
+  margin-left: 10px;
+}
+
+body div.App div.logo-on-form {
+  font-size: 2rem;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+body div.App div.logo-on-form span {
+  font-size: 2rem;
+}
+
+body div.App div.logo-on-form a {
+  color: #333;
+}
+
+body div.App form.login-form,
+body div.App form.signup-form {
+  -ms-grid-column-align: center;
+      justify-self: center;
+  margin-bottom: 90px;
+  width: 27%;
+  padding: 10px 20px 30px;
+  border-radius: 8px;
+  background-color: #ffffffb2;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
+}
+
+body div.App form.login-form div.login-field,
+body div.App form.login-form div.signup-field,
+body div.App form.signup-form div.login-field,
+body div.App form.signup-form div.signup-field {
+  height: 40px;
+  margin-bottom: 25px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
+}
+
+body div.App form.login-form div.login-field input,
+body div.App form.login-form div.signup-field input,
+body div.App form.signup-form div.login-field input,
+body div.App form.signup-form div.signup-field input {
+  border: none;
+  width: 100%;
+  height: 100%;
+  padding-left: 20px;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  border-radius: 29px;
+  outline: none;
+}
+
+body div.App form.login-form button.login-btn,
+body div.App form.login-form button.signup-btn,
+body div.App form.signup-form button.login-btn,
+body div.App form.signup-form button.signup-btn {
+  outline: none;
+  border: none;
+  width: 100%;
+  height: 40px;
+  font-size: 1.2rem;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
+  background-color: #282828ec;
+  letter-spacing: 2px;
+}
+
+body div.App form.login-form p.already-user,
+body div.App form.login-form p.not-user-yet,
+body div.App form.signup-form p.already-user,
+body div.App form.signup-form p.not-user-yet {
+  text-align: center;
+  margin-top: 15px;
+  font-size: .9rem;
+}
+
+body div.App form.login-form div.form-footer,
+body div.App form.signup-form div.form-footer {
+  text-align: center;
+  position: relative;
+  top: 15px;
+  font-weight: 800;
+  font-size: .9rem;
+}
+
+body div.App form.login-form div.form-footer a,
+body div.App form.signup-form div.form-footer a {
+  color: #333;
+}
+
+body div.App div.wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 85vh;
+  border-radius: 50px;
+  background-color: #fff;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
+}
+
+body div.App div.wrapper div.sidebar-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  width: 25%;
+  background-color: #282828ec;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding: 10px 0;
+  -webkit-box-shadow: 3px 0px 8px 1px #d4d4d4;
+  box-shadow: 3px 0px 8px 1px #d4d4d4;
+}
+
+body div.App div.wrapper div.sidebar-nav h2 {
+  color: #fff;
+  margin: 25px 0;
+}
+
+body div.App div.wrapper div.sidebar-nav ul {
+  padding: 20px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+body div.App div.wrapper div.sidebar-nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  overflow-x: scroll;
+  margin-bottom: 5px;
+  color: #fff;
+  font-size: 1rem;
+  letter-spacing: 1px;
+  cursor: pointer;
+  padding: 5px 0 5px 10px;
+  border-radius: 20px;
+}
+
+body div.App div.wrapper div.sidebar-nav ul li div.acc-emoji {
+  font-size: 1.3rem;
+}
+
+body div.App div.wrapper div.sidebar-nav ul li div.category {
+  margin-left: 10px;
+}
+
+body div.App div.wrapper div.sidebar-nav ul li:hover {
+  background-color: #5a5a5a;
+  -webkit-transition: background-color .3s ease-in;
+  transition: background-color .3s ease-in;
+}
+
+body div.App div.wrapper div.sidebar-nav div.side-footer {
+  text-align: center;
+  color: #fff;
+  position: absolute;
+  bottom: 25px;
+  left: 40px;
+}
+
+body div.App div.wrapper div.form-and-list-cont {
+  width: 75%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  overflow-y: scroll;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form {
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 15px;
+  height: 45px;
+  width: 75%;
+  margin-bottom: 25px;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont {
+  height: 40px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border-radius: 50px;
+  -webkit-box-shadow: 0px 0px 9px 1px #ededed;
+  box-shadow: 0px 0px 9px 1px #ededed;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont input {
+  display: block;
+  height: 100%;
+  width: 85%;
+  border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  outline: none;
+  padding-left: 20px;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont input::-webkit-input-placeholder {
+  color: #949494;
+  letter-spacing: 1px;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont button {
+  display: block;
+  height: 100%;
+  width: 15%;
+  background-color: #fff;
+  border: none;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  outline: none;
+  cursor: pointer;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.form div.search-cont button:hover {
+  font-size: 2rem;
+  -webkit-transition: font-size .2s linear;
+  transition: font-size .2s linear;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.directions-and-results {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0 20px;
+  width: 95%;
+  margin: 10px auto 20px auto;
+  font-weight: bold;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.directions-and-results div.directions {
+  font-size: 1.1rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.directions-and-results div.results {
+  font-size: .9rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.load-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 60vh;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.load-wrapper div.load-heading {
+  font-size: 1rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont div.load-wrapper div.loading-indicator {
+  font-size: 10rem;
+  --animate-repeat: 1000;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(70px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+  grid-auto-rows: 50px;
+  justify-items: center;
+  row-gap: 15px;
+  -webkit-column-gap: 15px;
+          column-gap: 15px;
+  padding: 20px;
+  height: 70vh;
+  overflow-y: scroll;
+  position: relative;
+  z-index: 200;
+  bottom: 10px;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li {
+  position: relative;
+  font-size: 3rem;
+  cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg'  width='50' height='60' viewport='0 0 100 100' style='fill:black;font-size:30px;'><text y='50%'>👆🏽</text></svg>") 16 0, auto;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay {
+  display: none;
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
+  position: absolute;
+  z-index: 2;
+  width: 250px;
+  right: 20px;
+  bottom: 30px;
+  background-color: #ececec;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  -webkit-box-shadow: 0px 0px 28px 8px #a6a6a6;
+  box-shadow: 0px 0px 28px 8px #a6a6a6;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.modal-heading {
+  position: relative;
+  grid-column: 1/-1;
+  -ms-grid-row: 1;
+  -ms-grid-row-span: 1;
+  grid-row: 1/2;
+  font-size: 1rem;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+  border-bottom: 1px solid #333;
+  background-color: #282828ec;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  color: #fff;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.modal-body {
+  grid-column: 1/-1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 15px 25px;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.emoji-char {
+  font-size: 4rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div button {
+  cursor: pointer;
+  padding: 10px 25px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid #333;
+  font-size: .9rem;
+}
+
+body div.App div.wrapper div.form-and-list-cont ul li div.emoji-overlay div.save-copy-btns div button:hover {
+  background-color: #282828ec;
+  color: #fff;
+  -webkit-transition: background-color .3s linear;
+  transition: background-color .3s linear;
+  -webkit-transition: color .1s linear;
+  transition: color .1s linear;
+}
+
+body div.dashboard {
+  border-radius: 50px;
+  height: 85vh;
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 20% 50% 30%;
+      grid-template-columns: 20% 50% 30%;
+  background-color: #fff;
+  -webkit-box-shadow: 0px 0px 10px -1px #666666;
+  box-shadow: 0px 0px 10px -1px #666666;
+}
+
+body div.dashboard div.dash-sidebar-nav {
+  background-color: #282828ec;
+  border-top-left-radius: 49px;
+  border-bottom-left-radius: 49px;
+}
+
+body div.dashboard div.dash-sidebar-nav h2 {
+  text-align: center;
+  padding: 25px 0 30px 0;
+  color: #fff;
+}
+
+body div.dashboard div.dash-sidebar-nav ul {
+  padding: 20px;
+  overflow: hidden;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 40px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li div.dash-sidenav-icon {
+  margin-bottom: 5px;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li div.dash-sidenav-icon span {
+  display: inline-block;
+  font-size: 2.5rem;
+}
+
+body div.dashboard div.dash-sidebar-nav ul li a {
+  color: #fff;
+}
+
+body div.dashboard div.dash-sidebar-nav div.dash-sidebar-footer {
+  text-align: center;
+  color: #fff;
+}
+
+body div.dashboard div.dash-sidebar-nav div.dash-sidebar-footer span {
+  display: inline-block;
+  margin-top: 50px;
+}
+
+body div.dashboard div.dash-mid-section {
+  height: 80vh;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  padding: 0 20px;
+}
+
+body div.dashboard div.dash-mid-section h3 {
+  text-align: center;
+}
+
+body div.dashboard div.widget-section {
+  border-left: 1px solid #dadada;
+  height: 80vh;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+body div.dashboard div.widget-section h3 {
+  text-align: center;
+  color: #646464;
+  margin-bottom: 15px;
+}
+
+body div.dashboard div.widget-section div.widget-search-form {
+  margin-bottom: 25px;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form {
+  height: 40px;
+  width: 75%;
+  margin: 0 auto;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form div.widget-search-cont {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-shadow: 0px 0px 21px -2px #d1d1d1;
+  box-shadow: 0px 0px 21px -2px #d1d1d1;
+  border-radius: 50px;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form div.widget-search-cont input {
+  display: block;
+  width: 85%;
+  height: 100%;
+  border: none;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  font-size: 1rem;
+  padding-left: 10px;
+  outline: none;
+}
+
+body div.dashboard div.widget-section div.widget-search-form form div.widget-search-cont button {
+  display: block;
+  width: 15%;
+  height: 100%;
+  border: none;
+  background-color: #fff;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  outline: none;
+  cursor: pointer;
+}
+
+body div.dashboard div.widget-section div.widgets ul a {
+  color: #333;
+}
+
+body div.dashboard div.widget-section div.widgets ul a li.widget-cont {
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body div.dashboard div.widget-section div.widgets ul a li.widget-cont div.widget-icon {
+  width: 30%;
+  text-align: center;
+}
+
+body div.dashboard div.widget-section div.widgets ul a li.widget-cont div.widget-icon span {
+  display: inline-block;
+  font-size: 2rem;
+}
+
+body div.dashboard div.widget-section div.widgets ul a li.widget-cont div.widget-name {
+  width: 70%;
+}
+
+body div.dashboard div.widget-section div.widgets ul a li.widget-cont div.widget-name span {
+  display: inline-block;
+  font-size: 1rem;
+}
+
+body div.dashboard div.widget-section div.widgets ul li.coming-soon {
+  width: 200px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bolder;
+}
+/*# sourceMappingURL=App.css.map */

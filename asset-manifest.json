@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/Gomojii/static/js/main.133b5b1b.chunk.js",
+    "main.js.map": "/Gomojii/static/js/main.133b5b1b.chunk.js.map",
+    "runtime-main.js": "/Gomojii/static/js/runtime-main.66517842.js",
+    "runtime-main.js.map": "/Gomojii/static/js/runtime-main.66517842.js.map",
+    "static/js/2.9888e3d8.chunk.js": "/Gomojii/static/js/2.9888e3d8.chunk.js",
+    "static/js/2.9888e3d8.chunk.js.map": "/Gomojii/static/js/2.9888e3d8.chunk.js.map",
+    "index.html": "/Gomojii/index.html",
+    "precache-manifest.8310f7ed2953ede3952e1af536055d7d.js": "/Gomojii/precache-manifest.8310f7ed2953ede3952e1af536055d7d.js",
+    "service-worker.js": "/Gomojii/service-worker.js",
+    "static/js/2.9888e3d8.chunk.js.LICENSE.txt": "/Gomojii/static/js/2.9888e3d8.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.66517842.js",
+    "static/js/2.9888e3d8.chunk.js",
+    "static/js/main.133b5b1b.chunk.js"
+  ]
+}
