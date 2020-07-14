@@ -1,6 +1,6 @@
 ![](https://user-images.githubusercontent.com/51010236/87365074-4b98b080-c543-11ea-9cc7-e8e057fa03b9.png)
 
-### Overview
+# Overview
 
 Gomojii is a playful emoji themed application that allows a user to search existing emojis, and access other widgets that are emoji themed.
 
@@ -8,11 +8,23 @@ Gomojii is a playful emoji themed application that allows a user to search exist
 
 [Demo](https://www.loom.com/share/83abb7e7634a4181b66571ada433987e) | [Blog]()
 
-## Features
+# Features
 
 1. User can search through all emojis.
 2. User can filter all emojis.
 3. User can save/bookmark emojis.
-4. User will have access to many other widgets.
+4. User will have access to many other emoji themed widgets.
 
-##
+# Technologies Implemented
+
+1. React.js
+2. Redux to handle state
+3. Rails to handle any backend data/logic
+4. Sessions and Cookies for authentication
+5. Postgres for data persistence
+
+# Installation 
+
+***Backend***
+
+1. ```git clone 
