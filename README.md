@@ -4,6 +4,6 @@
 
 Gomojii is a playful emoji themed application that allows a user to search existing emojis, and access other widgets that are emoji themed.
 
-![gomojii-search](https://user-images.githubusercontent.com/51010236/87365231-afbb7480-c543-11ea-9169-be81a53e56ca.png)
+![filter-feature-demo](https://user-images.githubusercontent.com/51010236/87423685-b3351700-c5a8-11ea-8659-419cb9812b4f.gif)
 
 [Demo](https://www.loom.com/share/83abb7e7634a4181b66571ada433987e) | [Blog]()
