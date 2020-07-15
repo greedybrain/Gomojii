@@ -5,7 +5,7 @@ export const retrieveFrom = {
      },
      backendServerEndpoints: {
           // baseUrl: "http://localhost:3001/api/v1",
-          baseUrl: "https://gomojii.herokuapp.com/",
+          baseUrl: "http://gomojii.herokuapp.com/",
           loggedIn: "logged_in",
           sessions: "sessions",
           registrations: "registrations",
