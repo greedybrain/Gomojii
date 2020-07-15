@@ -4,7 +4,7 @@ export const retrieveFrom = {
           categoriesUrl: "https://emoji-api.com/categories?"
      },
      backendServerEndpoints: {
-          // baseUrl: "http://localhost:3001/api/v1",
+          // baseUrl: "http://localhost:3001/api/v1/",
           baseUrl: "http://gomojii.herokuapp.com/",
           loggedIn: "logged_in",
           sessions: "sessions",
