@@ -41,7 +41,6 @@ Gomojii is a playful emoji themed application that allows a user to search exist
 1. ```cd``` into front end directory ```gomojii-client```
 2. Run ```open index.html``` or ```npm start``` to run the app in a browser
 
-<img width="587" alt="Screen Shot 2020-07-14 at 10 44 07 PM" src="https://user-images.githubusercontent.com/51010236/87497754-33e52900-c624-11ea-92a0-9a9efac76fa8.png">
 
 
 
