@@ -1,7 +1,7 @@
 Rails.application.config.middleware.insert_before 0, Rack::Cors do 
      # if Rails.env == "production"
      allow do 
-          origins 'http://greedybrain.github.io/Gomojii/'
+          origins 'https://greedybrain.github.io/Gomojii/'
 
           resource '*',
           headers: 'any',
