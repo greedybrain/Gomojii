@@ -5,13 +5,13 @@ export const retrieveFrom = {
      },
      backendServerEndpoints: {
           // baseUrl: "http://localhost:3001/api/v1/",
-          baseUrl: "https://gomojii.herokuapp.com/api/v1/",
-          loggedIn: "logged_in",
-          sessions: "sessions",
-          registrations: "registrations",
-          logout: "logout",
-          users_path: 'users',
-          emojis_path: 'emojis',
+          baseUrl: "https://gomojii.herokuapp.com/api/v1",
+          loggedIn: "/logged_in",
+          sessions: "/sessions",
+          registrations: "/registrations",
+          logout: "/logout",
+          users_path: '/users',
+          emojis_path: '/emojis',
      },
      security: {
           accessKey: "access_key=d03843fe82d5fde7ef6ac67d80fa41b12aae4321"
