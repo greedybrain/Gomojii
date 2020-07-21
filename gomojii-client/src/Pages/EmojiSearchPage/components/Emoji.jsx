@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useRef } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard'
 import { useDispatch } from 'react-redux';
@@ -9,8 +9,8 @@ const Emoji = ({ emoji }) => {
      const currEmoji = useRef(null)
 
      const showCopyOrSaveModal = event => {
-          let x = event.nativeEvent.offsetX
-          let y = event.nativeEvent.offsetY
+          // let x = event.nativeEvent.offsetX
+          // let y = event.nativeEvent.offsetY
           
           currEmoji.current.firstElementChild.style.display = 'grid'
           currEmoji.current.style.zIndex = "1000"
@@ -25,9 +25,9 @@ const Emoji = ({ emoji }) => {
           //      currEmoji.current.firstElementChild.style.borderBottomLeftRadius = '0'
           // }
 
-          console.log(`X - ${event.nativeEvent.offsetX}`)
-          console.log(`Y - ${event.nativeEvent.offsetY}`)
-          console.log("=============================")
+          // console.log(`X - ${event.nativeEvent.offsetX}`)
+          // console.log(`Y - ${event.nativeEvent.offsetY}`)
+          // console.log("=============================")
      }
 
      const hideCopyOrSaveModal = () => {

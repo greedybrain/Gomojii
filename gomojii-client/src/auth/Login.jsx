@@ -1,5 +1,5 @@
 import React from 'react';
-import { getExistingUser } from '../Store/Middleware/serverAuth';
+import { getExistingUser } from '../Store/Middleware/auth';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Logo from '../Static/components/Logo';

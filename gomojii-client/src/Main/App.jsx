@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom'
 import { loadEmojis, loadCategories } from '../Store/Middleware/apiEmojiSearch';
-import { validateSession } from '../Store/Middleware/serverAuth';
+import { validateSession } from '../Store/Middleware/auth';
 import Login from '../Auth/Login'
 import Registration from '../Auth/Registration'
 import NotFound from '../Pages/NotFound'

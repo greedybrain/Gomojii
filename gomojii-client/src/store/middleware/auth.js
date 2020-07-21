@@ -13,7 +13,7 @@ const { currentUser } = helper
 export const validateSession = (loggedInStatus) => {
      //todo: funtion returned in enhanced thunk action creator 
      //todo: Checking if user is logged in
-     return async dispatch => {
+     return async (dispatch, getState) => {
           const loggedInPath = baseUrl + loggedIn
           const response = await axios
                .get(
@@ -21,6 +21,7 @@ export const validateSession = (loggedInStatus) => {
                     { withCredentials: true }
                )
           const userData = response.data
+          // debugger
           if (userData.logged_in && loggedInStatus === "NOT_LOGGED_IN") {
                loggedInStatus = "LOGGED_IN"
                dispatch(proceedIfUserLoggedIn(userData, loggedInStatus))

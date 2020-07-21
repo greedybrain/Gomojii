@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { createNewUser } from '../Store/Middleware/serverAuth';
+import { createNewUser } from '../Store/Middleware/auth';
 import { Link } from 'react-router-dom';
 import Logo from '../Static/components/Logo';
 import { useState } from 'react';
