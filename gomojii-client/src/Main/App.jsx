@@ -20,11 +20,8 @@ class App extends Component {
     const {
       loadEmojis,
       loadCategories,
-      loggedInStatus,
-      validateSession
     } = this.props
 
-    validateSession(loggedInStatus)
     loadEmojis()
     loadCategories()
   }

@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   namespace :api do 
     namespace :v1 do 
-      resources :users, only: [:show, :index] do 
+      resources :users, only: [:show] do 
         resources :emojis, only: [:create, :destroy]
       end
+      resources :users, only: [:index]
       resources :emojis, only: [:index]
       resources :sessions, only: [:create]
       resources :registrations, only: [:create]
