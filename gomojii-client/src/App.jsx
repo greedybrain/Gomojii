@@ -2,16 +2,16 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Switch, Route, Redirect } from 'react-router-dom'
-import { loadEmojis, loadCategories } from '../Store/Middleware/apiEmojiSearch';
-import { validateSession } from '../Store/Middleware/auth';
-import Login from '../Auth/Login'
-import Registration from '../Auth/Registration'
-import NotFound from '../Pages/NotFound'
-import { helper } from '../Tools/helper'
-import HeaderIfLoggedIn from '../Static/components/HeaderIfLoggedIn';
-import HeaderIfLoggedOut from '../Static/components/HeaderIfLoggedOut';
-import Dashboard from '../Pages/DashboardPage/containers/Dashboard';
-import EmojiContainer from '../Pages/EmojiSearchPage/containers/EmojiContainer'
+import { loadEmojis, loadCategories } from './Store/Middleware/apiEmojiSearch';
+import { validateSession } from './Store/Middleware/auth';
+import Login from './Auth/Login'
+import Registration from './Auth/Registration'
+import NotFound from './Pages/NotFound'
+import { helper } from './Tools/helper'
+import HeaderIfLoggedIn from './Static/components/HeaderIfLoggedIn';
+import HeaderIfLoggedOut from './Static/components/HeaderIfLoggedOut';
+import Dashboard from './Pages/DashboardPage/containers/Dashboard';
+import EmojiContainer from './Pages/EmojiSearchPage/containers/EmojiContainer'
 
 class App extends Component {
   //todo: inside this lifecycle method I'm loading the emojis and categories to work with later on throughout the application

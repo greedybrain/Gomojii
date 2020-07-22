@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Main/App'
+import App from './App'
 import * as serviceWorker from './serviceWorker';
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
@@ -14,7 +14,7 @@ const store = createStore(rootReducer, composeEnhancer(applyMiddleware(thunk)))
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <Router basename='/'>
+      <Router>
         <App />
       </Router>
     </Provider>
